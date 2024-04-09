@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <DMP_DiplomaticMarriagePlusProposalTitle>关于{0}的联姻提议</DMP_DiplomaticMarriagePlusProposalTitle>
+    <DMP_DiplomaticMarriagePlusProposal>
+		我们的盟友，{0}提议和我们联姻。我方殖民地领袖{1}的孩子和他们的一位重要成员{2}之间建立外交婚姻。{2}和随从正在外面等待答复。
+		\n如果我们接受，具体效果如下：
+		\n1. {1}离开我方殖民地并加入{0}。
+		\n2. {2}接受我们的文化，并会在{0}中随机传播。
+		\n3. {0}的好感度会立即达到100，低于100则每天增加{3}，增幅由{1}的社交技能决定。
+		\n4. 自然好感衰减以及正常的好感度消耗不变，但永久联盟生效期间很快能恢复满。
+		\n5. 如果婚姻任何一方死亡，永久联盟终结。
+		\n6. 虽然和{0}的好感恢复很快，但如果我们做的太过分，永久联盟将破裂！
+		\n7. {1}与{2}婚后依然会经常访问我们殖民地。我们需要保护他们以维持永久同盟。
+		\n8. 我们的领袖必须一直是{1}的父亲或母亲，换成其它人将导致永久同盟立刻失效。
+	</DMP_DiplomaticMarriagePlusProposal>
+    <DMP_DiplomaticMarriagePlusProposalAccept>整个{0}都为我们的联姻而沸腾。从现在起，我们便是永久联盟了。\n{2}已随同护卫军进入我们殖民地，准备和{1}就地举行婚礼后回家。在此期间我们务必要保证二人的安全。</DMP_DiplomaticMarriagePlusProposalAccept>
+    <DMP_DiplomaticMarriagePlusProposalReject>{0}对我们的拒绝感到失望。友好度下降了</DMP_DiplomaticMarriagePlusProposalReject>
+
+	<PermanentAllianceEventFactionConversionTitle>永久同盟文化改变</PermanentAllianceEventFactionConversionTitle>
+	<PermanentAllianceEventFactionConversion>我们领袖的孩子{1}及伴侣{2}从我们联姻的盟友{0}传来的消息称，在他们二人长期努力传播信仰下，如今我们的文化已经传遍整个{0}，成为了他们的主流文化。</PermanentAllianceEventFactionConversion>
+
+	<PermanentAllianceEventAllianceEndedTitle>永久同盟已失效</PermanentAllianceEventAllianceEndedTitle>
+	<PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_BOTH_DEATH>由于联姻双方{1}和{2}均已死亡，我们和{0}的永久同盟已失效。</PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_BOTH_DEATH>
+	<PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_BETROTHED_DEATH>由于联姻的我方领袖孩子{1}已死亡，我们和{0}的永久同盟已失效。</PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_BETROTHED_DEATH>
+	<PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_NPC_MARRIAGE_SEEKER_DEATH>由于联姻的对方重要成员{2}已死亡，我们和{0}的永久同盟已失效。{1}很快就会返回我方殖民地。</PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_NPC_MARRIAGE_SEEKER_DEATH>
+	<PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_DIVORCE>由于联姻对方{1}和{2}已离婚，我们和{0}的永久同盟已失效。{1}很快就会返回我方殖民地。</PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_DIVORCE>
+	<PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_GOODWILL_TOO_LOW>由于我们和{0}的好感度过低，永久同盟已失效。同时关系的恶化也导致联姻对方{1}和{2}的婚姻破裂，{1}很快就会返回我方殖民地。</PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_GOODWILL_TOO_LOW>
+	<PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>由于{0}整个派系已被摧毁，永久同盟失效。更不幸的是，{1}和{2}都已死于战火。</PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>
+	<PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>由于我方领袖换成了{3}，却不是{1}的父母，{0}因此不再视我们为可靠的永久同盟。但{0}依然收留了{1}和{2}继续在他们中生活。</PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>
+	
+	<PermanentAllianceEventRandomVisitCaravanArriveTitle>来自姻亲盟友商队的求助</PermanentAllianceEventRandomVisitCaravanArriveTitle>
+	<PermanentAllianceEventRandomVisitCaravanArrive>
+		{0}，我是你的孩子{1}。我和{2}现在在{3}的商队中，但{4}试图截杀我们。他们数量太多，我们不得不撤到你的殖民地避难。
+		\n他们很快就要来了，请救救我们！
+	</PermanentAllianceEventRandomVisitCaravanArrive>
+	<PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle>敌人抵达</PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle>
+	<PermanentAllianceEventRandomVisitCaravanEnemyIncoming>
+		{0}，他们来了！所有人，准备战斗！
+		\n（注意：我们和{3}的永久同盟依赖{1}和{2}的婚姻，必须尽力保护他们。如果任何一人死于战斗，永久同盟将终结！）
+	</PermanentAllianceEventRandomVisitCaravanEnemyIncoming>
+	<PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle>敌人已被击败</PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle>
+	<PermanentAllianceEventRandomVisitCaravanEnemyDefeated>
+		感谢{0}的帮助。我们需要在{0}的基地休整一下，然后继续我们的旅途。这点礼物就给{0}作为感谢吧。
+		\n愿{1}和{2}的友谊常存！
+	</PermanentAllianceEventRandomVisitCaravanEnemyDefeated>
+	
+	<PermanentAllianceEventRandomVocabulary_Father>爸爸</PermanentAllianceEventRandomVocabulary_Father>
+	<PermanentAllianceEventRandomVocabulary_Mother>妈妈</PermanentAllianceEventRandomVocabulary_Mother>
+	
+</LanguageData>

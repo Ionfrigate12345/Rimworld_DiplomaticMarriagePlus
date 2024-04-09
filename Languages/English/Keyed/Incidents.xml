@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <!-- Diplomatic Marriage Proposal -->
+    <DMP_DiplomaticMarriagePlusProposalTitle>Diplomatic marriage proposal for {0}</DMP_DiplomaticMarriagePlusProposalTitle>
+    <DMP_DiplomaticMarriagePlusProposal>
+		Our ally, {0} has proposed a diplomatic marriage between the child of our colony leader, {1} and one of their important member {2}. 
+		\nEffects if we accept:
+		\n\n1. {1} will leave our colony and join {0}. 
+		\n2. {2} will accept our ideology, and will randomly spread it in {0}. 
+		\n3. The goodwill of {0} will be instantly maxed to 100, and will increase {3} every day if below 100. The increasing speed is determined by the social skill of {1}. 
+		\n4. Natural goodwill decay and goodwill cost for reinforcement and caravan still apply, but will be quickly negated while permanent alliance is active. 
+		\n5. If anyone of the couple dies, the permanent alliance will end. But {0} may stay as a regular ally if goodwill is high enough. 
+		\n6. {0} will tolerate some degree of our negative actions. But if we go too far (goodwill drops below 0) the permanent alliance will be immediately broken and {1} will be in trouble! 
+		\n7. {1} will still randomly visit our colony with {2}. But we need to protecting them at all cost to ensure our permanent alliance. 
+	</DMP_DiplomaticMarriagePlusProposal>
+	<DMP_DiplomaticMarriagePlusProposalAccept>The whole {0} is rejoiced for this diplomatic marriage. We are now permanent ally.</DMP_DiplomaticMarriagePlusProposalAccept>
+    <DMP_DiplomaticMarriagePlusProposalReject>{0} is upset for our rejection (Goodwill -5)</DMP_DiplomaticMarriagePlusProposalReject>
+
+</LanguageData>

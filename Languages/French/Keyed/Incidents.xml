@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <!-- Diplomatic Marriage Proposal -->
+    <DMP_DiplomaticMarriagePlusProposalTitle>Proposition du mariage diplomatique pour {0}</DMP_DiplomaticMarriagePlusProposalTitle>
+    <DMP_DiplomaticMarriagePlusProposal>
+		Notre allié, {0} a proposé un mariage diplomatique entre l'enfant du chef de notre colonie, {1} et l'un de leurs membres importants {2}.
+		\nVoici les effets si nous acceptons :
+		\n\n1. {1} quittera notre colonie et rejoindra {0}.
+		\n2. {2} acceptera notre idéologie et la diffusera au hasard parmi {0}.
+		\n3. La relation de {0} sera instantanément maximisée à 100 et continuera à augmenter de {3} par jour si elle est inférieure à 100. La vitesse est déterminée par la compétence sociale de {1}.
+		\n4. La dégradation naturelle de la  relation et le coût pour les renforts militaires et les caravanes s'appliquent toujours, mais seront rapidement annulés tant que l'alliance permanente soit active.
+		\n5. Si l’un des membres du couple décède, l’alliance permanente prendra fin. Mais {0} peut rester un allié régulier si la relation permet.
+		\n6. {0} tolérera un certain degré de nos actions négatives. Mais si nous allons trop loin (càd la relation tombe en dessous de 0), l'alliance permanente sera immédiatement rompue et {1} aura des problèmes !
+		\n7. {1} visitera toujours notre colonie au hasard avec {2}. Mais nous devons les protéger à tout prix pour assurer la continuité de notre alliance permanente.
+	</DMP_DiplomaticMarriagePlusProposal>
+    <DMP_DiplomaticMarriagePlusProposalAccept>L'ensemble du {0} se réjouit de ce mariage diplomatique. Nous sommes désormais des alliés permanents.</DMP_DiplomaticMarriagePlusProposalAccept>
+    <DMP_DiplomaticMarriagePlusProposalReject>{0} est contrarié par notre rejet (La relation -5)</DMP_DiplomaticMarriagePlusProposalReject>
+
+</LanguageData>
