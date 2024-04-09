@@ -17,9 +17,6 @@ namespace DiplomaticMarriagePlus.Controller
         private Pawn npcMarriageSeeker;
         private const int TimeoutTicks = GenDate.TicksPerDay * 3;
 
-        //public override float BaseChanceThisGame => base.BaseChanceThisGame - StorytellerUtilityPopulation.PopulationIntent;
-        //public override float BaseChanceThisGame => 100.0f;
-
         protected override bool CanFireNowSub(IncidentParms parms)
         {
             return base.CanFireNowSub(parms: parms)

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DiplomaticMarriagePlus.Model;
+using DiplomaticMarriagePlus.View;
 using RimWorld;
 using Verse;
 using Verse.Noise;
@@ -15,7 +17,7 @@ namespace DiplomaticMarriagePlus.Global
             var skillSocial = playerBetrothed.skills.GetSkill(SkillDefOf.Social);
             int skillSocialLevel = skillSocial.GetLevel();
             //TODO: Maybe consider passion as well?
-            return 5 + skillSocialLevel;
+            return (int)(5 + skillSocialLevel * DMPModWindow.Instance.settings.goodwillDailyIncreaseSocialSkillFactor);
         }
 
         //找出玩家派系领袖。如果玩家派系没有领袖（通常都是这种情况），则返回玩家文化领袖。如果都找不到则返回NULL。

@@ -2,7 +2,6 @@
 <Defs>
 	<IncidentDef>
 		<defName>DMP_Proposal</defName>
-		<label>Diplomatic marriage proposal</label>
 		<category>Misc</category>
 		<targetTags>
 			<li>World</li>
@@ -16,7 +15,6 @@
 	</IncidentDef>
 	<IncidentDef>
 		<defName>DMP_RandomVisit</defName>
-		<label>VIP under attack</label>
 		<category>Misc</category>
 		<targetTags>
 			<li>World</li>

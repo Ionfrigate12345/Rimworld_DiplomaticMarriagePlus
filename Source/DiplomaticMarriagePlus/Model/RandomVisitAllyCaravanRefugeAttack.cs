@@ -59,12 +59,12 @@ namespace DiplomaticMarriagePlus.Model
                 OnGoingAttackFlag = true;
 
                 var textVocabularyPapaOrMama =
-                    ("PermanentAllianceEventRandomVocabulary_"
+                    ("DMP_PermanentAllianceEventRandomVocabulary_"
                     + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
                     ).Translate();
                 var letter = LetterMaker.MakeLetter(
-                    label: "PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle".Translate().CapitalizeFirst(),
-                    text: "PermanentAllianceEventRandomVisitCaravanEnemyIncoming".Translate(
+                    label: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle".Translate().CapitalizeFirst(),
+                    text: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncoming".Translate(
                         textVocabularyPapaOrMama,
                         permanentAlliance.PlayerBetrothed.Label,
                         permanentAlliance.NpcMarriageSeeker.Label,
@@ -98,12 +98,12 @@ namespace DiplomaticMarriagePlus.Model
 
                     //夫妇的商队离开，感谢信，留下礼物
                     var textVocabularyPapaOrMama =
-                    ("PermanentAllianceEventRandomVocabulary_"
+                    ("DMP_PermanentAllianceEventRandomVocabulary_"
                     + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
                     ).Translate();
                     var letter = LetterMaker.MakeLetter(
-                        label: "PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle".Translate().CapitalizeFirst(),
-                        text: "PermanentAllianceEventRandomVisitCaravanEnemyDefeated".Translate(
+                        label: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle".Translate().CapitalizeFirst(),
+                        text: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated".Translate(
                             textVocabularyPapaOrMama, 
                             Faction.OfPlayer.Name, 
                             permanentAlliance.WithFaction.Name

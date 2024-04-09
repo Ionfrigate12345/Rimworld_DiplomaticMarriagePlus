@@ -82,12 +82,12 @@ namespace DiplomaticMarriagePlus.Controller
 
             //弹出信件
             var textVocabularyPapaOrMama = 
-                ("PermanentAllianceEventRandomVocabulary_" 
+                ("DMP_PermanentAllianceEventRandomVocabulary_"
                 + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
                 ).Translate();
             var letter = LetterMaker.MakeLetter(
-                label: "PermanentAllianceEventRandomVisitCaravanArriveTitle".Translate().CapitalizeFirst(),
-                text: "PermanentAllianceEventRandomVisitCaravanArrive".Translate(
+                label: "DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle".Translate().CapitalizeFirst(),
+                text: "DMP_PermanentAllianceEventRandomVisitCaravanArrive".Translate(
                     textVocabularyPapaOrMama, 
                     playerBetrothed.Label, 
                     npcMarriageSeeker.Label,

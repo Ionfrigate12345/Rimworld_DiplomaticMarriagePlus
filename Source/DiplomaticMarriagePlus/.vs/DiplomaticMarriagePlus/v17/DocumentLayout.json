@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|c:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\controller\\randomvisiteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:controller\\randomvisiteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|c:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\view\\dmpmodwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:view\\dmpmodwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\randomvisitallycaravanrefugeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\randomvisitallycaravanrefugeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|c:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\model\\dmpmodsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\dmpmodsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\lordjob\\lordjobdefendmarriageleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\lordjob\\lordjobdefendmarriageleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\viewcontroller\\choiceletter_dmpproposalviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:viewcontroller\\choiceletter_dmpproposalviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\permanentalliance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\permanentalliance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\global\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:global\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\permanentalliance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\permanentalliance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\randomvisitallycaravanrefugeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\randomvisitallycaravanrefugeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|c:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\controller\\randomvisiteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:controller\\randomvisiteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|c:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\controller\\proposaleventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:controller\\proposaleventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\lordjob\\lordjobdefendmarriageleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\lordjob\\lordjobdefendmarriageleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,20 +50,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "RandomVisitEventController.cs",
               "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\RandomVisitEventController.cs",
               "RelativeDocumentMoniker": "Controller\\RandomVisitEventController.cs",
               "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\RandomVisitEventController.cs",
               "RelativeToolTip": "Controller\\RandomVisitEventController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAIA9wCYAAAA8AAAA",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAowFQAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-08T22:36:09.693Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DMPModWindow.cs",
+              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\View\\DMPModWindow.cs",
+              "RelativeDocumentMoniker": "View\\DMPModWindow.cs",
+              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\View\\DMPModWindow.cs",
+              "RelativeToolTip": "View\\DMPModWindow.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAADwvx0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T23:16:22.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DMPModSettings.cs",
+              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\DMPModSettings.cs",
+              "RelativeDocumentMoniker": "Model\\DMPModSettings.cs",
+              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\DMPModSettings.cs",
+              "RelativeToolTip": "Model\\DMPModSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAIwA4AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T22:40:40.476Z",
               "EditorCaption": ""
             },
             {
@@ -64,55 +98,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "RandomVisitAllyCaravanRefugeAttack.cs",
               "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\RandomVisitAllyCaravanRefugeAttack.cs",
               "RelativeDocumentMoniker": "Model\\RandomVisitAllyCaravanRefugeAttack.cs",
               "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\RandomVisitAllyCaravanRefugeAttack.cs",
               "RelativeToolTip": "Model\\RandomVisitAllyCaravanRefugeAttack.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAIwBsAAAAAAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAowG4AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T03:25:47.079Z"
+              "WhenOpened": "2024-04-09T03:25:47.079Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LordJobDefendMarriageLeave.cs",
-              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobDefendMarriageLeave.cs",
-              "RelativeDocumentMoniker": "Model\\LordJob\\LordJobDefendMarriageLeave.cs",
-              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobDefendMarriageLeave.cs",
-              "RelativeToolTip": "Model\\LordJob\\LordJobDefendMarriageLeave.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAzwBcAAAAbAAAA",
+              "Title": "PermanentAlliance.cs",
+              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\PermanentAlliance.cs",
+              "RelativeDocumentMoniker": "Model\\PermanentAlliance.cs",
+              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\PermanentAlliance.cs",
+              "RelativeToolTip": "Model\\PermanentAlliance.cs",
+              "ViewState": "AQIAAI8AAAAAAAAAAAAowKIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T19:22:28.426Z"
+              "WhenOpened": "2024-04-06T22:48:38.613Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Global\\Utils.cs",
+              "RelativeDocumentMoniker": "Global\\Utils.cs",
+              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Global\\Utils.cs",
+              "RelativeToolTip": "Global\\Utils.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwBQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T03:22:27.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProposalEventController.cs",
+              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\ProposalEventController.cs",
+              "RelativeDocumentMoniker": "Controller\\ProposalEventController.cs",
+              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\ProposalEventController.cs",
+              "RelativeToolTip": "Controller\\ProposalEventController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAmwDIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T22:38:09.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "LordJobCaravanRandomVisit.cs",
               "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobCaravanRandomVisit.cs",
               "RelativeDocumentMoniker": "Model\\LordJob\\LordJobCaravanRandomVisit.cs",
               "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobCaravanRandomVisit.cs",
               "RelativeToolTip": "Model\\LordJob\\LordJobCaravanRandomVisit.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAIwDcAAAAeAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAywDcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T17:03:25.355Z"
+              "WhenOpened": "2024-04-09T17:03:25.355Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChoiceLetter_DMPProposalViewController.cs",
-              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\ViewController\\ChoiceLetter_DMPProposalViewController.cs",
-              "RelativeDocumentMoniker": "ViewController\\ChoiceLetter_DMPProposalViewController.cs",
-              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\ViewController\\ChoiceLetter_DMPProposalViewController.cs",
-              "RelativeToolTip": "ViewController\\ChoiceLetter_DMPProposalViewController.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAawEoAAABdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T02:23:30.226Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Main.cs",
               "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
@@ -124,27 +175,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Utils.cs",
-              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Global\\Utils.cs",
-              "RelativeDocumentMoniker": "Global\\Utils.cs",
-              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Global\\Utils.cs",
-              "RelativeToolTip": "Global\\Utils.cs",
-              "ViewState": "AQIAAGEAAAAAAAAAAAArwIQAAAAwAAAA",
+              "DocumentIndex": 8,
+              "Title": "LordJobDefendMarriageLeave.cs",
+              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobDefendMarriageLeave.cs",
+              "RelativeDocumentMoniker": "Model\\LordJob\\LordJobDefendMarriageLeave.cs",
+              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobDefendMarriageLeave.cs",
+              "RelativeToolTip": "Model\\LordJob\\LordJobDefendMarriageLeave.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAzwBcAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T03:22:27.586Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PermanentAlliance.cs",
-              "DocumentMoniker": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\PermanentAlliance.cs",
-              "RelativeDocumentMoniker": "Model\\PermanentAlliance.cs",
-              "ToolTip": "C:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\PermanentAlliance.cs",
-              "RelativeToolTip": "Model\\PermanentAlliance.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAnwHgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T22:48:38.613Z"
+              "WhenOpened": "2024-04-09T19:22:28.426Z"
             }
           ]
         }

@@ -93,7 +93,7 @@ namespace DiplomaticMarriagePlus.Model
 
             //更新玩家派系领袖
             PlayerFactionLeader = Utils.GetPlayerFactionLeader();
-            if (PlayerBetrothed.GetFather() != PlayerFactionLeader && PlayerBetrothed.GetMother() != PlayerFactionLeader)
+            if (PlayerFactionLeader == null || (PlayerBetrothed.GetFather() != PlayerFactionLeader && PlayerBetrothed.GetMother() != PlayerFactionLeader))
             {
                 return Validity.INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED;
             }
@@ -196,9 +196,9 @@ namespace DiplomaticMarriagePlus.Model
                 Log.Message("DMP: Permanent Alliance with " + WithFaction.Name + " is no longer valid. Reason code: " + validity.ToString());
 
                 //弹出信件信息，通知永久同盟终结。
-                String text = "PermanentAllianceEventAllianceEnded_Reason_" + validity.ToString();
+                String text = "DMP_PermanentAllianceEventAllianceEnded_Reason_" + validity.ToString();
                 var letter = LetterMaker.MakeLetter(
-                        label: "PermanentAllianceEventAllianceEndedTitle".Translate().CapitalizeFirst(),
+                        label: "DMP_PermanentAllianceEventAllianceEndedTitle".Translate().CapitalizeFirst(),
                         text: text.Translate(WithFaction.Name, PlayerBetrothed.Label, NpcMarriageSeeker.Label, PlayerFactionLeader.Label).CapitalizeFirst(),
                         def: LetterDefOf.NegativeEvent,
                         relatedFaction: WithFaction
@@ -271,8 +271,8 @@ namespace DiplomaticMarriagePlus.Model
                     }
 
                     var letter = LetterMaker.MakeLetter(
-                        label: "PermanentAllianceEventFactionConversionTitle".Translate().CapitalizeFirst(), 
-                        text: "PermanentAllianceEventFactionConversion".Translate(WithFaction.Name, PlayerBetrothed.Label, NpcMarriageSeeker.Label).CapitalizeFirst(),
+                        label: "DMP_PermanentAllianceEventFactionConversionTitle".Translate().CapitalizeFirst(), 
+                        text: "DMP_PermanentAllianceEventFactionConversion".Translate(WithFaction.Name, PlayerBetrothed.Label, NpcMarriageSeeker.Label).CapitalizeFirst(),
                         def: LetterDefOf.PositiveEvent,
                         relatedFaction: WithFaction
                         );
