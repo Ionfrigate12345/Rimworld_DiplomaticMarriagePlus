@@ -1,20 +1,56 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-    <!-- Diplomatic Marriage Proposal -->
-    <DMP_DiplomaticMarriagePlusProposalTitle>Diplomatic marriage proposal for {0}</DMP_DiplomaticMarriagePlusProposalTitle>
+    <DMP_DiplomaticMarriagePlusProposalTitle>Diplomatic Marriage Proposal from {0}</DMP_DiplomaticMarriagePlusProposalTitle>
     <DMP_DiplomaticMarriagePlusProposal>
-		Our ally, {0} has proposed a diplomatic marriage between the child of our colony leader, {1} and one of their important member {2}. 
-		\nEffects if we accept:
-		\n\n1. {1} will leave our colony and join {0}. 
-		\n2. {2} will accept our ideology, and will randomly spread it in {0}. 
-		\n3. The goodwill of {0} will be instantly maxed to 100, and will increase {3} every day if below 100. The increasing speed is determined by the social skill of {1}. 
-		\n4. Natural goodwill decay and goodwill cost for reinforcement and caravan still apply, but will be quickly negated while permanent alliance is active. 
-		\n5. If anyone of the couple dies, the permanent alliance will end. But {0} may stay as a regular ally if goodwill is high enough. 
-		\n6. {0} will tolerate some degree of our negative actions. But if we go too far (goodwill drops below 0) the permanent alliance will be immediately broken and {1} will be in trouble! 
-		\n7. {1} will still randomly visit our colony with {2}. But we need to protecting them at all cost to ensure our permanent alliance. 
+		Our ally, {0}, proposes a diplomatic marriage with us. The child of our leader, {1}, is to marry one of their important members, {2}.
+		\n{2} is waiting outside for our response with some guards. 
+		\nIf we accept, the following effects will take place:
+		\n1. {1} leaves our colony and joins {0}.
+		\n2. {2} accepts our ideology, and will randomly spread it within {0}.
+		\n3. Goodwill with {0} immediately maxes out at 100 and decreases daily if below 100, with an increase of {3} per day, influenced by {1}'s social skill.
+		\n4. Natural goodwill decay and regular goodwill consumption remain unchanged, but they can quickly recover while the permanent alliance is active.
+		\n5. If either party in the marriage dies, the permanent alliance ends.
+		\n6. Though goodwill with {0} recovers quickly, if we go too far, the permanent alliance will end!
+		\n7. Even after marriage, {1} and {2} will still regularly visit our colony. We need to protect them in order to maintain the permanent alliance.
+		\n8. Our leader must always be one of the parents of {1}, passing leadership to someone else will immediately void the permanent alliance.
 	</DMP_DiplomaticMarriagePlusProposal>
-	<DMP_DiplomaticMarriagePlusProposalAccept>The whole {0} is rejoiced for this diplomatic marriage. We are now permanent ally.</DMP_DiplomaticMarriagePlusProposalAccept>
-    <DMP_DiplomaticMarriagePlusProposalReject>{0} is upset for our rejection (Goodwill -5)</DMP_DiplomaticMarriagePlusProposalReject>
+    <DMP_DiplomaticMarriagePlusProposalAccept>The entire {0} celebrates our union. From now on, we are in a permanent alliance.\n{2} has entered our colony with guards. If {1} is present, they will hold the wedding on the spot before leaving. We must ensure their safety until they leave.</DMP_DiplomaticMarriagePlusProposalAccept>
+    <DMP_DiplomaticMarriagePlusProposalReject>{0} is disappointed by our rejection. Goodwill has decreased.</DMP_DiplomaticMarriagePlusProposalReject>
 
+	<DMP_PermanentAllianceEventFactionConversionTitle>Permanent Alliance Ideology Change</DMP_PermanentAllianceEventFactionConversionTitle>
+	<DMP_PermanentAllianceEventFactionConversion>News comes from our allied {0}, from the child of our leader {1} and their spouse {2}, that thanks to their long efforts, our truth is now spreaded throughout {0}, becoming their primary ideology.</DMP_PermanentAllianceEventFactionConversion>
+
+	<DMP_PermanentAllianceEventAllianceEndedTitle>Permanent Alliance Ended</DMP_PermanentAllianceEventAllianceEndedTitle>
+	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_BOTH_DEATH>Due to the deaths of both parties of {1} and {2}, our permanent alliance with {0} has ended.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_BOTH_DEATH>
+	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_BETROTHED_DEATH>Due to the death of our leader's child, {1}, our permanent alliance with {0} has ended.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_BETROTHED_DEATH>
+	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_NPC_MARRIAGE_SEEKER_DEATH>Due to the death of the other party's important member, {2}, our permanent alliance with {0} has ended. {1} will return to our colony soon.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_NPC_MARRIAGE_SEEKER_DEATH>
+	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_DIVORCE>Due to the divorce of {1} and {2}, our permanent alliance with {0} has ended. {1} will return to our colony soon.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_DIVORCE>
+	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_GOODWILL_TOO_LOW>Due to our low goodwill with {0}, our permanent alliance has ended. The deterioration of relations also led to the end of the marriage between {1} and {2}. {1} will return to our colony soon.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_GOODWILL_TOO_LOW>
+	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>Due to the destruction of {0}, the permanent alliance has ended. Unfortunately, both {1} and {2} have died in the war.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>
+	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>As our leader has been replaced by {3}, who is not the parent of {1}, {0} no longer sees us as a reliable permanent alliance. However, {0} still keep {1} and {2} to continue living among them.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>
+	
+	<DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>Help Request from Kin Ally Caravan</DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>
+	<DMP_PermanentAllianceEventRandomVisitCaravanArrive>
+		{0}, this is {1}. {2} and I are in a caravan from {3}, but {4} is attempting to ambush us. They outnumber us, so we had to retreat to your colony for refuge.
+		\nThey are coming, please help us!
+	</DMP_PermanentAllianceEventRandomVisitCaravanArrive>
+	<DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle>Enemy Incoming</DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle>
+	<DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncoming>
+		{0}, here they are! Everyone, prepare for battle!
+		\n(Note: Our permanent alliance with {3} relies on the marriage of {1} and {2}, so we must protect them at all costs. If either dies in battle, the permanent alliance will end!)
+	</DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncoming>
+	<DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle>Enemy Defeated</DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle>
+	<DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated>
+		Thank you, {0}, for your assistance. We need to rest at your base for a while before continuing our journey. Here's a little gift for you as thanks.
+		\nMay the friendship of {1} and {2} last forever!
+	</DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated>
+	
+	<DMP_PermanentAllianceEventRandomVocabulary_Father>Dad</DMP_PermanentAllianceEventRandomVocabulary_Father>
+	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Mom</DMP_PermanentAllianceEventRandomVocabulary_Mother>
+	
+	<!--Settings-->
+	<DMP_Setting_ModName>Diplomatic Marriage and Permanent Alliance</DMP_Setting_ModName>
+	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>The social skill factor multiplier during daily goodwill increase.</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
+	<DMP_Setting_ThreatMultiplier>Determines AI army strength in various Mod events, affects both ally and enemies. 1 = 100%</DMP_Setting_ThreatMultiplier>
+	
 </LanguageData>

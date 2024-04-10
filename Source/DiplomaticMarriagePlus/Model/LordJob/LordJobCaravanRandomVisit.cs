@@ -43,12 +43,8 @@ namespace DiplomaticMarriagePlus.Model.LordJob
             Thing gold = new Thing();
             gold.def = ThingDefOf.Gold;
             gold.stackCount = Rand.Range(200, 300);
-            Thing hyperweave = new Thing();
-            hyperweave.def = ThingDefOf.Hyperweave;
-            hyperweave.stackCount = Rand.Range(100, 200);
             transitionActionGiveGift.gifts.Add(silver);
             transitionActionGiveGift.gifts.Add(gold);
-            transitionActionGiveGift.gifts.Add(hyperweave);
             transition.AddPostAction(transitionActionGiveGift);
 
             transition.AddPostAction(new TransitionAction_EndAllJobs());

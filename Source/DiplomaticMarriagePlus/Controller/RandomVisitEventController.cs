@@ -101,7 +101,7 @@ namespace DiplomaticMarriagePlus.Controller
 
             //和玩家以及该NPC派系同时敌对的第三方随机派系军队在X小时后出现在小地图上，触发战斗。
             var randomVisitCaravanAttack = Find.World.GetComponent<RandomVisitAllyCaravanRefugeAttack>();
-            randomVisitCaravanAttack.TickTriggerNext = GenTicks.TicksAbs + (GenDate.TicksPerHour * Rand.Range(2, 6));
+            randomVisitCaravanAttack.TickTriggerNext = GenTicks.TicksAbs + (GenDate.TicksPerHour * Rand.Range(3, 6));
             randomVisitCaravanAttack.HostileFactionTriggerNext = randomHostileFaction;
             randomVisitCaravanAttack.MapTriggerNext = map;
             randomVisitCaravanAttack.LordCaravan = lordCaravan;

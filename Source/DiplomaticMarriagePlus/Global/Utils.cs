@@ -121,17 +121,21 @@ namespace DiplomaticMarriagePlus.Global
             }
         }
 
-        //根据玩家目前的总财富值，用叙事者的算法给出一个随机但相对合理的威胁点数。
+        //根据玩家目前的总财富值，以叙事者的算法为基准给出一个随机但相对合理的威胁点数。
         public static int GetRandomThreatPointsByPlayerWealth(
             Map map,
-            //该数值决定了威胁点数为wiki基准估算的多少倍，数值越大也越多。1代表wiki基准值的1%，200代表200%
+            //该数值决定了威胁点数为wiki基准估算的多少倍，数值越大也越多。100=100%。
             int factorPercentage 
             )
         {
             float threatAvg = StorytellerUtility.DefaultThreatPointsNow(map);
 
             //实际威胁值在基础值附近随机浮动，最多不能超过10000
-            float threat = Rand.RangeInclusive(75, 150) * threatAvg * (factorPercentage / 100.0f);
+            float threat = threatAvg 
+                * (Rand.RangeInclusive(50, 150) / 100.0f) //叙事者基准值的50%-150%
+                * (factorPercentage / 100.0f) //该数值为mod代码自用，让有些事件生成的NPC队伍强度比另一些更高。
+                * DMPModWindow.Instance.settings.threatMultiplier //玩家mod设置，范围为0.5 - 5.0。
+                ;
             return Math.Min((int)threat, 10000);
         }
     }

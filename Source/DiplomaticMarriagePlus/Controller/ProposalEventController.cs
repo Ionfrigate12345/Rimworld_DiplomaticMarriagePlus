@@ -45,7 +45,6 @@ namespace DiplomaticMarriagePlus.Controller
             choiceLetterDMP.PlayerFactionLeader = playerFactionLeader;
             choiceLetterDMP.StartTimeout(duration: TimeoutTicks);
             Find.LetterStack.ReceiveLetter(@let: choiceLetterDMP);
-            //Find.World.GetComponent<WorldComponent_OutpostGrower>().Registerletter(choiceLetterDiplomaticMarriage);
 
             return true;
         }

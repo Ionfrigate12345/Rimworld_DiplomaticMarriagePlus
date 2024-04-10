@@ -195,7 +195,7 @@ namespace DiplomaticMarriagePlus.Model
 
                 Log.Message("DMP: Permanent Alliance with " + WithFaction.Name + " is no longer valid. Reason code: " + validity.ToString());
 
-                //弹出信件信息，通知永久同盟终结。
+                //弹出信件通知永久同盟终结。
                 String text = "DMP_PermanentAllianceEventAllianceEnded_Reason_" + validity.ToString();
                 var letter = LetterMaker.MakeLetter(
                         label: "DMP_PermanentAllianceEventAllianceEndedTitle".Translate().CapitalizeFirst(),

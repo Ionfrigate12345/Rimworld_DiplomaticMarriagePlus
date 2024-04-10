@@ -11,6 +11,7 @@ namespace DiplomaticMarriagePlus.ViewController
     using DiplomaticMarriagePlus.Model.LordJob;
     using Verse.AI.Group;
     using Verse.Noise;
+    using RimWorld.Planet;
 
     public class ChoiceLetter_DMPProposalViewController : ChoiceLetter
     {
@@ -48,33 +49,41 @@ namespace DiplomaticMarriagePlus.ViewController
                             //好感度增加至100
                             NpcMarriageSeeker.Faction.TryAffectGoodwillWith(other: Faction.OfPlayer, goodwillChange: 100 - NpcMarriageSeeker.Faction.GoodwillWith(Faction.OfPlayer), canSendMessage: true, canSendHostilityLetter: true);
 
-                            //如果本方小人在远行队，则从远行队中删除（注：已无必要，因为事件触发时要求被求婚者和玩家派系领袖都在同一小地图上）
-                            /*if (PlayerBetrothed.GetCaravan() is Caravan caravan)
-                            {
-                                CaravanInventoryUtility.MoveAllInventoryToSomeoneElse(from: PlayerBetrothed, candidates: caravan.PawnsListForReading);
-                                HealIfPossible(p: PlayerBetrothed);
-                                caravan.RemovePawn(p: PlayerBetrothed);
-                            }*/
-
-                            //把NPC小人生成到地图（玩家派系领袖此刻所处的小地图）,再随机生成些事件小人当求婚者的随从。
+                            //从事件触发到点同意的时间差中相关小人依然可能离开地图，这里再次检查。
+                            //如果被求婚小人不在地图上，则跳过生成小人和婚礼部分。
                             List<Pawn> vipPawns = new List<Pawn>();
                             vipPawns.Add(NpcMarriageSeeker);
                             List<Pawn> incidentPawns;
                             IntVec3 spawnLoc;
-                            Utils.SpawnVIPAndIncidentPawns(PlayerFactionLeader.Map, NpcMarriageSeeker.Faction, vipPawns, 5000, PawnGroupKindDefOf.Combat, out incidentPawns, out spawnLoc);
+                            Map map = PlayerBetrothed.Map;
+                            if (PlayerBetrothed.Map == null)
+                            {
+                                map = TradeUtility.PlayerHomeMapWithMostLaunchableSilver();
+                            }
+                            //把NPC小人生成到地图（玩家派系领袖此刻所处的小地图）,再随机生成些事件小人当求婚者的随从。
+                            Utils.SpawnVIPAndIncidentPawns(map, NpcMarriageSeeker.Faction, vipPawns, Utils.GetRandomThreatPointsByPlayerWealth(map, 120), PawnGroupKindDefOf.Combat, out incidentPawns, out spawnLoc);
 
                             //本方小人加入NPC派系，并和对方立刻订婚
                             PlayerBetrothed.SetFaction(newFaction: NpcMarriageSeeker.Faction);
                             PlayerBetrothed.relations.AddDirectRelation(PawnRelationDefOf.Fiance, NpcMarriageSeeker);
 
-                            //求婚者带着NPC的军队等候被求婚者，汇合后举行婚礼，随后离开地图。
-                            vipPawns.Add(PlayerBetrothed);
+                            if (PlayerBetrothed.Map != null)
+                            {
+                                //求婚者带着NPC的军队等候被求婚者，汇合后举行婚礼，随后离开地图。
+                                vipPawns.Add(PlayerBetrothed);
 
-                            //汇合点：任意附近的围城点
-                            var stageLoc = RCellFinder.FindSiegePositionFrom(spawnLoc, PlayerBetrothed.Map);
-                            var lordJobEscortPlayerBetrothed = new LordJobDefendMarriageLeave(stageLoc, PlayerBetrothed, NpcMarriageSeeker, 7);
-                            var lord1 = LordMaker.MakeNewLord(NpcMarriageSeeker.Faction, lordJobEscortPlayerBetrothed, PlayerFactionLeader.Map, incidentPawns.Concat(vipPawns).ToList());
-
+                                //汇合点：任意附近的围城点
+                                var stageLoc = RCellFinder.FindSiegePositionFrom(spawnLoc, map);
+                                var lordJobEscortPlayerBetrothed = new LordJobDefendMarriageLeave(stageLoc, PlayerBetrothed, NpcMarriageSeeker, 7);
+                                var lord1 = LordMaker.MakeNewLord(NpcMarriageSeeker.Faction, lordJobEscortPlayerBetrothed, map, incidentPawns.Concat(vipPawns).ToList());
+                            }
+                            else if (PlayerBetrothed.GetCaravan() is Caravan caravan)
+                            {
+                                //如果本方小人在远行队，则从远行队中删除
+                                CaravanInventoryUtility.MoveAllInventoryToSomeoneElse(from: PlayerBetrothed, candidates: caravan.PawnsListForReading);
+                                HealIfPossible(p: PlayerBetrothed);
+                                caravan.RemovePawn(p: PlayerBetrothed);
+                            }
                             //更改状态为结婚
                             MarriageCeremonyUtility.Married(PlayerBetrothed, NpcMarriageSeeker);
 

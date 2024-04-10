@@ -3,7 +3,8 @@
 
     <DMP_DiplomaticMarriagePlusProposalTitle>{0}的联姻提议</DMP_DiplomaticMarriagePlusProposalTitle>
     <DMP_DiplomaticMarriagePlusProposal>
-		我们的盟友，{0}提议和我们联姻。我方殖民地领袖的孩子{1}和他们的一位重要成员{2}之间建立外交婚姻。{2}和随从正在外面等待答复。
+		我们的盟友，{0}提议和我们联姻。我方殖民地领袖的孩子{1}和他们的一位重要成员{2}之间建立外交婚姻。
+		\n{2}和随从正在外面等待答复。
 		\n如果我们接受，具体效果如下：
 		\n1. {1}离开我方殖民地并加入{0}。
 		\n2. {2}接受我们的文化，并会在{0}中随机传播。
@@ -14,7 +15,7 @@
 		\n7. {1}与{2}婚后依然会经常访问我们殖民地。我们需要保护他们以维持永久同盟。
 		\n8. 我们的领袖必须一直是{1}的父亲或母亲，换成其他人将导致永久同盟立刻失效。
 	</DMP_DiplomaticMarriagePlusProposal>
-    <DMP_DiplomaticMarriagePlusProposalAccept>整个{0}都为我们的联姻而沸腾。从现在起，我们便是永久联盟了。\n{2}已随同护卫军进入我们殖民地，准备和{1}就地举行婚礼后回家。在此期间我们务必要保证二人的安全。</DMP_DiplomaticMarriagePlusProposalAccept>
+    <DMP_DiplomaticMarriagePlusProposalAccept>整个{0}都为我们的联姻而沸腾。从现在起，我们便是永久联盟了。\n{2}已随同护卫军进入我们殖民地，如果{1}也在场，他们会就地举行婚礼后离开，我们务必要保证二人的安全。</DMP_DiplomaticMarriagePlusProposalAccept>
     <DMP_DiplomaticMarriagePlusProposalReject>{0}对我们的拒绝感到失望。友好度下降了</DMP_DiplomaticMarriagePlusProposalReject>
 
 	<DMP_PermanentAllianceEventFactionConversionTitle>永久同盟文化改变</DMP_PermanentAllianceEventFactionConversionTitle>
@@ -31,7 +32,7 @@
 	
 	<DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>来自姻亲盟友商队的求助</DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>
 	<DMP_PermanentAllianceEventRandomVisitCaravanArrive>
-		{0}，我是你的孩子{1}。我和{2}现在在{3}的商队中，但{4}试图截杀我们。他们数量太多，我们不得不撤到你的殖民地避难。
+		{0}，我是{1}。我和{2}在{3}的商队中，但{4}试图截杀我们。他们数量太多，我们不得不撤到你的殖民地避难。
 		\n他们很快就要来了，请救救我们！
 	</DMP_PermanentAllianceEventRandomVisitCaravanArrive>
 	<DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle>敌人抵达</DMP_PermanentAllianceEventRandomVisitCaravanEnemyIncomingTitle>
@@ -50,6 +51,7 @@
 	
 	<!--Settings-->
 	<DMP_Setting_ModName>外交联姻和永久同盟</DMP_Setting_ModName>
-	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>永久同盟时，社交技能对每日好感的增幅乘以该系数</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
+	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>永久同盟时，社交技能对每日好感的增幅乘以该系数。</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
+	<DMP_Setting_ThreatMultiplier>决定各种Mod事件中AI军队强度，同时影响敌军和永久同盟的友军。1 = 100%</DMP_Setting_ThreatMultiplier>
 	
 </LanguageData>
