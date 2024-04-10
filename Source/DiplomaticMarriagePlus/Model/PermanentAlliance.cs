@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DiplomaticMarriagePlus.Global;
+using DiplomaticMarriagePlus.View;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -131,9 +132,9 @@ namespace DiplomaticMarriagePlus.Model
                 GoodwillIncrease();
                 SocialSkillIncrease();
             }
-            if (tickCount % (GenDate.TicksPerDay * 3) == 0)
+            if (tickCount % (GenDate.TicksPerDay * 1) == GenDate.TicksPerHour * 6)
             {
-                //判定是否转化联姻NPC派系
+                //判定是否转化联姻NPC派系。和前一个事件错开6小时。
                 PlayerIdeologySpread();
             }
         }
@@ -255,7 +256,7 @@ namespace DiplomaticMarriagePlus.Model
                 int playerBetrothedSocialSkill = PlayerBetrothed.skills.GetSkill(SkillDefOf.Social).GetLevel();
                 int npcMarriageSeekerSocialSkill = NpcMarriageSeeker.skills.GetSkill(SkillDefOf.Social).GetLevel();
 
-                if ((playerBetrothedSocialSkill + npcMarriageSeekerSocialSkill) * 15 <= Rand.Range(1, 10000))
+                if ((playerBetrothedSocialSkill + npcMarriageSeekerSocialSkill) * DMPModWindow.Instance.settings.factionConversionChancePerSocialSkill * 100 <= Rand.Range(0, 10000))
                 {
                     WithFaction.ideos.SetPrimary(PlayerFactionLeader.Ideo);
                     WithFaction.leader.ideo.SetIdeo(PlayerFactionLeader.Ideo);

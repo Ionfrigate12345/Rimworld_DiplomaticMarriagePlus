@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\RandomVisitEventController.cs" />
+    <Compile Include="Controller\TemporaryStayEventController.cs" />
     <Compile Include="Model\DMPModSettings.cs" />
     <Compile Include="Model\LordJob\LordJobDefendMarriageLeave.cs" />
     <Compile Include="Model\LordJob\LordJobCaravanRandomVisit.cs" />

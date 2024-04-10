@@ -51,7 +51,9 @@
 	
 	<!--Settings-->
 	<DMP_Setting_ModName>外交联姻和永久同盟</DMP_Setting_ModName>
+	<DMP_Setting_GoodwillDailyIncreaseBaseValue>永久同盟时，每日好感基础增幅。</DMP_Setting_GoodwillDailyIncreaseBaseValue>
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>永久同盟时，社交技能对每日好感的增幅乘以该系数。</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>决定各种Mod事件中AI军队强度，同时影响敌军和永久同盟的友军。1 = 100%</DMP_Setting_ThreatMultiplier>
+	<DMP_Setting_FactionConversionChancePerSocialSkill>永久同盟时，两位联姻小人的每一点社交技能每天能提高多少转化整个派系的概率。</DMP_Setting_FactionConversionChancePerSocialSkill>
 	
 </LanguageData>

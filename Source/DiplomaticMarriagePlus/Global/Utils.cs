@@ -17,7 +17,9 @@ namespace DiplomaticMarriagePlus.Global
             var skillSocial = playerBetrothed.skills.GetSkill(SkillDefOf.Social);
             int skillSocialLevel = skillSocial.GetLevel();
             //TODO: Maybe consider passion as well?
-            return (int)(5 + skillSocialLevel * DMPModWindow.Instance.settings.goodwillDailyIncreaseSocialSkillFactor);
+            return (int)(DMPModWindow.Instance.settings.goodwillDailyIncreaseBaseValue 
+                + skillSocialLevel * DMPModWindow.Instance.settings.goodwillDailyIncreaseSocialSkillFactor
+                );
         }
 
         //找出玩家派系领袖。如果玩家派系没有领袖（通常都是这种情况），则返回玩家文化领袖。如果都找不到则返回NULL。

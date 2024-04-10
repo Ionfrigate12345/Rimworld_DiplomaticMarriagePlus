@@ -58,6 +58,7 @@ namespace DiplomaticMarriagePlus.Model
                 var lordRaiders = LordMaker.MakeNewLord(_hostileFactionTriggerNext, lordJobRaiders, _mapTriggerNext, incidentPawns);
                 OnGoingAttackFlag = true;
 
+                //弹出信件
                 var textVocabularyPapaOrMama =
                     ("DMP_PermanentAllianceEventRandomVocabulary_"
                     + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")

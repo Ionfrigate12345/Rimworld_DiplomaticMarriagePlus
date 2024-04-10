@@ -50,7 +50,9 @@
 	
 	<!--Settings-->
 	<DMP_Setting_ModName>Diplomatic Marriage and Permanent Alliance</DMP_Setting_ModName>
+	<DMP_Setting_GoodwillDailyIncreaseBaseValue>The base value of daily goodwill increase</DMP_Setting_GoodwillDailyIncreaseBaseValue>
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>The social skill factor multiplier during daily goodwill increase.</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>Determines AI army strength in various Mod events, affects both ally and enemies. 1 = 100%</DMP_Setting_ThreatMultiplier>
+	<DMP_Setting_FactionConversionChancePerSocialSkill>The daily chance to convert the whole ally faction is increased by this value * the sum of social skills of the couple</DMP_Setting_FactionConversionChancePerSocialSkill>
 	
 </LanguageData>
