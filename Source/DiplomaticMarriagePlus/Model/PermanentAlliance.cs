@@ -95,7 +95,10 @@ namespace DiplomaticMarriagePlus.Model
 
             //更新玩家派系领袖
             PlayerFactionLeader = Utils.GetPlayerFactionLeader();
-            if (PlayerFactionLeader == null || (PlayerBetrothed.GetFather() != PlayerFactionLeader && PlayerBetrothed.GetMother() != PlayerFactionLeader))
+            if (PlayerFactionLeader == null 
+                || PlayerFactionLeader.Dead
+                || (PlayerBetrothed.GetFather() != PlayerFactionLeader && PlayerBetrothed.GetMother() != PlayerFactionLeader)
+                )
             {
                 return Validity.INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED;
             }
@@ -124,7 +127,9 @@ namespace DiplomaticMarriagePlus.Model
             {
                 ///每隔1小时更新一次永久同盟状态并试图触发各种事件和判定。
                 ForceUpdatePermanentAllianceStatus();
-
+            }
+            else if (tickCount % GenDate.TicksPerHour == 10) //同样每小时一次，但选个不同的tick触发
+            {
                 //检查关键小人是否在地图上，弹出警报，每天限一次。
                 VIPOnTheMapWarning();
             }
@@ -136,7 +141,7 @@ namespace DiplomaticMarriagePlus.Model
                 GoodwillIncrease();
                 SocialSkillIncrease();
             }
-            if (tickCount % (GenDate.TicksPerDay * 1) == GenDate.TicksPerHour * 6)
+            if (tickCount % (GenDate.TicksPerDay * 1) == GenDate.TicksPerHour * 6)//同样每天一次，但选个不同的tick触发
             {
                 //判定是否转化联姻NPC派系。和前一个事件错开6小时。
                 PlayerIdeologySpread();
@@ -156,12 +161,12 @@ namespace DiplomaticMarriagePlus.Model
             }
             else if (validity == Validity.VALID)
             {
-                //强制夫妇都属于NPC阵营，防止有些mod把两个关键小人弄到第三方阵营。（TODO: 做客期间除外）
-                if (PlayerBetrothed.Faction != WithFaction)
+                //强制夫妇都属于NPC阵营（除了回归玩家阵营暂住期间），这是为了防止有些mod把两个关键小人弄到第三方阵营。
+                if (PlayerBetrothed.Faction != WithFaction && PlayerBetrothed.Faction != Faction.OfPlayer)
                 {
                     PlayerBetrothed.SetFaction(newFaction: WithFaction);
                 }
-                if (NpcMarriageSeeker.Faction != WithFaction)
+                if (NpcMarriageSeeker.Faction != WithFaction && PlayerBetrothed.Faction != Faction.OfPlayer)
                 {
                     NpcMarriageSeeker.SetFaction(newFaction: WithFaction);
                 }
@@ -257,10 +262,11 @@ namespace DiplomaticMarriagePlus.Model
                 && PlayerBetrothed.Map == null && NpcMarriageSeeker.Map == null 
                 && WithFaction.ideos.PrimaryIdeo.id != PlayerFactionLeader.Ideo.id)
             {
-                int playerBetrothedSocialSkill = PlayerBetrothed.skills.GetSkill(SkillDefOf.Social).GetLevel();
-                int npcMarriageSeekerSocialSkill = NpcMarriageSeeker.skills.GetSkill(SkillDefOf.Social).GetLevel();
+                int playerBetrothedSocialSkill = PlayerBetrothed.skills.GetSkill(SkillDefOf.Social).GetUnclampedLevel();
+                int npcMarriageSeekerSocialSkill = NpcMarriageSeeker.skills.GetSkill(SkillDefOf.Social).GetUnclampedLevel();
 
-                if ((playerBetrothedSocialSkill + npcMarriageSeekerSocialSkill) * DMPModWindow.Instance.settings.factionConversionChancePerSocialSkill * 100 <= Rand.Range(0, 10000))
+                var allyConversionChance = (playerBetrothedSocialSkill + npcMarriageSeekerSocialSkill) * DMPModWindow.Instance.settings.factionConversionChancePerSocialSkill * 100;
+                if (Rand.Range(0, 10000) <= allyConversionChance)
                 {
                     WithFaction.ideos.SetPrimary(PlayerFactionLeader.Ideo);
                     WithFaction.leader.ideo.SetIdeo(PlayerFactionLeader.Ideo);
@@ -297,6 +303,10 @@ namespace DiplomaticMarriagePlus.Model
         //在婚后不管是MOD制造的事件还是原版事件，如果两个VIP小人的任何一个进入地图时都会弹出警报，以免玩家忽略了保护他们。
         private void VIPOnTheMapWarning()
         {
+            if(IsValid() != Validity.VALID)
+            {
+                return;
+            }
             if (
                 DMPModWindow.Instance.settings.warningVIPOnTheMap
                 && GenTicks.TicksAbs > lastWarningVIPOnTheMap + GenDate.TicksPerDay //警报最多每天一次。
@@ -334,6 +344,10 @@ namespace DiplomaticMarriagePlus.Model
             PlayerFactionLeader = null;
             PlayerBetrothed = null;
             NpcMarriageSeeker = null;
+
+            //终止小人思乡病和回来定居的事件
+            TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
+            temporaryStay.IsRunning = false;
         }
     }
 }

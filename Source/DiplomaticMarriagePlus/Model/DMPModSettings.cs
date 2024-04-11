@@ -18,6 +18,14 @@ namespace DiplomaticMarriagePlus.Model
         public float factionConversionChancePerSocialSkill = 0.05f;
         public bool warningVIPOnTheMap = true;
 
+        public int temporaryStayMinimumDaysForNostalgia = 15;
+        public int temporaryStayDailyChanceInitial = 10;
+        public float temporaryStayDailyChanceIncrease = 3.0f;
+        public int temporaryStayStartAfterDaysMinimum = 3;
+        public int temporaryStayStartAfterDaysMaximum = 6;
+        public int temporaryStayDurationMinimum = 7;
+        public int temporaryStayDurationMaximum = 15;
+
         public override void ExposeData()
         {
             Scribe_Values.Look(value: ref goodwillDailyIncreaseBaseValue, label: "DMP_Settings_GoodwillDailyIncreaseBaseValue", defaultValue: 5);
@@ -25,6 +33,15 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_Values.Look(value: ref threatMultiplier, label: "DMP_Settings_ThreatMultiplier", defaultValue: 1.0f);
             Scribe_Values.Look(value: ref factionConversionChancePerSocialSkill, label: "DMP_Settings_FactionConversionChancePerSocialSkill", defaultValue: 0.15f);
             Scribe_Values.Look(value: ref warningVIPOnTheMap, label: "DMP_Settings_WarningVIPOnTheMap", defaultValue: true);
+
+            Scribe_Values.Look(value: ref temporaryStayMinimumDaysForNostalgia, label: "DMP_Settings_TemporaryStayMinimumDaysForNostalgia", defaultValue: 15);
+            Scribe_Values.Look(value: ref temporaryStayDailyChanceInitial, label: "DMP_Settings_TemporaryStayDailyChanceInitial", defaultValue: 10);
+            Scribe_Values.Look(value: ref temporaryStayDailyChanceIncrease, label: "DMP_Settings_TemporaryStayDailyChanceIncrease", defaultValue: 3.0f);
+            Scribe_Values.Look(value: ref temporaryStayStartAfterDaysMinimum, label: "DMP_Settings_TemporaryStayStartAfterDaysMinimum", defaultValue: 3);
+            Scribe_Values.Look(value: ref temporaryStayStartAfterDaysMaximum, label: "DMP_Settings_TemporaryStayStartAfterDaysMaximum", defaultValue: 6);
+            Scribe_Values.Look(value: ref temporaryStayDurationMinimum, label: "DMP_Settings_TemporaryStayDurationMinimum", defaultValue: 7);
+            Scribe_Values.Look(value: ref temporaryStayDurationMaximum, label: "DMP_Settings_TemporaryStayDurationMaximum", defaultValue: 15);
+
             base.ExposeData();
         }
     }

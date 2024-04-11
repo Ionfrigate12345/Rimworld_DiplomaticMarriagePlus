@@ -50,15 +50,41 @@
 		Attention! {1} et/ou {2}, qui constituent le couple important pour notre alliance permanente avec {0}, viennent d'apparaître sur notre colonie. Nous devons assurer leur sécurité.
 	</DMP_PermanentAllianceWarningVIPOnTheMap>
 	
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>La nostalgie de {0}</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisit>
+		{1}, après avoir passé autant de temps chez {0}, je commence à ressentir le mal du pays. J'aimerais revenir pour un moment. {0} a accepté de nous laisser partir pour une période, et {2} est également prêt à m'accompagner. 
+		\nNous prévoyons d'arriver dans environ {3} jours, et nous resterons environ {4} jours.
+	</DMP_PermanentAllianceEventTemporaryStayPlanVisit>
+	
+	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>{0} et {1} sont arrivés</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
+	<DMP_PermanentAllianceEventTemporaryStayArrival>
+		{0}, nous sommes arrivés en toute sécurité. Nous suivrons vos ordres pendant ce temps.
+	</DMP_PermanentAllianceEventTemporaryStayArrival>
+	
+	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>Départ de {0} et {1}</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
+	<DMP_PermanentAllianceEventTemporaryStayDeparture>
+		{1}, il est temps pour nous de retourner chez {0}. Merci pour votre hospitalité. À la prochaine !
+	</DMP_PermanentAllianceEventTemporaryStayDeparture>
+
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Papa</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Maman</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
 	<!--Paramètres-->
 	<DMP_Setting_ModName>Le Mariage Diplomatique +</DMP_Setting_ModName>
+	<DMP_Setting_GoodwillDailyIncreaseBaseValue>Le montant de base de l'incrémentation de la relation de l'allié permanent</DMP_Setting_GoodwillDailyIncreaseBaseValue>
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>La compétence sociale est multipliée par cette valeur durant le calcul d'augmentation de la relation.</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>Détermine la force de l'armée AI dans divers événements du mod, pour ennemies et allié les deux. 1 = 100%</DMP_Setting_ThreatMultiplier>
 	<DMP_Setting_FactionConversionChancePerSocialSkill>La chance journalière de conversion de la faction alliée est cette valeur * la somme de la compétence sociale du couple</DMP_Setting_FactionConversionChancePerSocialSkill>
-	<DMP_Settings_WarningVIPOnTheMap>Avertissement quand le couple marié est present sur la carte de colonie, pour que vous sachiez le protéger.</DMP_Settings_WarningVIPOnTheMap>
-	<DMP_Settings_WarningVIPOnTheMapDetails>Bien que les événements de ce mod soient déjà accompagnés de lettres d'avertissement, la Vanille et d'autres mods peuvent toujours mettre aléatoirement le couple VIP comme des personnages réguliers de la faction alliée en permanence. Cette option vous avertira dès qu'ils se trouveront sur l'une de vos cartes de colonie, quelle qu'en soit la raison, afin que vous sachiez quand vous devez les protéger. L'avertissement est affiché au maximum une fois par jour IG.</DMP_Settings_WarningVIPOnTheMapDetails>
+	<DMP_Setting_WarningVIPOnTheMap>Avertissement quand le couple marié est present sur la carte de colonie, pour que vous sachiez le protéger.</DMP_Setting_WarningVIPOnTheMap>
+	<DMP_Setting_WarningVIPOnTheMapDetails>Bien que les événements de ce mod soient déjà accompagnés de lettres d'avertissement, la Vanille et d'autres mods peuvent toujours mettre aléatoirement le couple VIP comme des personnages réguliers de la faction alliée en permanence. Cette option vous avertira dès qu'ils se trouveront sur l'une de vos cartes de colonie, quelle qu'en soit la raison, afin que vous sachiez quand vous devez les protéger. L'avertissement est affiché au maximum une fois par jour IG.</DMP_Setting_WarningVIPOnTheMapDetails>
+
+	<DMP_Setting_TemporaryStayMinimumDaysForNostalgia>Combien de jours doivent s'écouler depuis le départ des enfants du leader de la colonie avant que la nostalgie commence.</DMP_Setting_TemporaryStayMinimumDaysForNostalgia>
+	<DMP_Setting_TemporaryStayDailyChanceInitial>Après l'intervalle ci-dessus, la chance quotidienne initiale d'avoir la nostalgie.</DMP_Setting_TemporaryStayDailyChanceInitial>
+	<DMP_Setting_TemporaryStayDailyChanceIncrease>Lorsque la nostalgie est possible, de combien la probabilité augmente chaque jour.</DMP_Setting_TemporaryStayDailyChanceIncrease>
+	<DMP_Setting_TemporaryStayStartAfterDaysMinimum>Après avoir décidé de revenir pour un séjour temporaire, le nombre de jours minimal pour le voyage.</DMP_Setting_TemporaryStayStartAfterDaysMinimum>
+	<DMP_Setting_TemporaryStayStartAfterDaysMaximum>Le nombre de jours maximal pour le voyage. Remarque : cette valeur doit être supérieure ou égale à la valeur précédente.</DMP_Setting_TemporaryStayStartAfterDaysMaximum>
+	<DMP_Setting_TemporaryStayDurationMinimum>La durée minimale en jours d'un séjour temporaire.</DMP_Setting_TemporaryStayDurationMinimum>
+	<DMP_Setting_TemporaryStayDurationMaximum>La durée maximale en jours d'un séjour temporaire. Remarque : cette valeur doit être supérieure ou égale à la valeur minimale.</DMP_Setting_TemporaryStayDurationMaximum>
 
 </LanguageData>

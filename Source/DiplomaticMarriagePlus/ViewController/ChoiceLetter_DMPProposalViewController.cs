@@ -89,6 +89,10 @@ namespace DiplomaticMarriagePlus.ViewController
 
                             //求婚者改变文化
                             NpcMarriageSeeker.ideo.SetIdeo(PlayerFactionLeader.Ideo);
+
+                            //开始思乡病和回来暂住事件的判定
+                            TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
+                            temporaryStay.IsRunning = true;
                         }
                     };
                     DiaNode dialogueNodeAccept = new DiaNode(text: "DMP_DiplomaticMarriagePlusProposalAccept".Translate(NpcMarriageSeeker.Faction.Name, PlayerBetrothed.Label, NpcMarriageSeeker.Label).CapitalizeFirst().AdjustedFor(this.NpcMarriageSeeker));

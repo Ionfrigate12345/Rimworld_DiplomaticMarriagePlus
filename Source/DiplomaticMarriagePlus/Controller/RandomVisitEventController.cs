@@ -28,6 +28,14 @@ namespace DiplomaticMarriagePlus.Controller
                 return false;
             }
 
+            TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
+            if(temporaryStay.IsCurrentlyOnVisit)
+            {
+                Log.Warning("Random visit event aborted: The couples are currently on visit of player colony.");
+                //小人在回到玩家殖民地暂住期间无法触发。
+                return false;
+            }
+
             Map map = TradeUtility.PlayerHomeMapWithMostLaunchableSilver();
             Faction WithFaction = permanentAlliance.WithFaction;
             Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;

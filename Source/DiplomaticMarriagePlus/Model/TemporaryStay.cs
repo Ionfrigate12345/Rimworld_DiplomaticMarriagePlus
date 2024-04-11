@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DiplomaticMarriagePlus.Global;
+using DiplomaticMarriagePlus.View;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -13,14 +14,20 @@ namespace DiplomaticMarriagePlus.Model
 {
     internal class TemporaryStay : WorldComponent
     {
+        private bool _isRunning = false;
+
         private int _tickLastNostalgia = 0;
         private int _tickLastTemporaryVisitStart = 0;
         private int _tickLastTemporaryVisitEnd = 0;
-        private bool _isReadyForNextVisit = false;
 
+        private bool _isReadyForNextVisit = false;
+        private bool _isCurrentlyOnVisit = false;
+
+        public bool IsRunning { get { return _isRunning; } set { _isRunning = value; } }
         public int TickLastNostalgia { get { return _tickLastNostalgia; } set { _tickLastNostalgia = value; } }
         public int TickLastTemporaryVisitStart { get { return _tickLastTemporaryVisitStart; } set { _tickLastTemporaryVisitStart = value; } }
         public int TickLastTemporaryVisitEnd { get { return _tickLastTemporaryVisitEnd; } set { _tickLastTemporaryVisitEnd = value; } }
+        public bool IsCurrentlyOnVisit { get { return _isCurrentlyOnVisit; } set { _isCurrentlyOnVisit = value; } }
 
 
         public TemporaryStay(World world) : base(world)
@@ -32,17 +39,12 @@ namespace DiplomaticMarriagePlus.Model
         {
             base.WorldComponentTick();
 
-            if(!IsInitialized())
-            {
-                //在未初始化状态（通常因为无永久联盟，或有了永久联盟后尚未启动），该对象不做任何事。必须人为启动初始化才开始运作。
-                return;
-            }
+            if(!_isRunning) { return; }
 
             if (GenTicks.TicksAbs % (GenDate.TicksPerHour * 3) == 0)
             {
                 if(_isReadyForNextVisit && IsCurrentlyTimeForVisit())
                 {
-                    //地图上生成小人，开始访问
                     Map map = TradeUtility.PlayerHomeMapWithMostLaunchableSilver();
                     if (GenHostility.AnyHostileActiveThreatToPlayer(map))
                     {
@@ -53,25 +55,45 @@ namespace DiplomaticMarriagePlus.Model
                     if(permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
                     {
                         //如果永久联盟已终结，则重置所有属性,不再运行。
-                        ResetAll();
+                        _isRunning = false;
                         return;
                     }
-                    _isReadyForNextVisit = false;
+
+                    //地图上生成小人，开始访问
                     Faction WithFaction = permanentAlliance.WithFaction;
                     Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
                     Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
 
-                    List<Pawn> couple = new List<Pawn> { playerBetrothed, npcMarriageSeeker };
+                    List<Pawn> couple = new List<Pawn>();
+                    couple.Add(playerBetrothed);
+                    couple.Add(npcMarriageSeeker);
                     List<Pawn> incidentPawns;
                     IntVec3 stageLog;
-                    Utils.SpawnVIPAndIncidentPawns(map, WithFaction, couple, 0, PawnGroupKindDefOf.Combat, out incidentPawns, out stageLog);
 
                     playerBetrothed.SetFaction(Faction.OfPlayer);
                     npcMarriageSeeker.SetFaction(Faction.OfPlayer);
 
-                    //TODO: 弹出小人抵达信件
+                    Utils.SpawnVIPAndIncidentPawns(map, Faction.OfPlayer, couple, 0, PawnGroupKindDefOf.Combat, out incidentPawns, out stageLog);
+
+                    //弹出小人抵达信件
+                    var textVocabularyPapaOrMama =
+                        ("DMP_PermanentAllianceEventRandomVocabulary_"
+                        + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
+                        ).Translate();
+                    var letter = LetterMaker.MakeLetter(
+                        label: "DMP_PermanentAllianceEventTemporaryStayArrivalTitle".Translate().CapitalizeFirst(),
+                        text: "DMP_PermanentAllianceEventTemporaryStayArrival".Translate(
+                            textVocabularyPapaOrMama
+                            ).CapitalizeFirst(),
+                        def: LetterDefOf.PositiveEvent,
+                        relatedFaction: WithFaction
+                    );
+                    Find.LetterStack.ReceiveLetter(@let: letter);
+
+                    _isReadyForNextVisit = false;
+                    _isCurrentlyOnVisit = true;
                 }
-                else if (!IsCurrentlyTimeForVisit())
+                else if (_isCurrentlyOnVisit && !IsCurrentlyTimeForVisit())
                 {
                     //访问时间限制已到，改回阵营，迫使两位小人离开。
                     var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
@@ -88,22 +110,44 @@ namespace DiplomaticMarriagePlus.Model
                         {
                             npcMarriageSeeker.SetFaction(WithFaction);
                         }
-                        //TODO: 弹出告别信件
+                        //弹出告别信件
+                        var textVocabularyPapaOrMama =
+                            ("DMP_PermanentAllianceEventRandomVocabulary_"
+                            + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
+                            ).Translate();
+                        var letter = LetterMaker.MakeLetter(
+                            label: "DMP_PermanentAllianceEventTemporaryStayDepartureTitle".Translate().CapitalizeFirst(),
+                            text: "DMP_PermanentAllianceEventTemporaryStayDeparture".Translate(
+                                WithFaction.Name,
+                                textVocabularyPapaOrMama
+                                ).CapitalizeFirst(),
+                            def: LetterDefOf.PositiveEvent,
+                            relatedFaction: WithFaction
+                        );
+                        Find.LetterStack.ReceiveLetter(@let: letter);
                     }
+                    _isCurrentlyOnVisit = false;
+                    _tickLastNostalgia = 0;
                 }
             }
             if (GenTicks.TicksAbs % (GenDate.TicksPerDay * 1) == GenDate.HoursPerDay * 10)
             {
+                int temporaryStayStartAfterDaysMinimum = DMPModWindow.Instance.settings.temporaryStayStartAfterDaysMinimum;
+                int temporaryStayStartAfterDaysMaximum = DMPModWindow.Instance.settings.temporaryStayStartAfterDaysMaximum;
+                int temporaryStayDurationMinimum = DMPModWindow.Instance.settings.temporaryStayDurationMinimum;
+                int temporaryStayDurationMaximum = DMPModWindow.Instance.settings.temporaryStayDurationMaximum;
                 //每天有一定几率得思乡病。
-                if(TryGetNostalgia()) {
-                    PlanNextVisit(Rand.Range(3, 7), Rand.Range(7, 15));
+                if (TryGetNostalgia()) {
+                    PlanNextVisit(Rand.RangeInclusive(temporaryStayStartAfterDaysMinimum, temporaryStayStartAfterDaysMaximum), 
+                        Rand.RangeInclusive(temporaryStayDurationMinimum, temporaryStayDurationMaximum)
+                        );
                 }
             }
         }
 
         //根据上一次访问时间，有一定几率得思乡病。
         //可用来强制思乡病，以此初始化第一次访问。
-        public bool TryGetNostalgia(bool forceNostalgiaIfNonExisting = false)
+        public bool TryGetNostalgia()
         {
             if (_tickLastNostalgia > 0)
             {
@@ -111,26 +155,20 @@ namespace DiplomaticMarriagePlus.Model
                 return false;
             }
 
-            if(forceNostalgiaIfNonExisting)
-            {
-                _tickLastNostalgia = GenTicks.TicksAbs;
-                return true;
-            }
-
-            if (IsCurrentlyTimeForVisit()) 
+            if (_isCurrentlyOnVisit) 
             {
                 //目前正在访问中
                 return false;
             }
 
-            //在上一次访问结束后一段时间过后，便有可能得思乡病。几率随着时间延长而逐渐变高，直到判定成功。
+            //在上一次访问结束，或永久同盟成立后（如果是第一次触发该事件）一段时间过后，便有可能得思乡病。几率随着时间延长而逐渐变高，直到判定成功。
             float daysSinceLastVisitEnd = (GenTicks.TicksAbs - _tickLastTemporaryVisitEnd) * 1.0f / GenDate.TicksPerDay;
 
-            var minimumDaysForNostalgia = 15;//TODO:设置里调整
-            if (daysSinceLastVisitEnd > minimumDaysForNostalgia) 
+            var minimumDaysForNostalgia = DMPModWindow.Instance.settings.temporaryStayMinimumDaysForNostalgia;
+            if (daysSinceLastVisitEnd > minimumDaysForNostalgia)
             {
-                var chanceInitial = 10; //TODO:设置里调整 
-                var chanceIncreasePerDay = 3; //TODO:设置里调整 （每天提高的概率百分比）
+                var chanceInitial = DMPModWindow.Instance.settings.temporaryStayDailyChanceInitial; 
+                var chanceIncreasePerDay = DMPModWindow.Instance.settings.temporaryStayDailyChanceIncrease; 
                 if (Rand.Range(0, 100) < chanceInitial + (daysSinceLastVisitEnd - minimumDaysForNostalgia) * chanceIncreasePerDay)
                 {
                     _tickLastNostalgia = GenTicks.TicksAbs;
@@ -148,7 +186,29 @@ namespace DiplomaticMarriagePlus.Model
             _tickLastTemporaryVisitEnd = _tickLastTemporaryVisitStart + GenDate.TicksPerDay * durationDays;
             _isReadyForNextVisit = true;
 
-            //TODO: 弹出信件，提前通知来访。
+            //弹出信件，提前通知来访。
+            var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
+            Faction WithFaction = permanentAlliance.WithFaction;
+            Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
+            Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
+
+            var textVocabularyPapaOrMama =
+            ("DMP_PermanentAllianceEventRandomVocabulary_"
+            + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
+            ).Translate();
+            var letter = LetterMaker.MakeLetter(
+                label: "DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle".Translate().CapitalizeFirst(),
+                text: "DMP_PermanentAllianceEventTemporaryStayPlanVisit".Translate(
+                    WithFaction.Name,
+                    textVocabularyPapaOrMama,
+                    npcMarriageSeeker.Label,
+                    startAfterDays,
+                    durationDays
+                    ).CapitalizeFirst(),
+                def: LetterDefOf.PositiveEvent,
+                relatedFaction: WithFaction
+            );
+            Find.LetterStack.ReceiveLetter(@let: letter);
         }
 
         //当前是否正在访问玩家殖民地的时间段内。
@@ -161,7 +221,7 @@ namespace DiplomaticMarriagePlus.Model
             return (GenTicks.TicksAbs >= _tickLastTemporaryVisitStart && GenTicks.TicksAbs <= _tickLastTemporaryVisitEnd);
         }
 
-        public void OnArrival()
+        /*public void OnArrival()
         {
             _tickLastNostalgia = 0;
         }
@@ -172,23 +232,20 @@ namespace DiplomaticMarriagePlus.Model
             _isReadyForNextVisit = false;
         }
 
-        public bool IsInitialized()
-        {
-            return !(_tickLastNostalgia == 0 && _tickLastTemporaryVisitStart == 0 && _tickLastTemporaryVisitEnd == 0 && _isReadyForNextVisit == false);
-        }
-
         public void InitializeByForcingFirstNostalgia()
         {
             TryGetNostalgia(true);
-        }
+        }*/
 
         public override void ExposeData()
         {
             base.ExposeData();
+            Scribe_Values.Look<bool>(ref _isRunning, "DMP_PermanentAlliance_IsRunning", false);
             Scribe_Values.Look<int>(ref _tickLastNostalgia, "DMP_PermanentAlliance_TemporaryStay_TickLastNostalgia", 0);
             Scribe_Values.Look<int>(ref _tickLastTemporaryVisitStart, "DMP_PermanentAlliance_TemporaryStay_TickLastTemporaryVisitStart", 0);
             Scribe_Values.Look<int>(ref _tickLastTemporaryVisitEnd, "DMP_PermanentAlliance_TemporaryStay_TickLastTemporaryVisitEnd", 0);
             Scribe_Values.Look<bool>(ref _isReadyForNextVisit, "DMP_PermanentAlliance_TemporaryStay_IsReadyForNextVisit", false);
+            Scribe_Values.Look<bool>(ref _isCurrentlyOnVisit, "DMP_PermanentAlliance_TemporaryStay_IsCurrentlyOnVisit", false);
         }
     }
 }

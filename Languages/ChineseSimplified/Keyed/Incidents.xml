@@ -51,6 +51,24 @@
 		注意，我们和{0}的永久同盟所依赖的关键人物{1}和/或{2}出现在我方殖民地地图上，请务必保护他们的安全。
 	</DMP_PermanentAllianceWarningVIPOnTheMap>
 	
+	
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>来自{0}的思念</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisit>
+		{1}，在{0}这么长时间，我有点想家，想回来住一段时间。{0}已经同意我们离开一段时间，{2}也准备和我一起来。
+		\n我们{3}天后抵达，并且呆{4}天。
+	</DMP_PermanentAllianceEventTemporaryStayPlanVisit>
+	
+	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>{0}和{1}已抵达</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
+	<DMP_PermanentAllianceEventTemporaryStayArrival>
+		{0}，我们已经安全抵达。这段时间内我们都会听从你的命令。
+	</DMP_PermanentAllianceEventTemporaryStayArrival>
+	
+	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>{0}和{1}离开</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
+	<DMP_PermanentAllianceEventTemporaryStayDeparture>
+		{1}，时间到了，我们要返回{0}了。感谢这段时间的招待。下次再见！
+	</DMP_PermanentAllianceEventTemporaryStayDeparture>
+	
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>爸爸</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>妈妈</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
@@ -60,7 +78,14 @@
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>永久同盟时，社交技能对每日好感的增幅乘以该系数。</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>决定各种Mod事件中AI军队强度，同时影响敌军和永久同盟的友军。1 = 100%</DMP_Setting_ThreatMultiplier>
 	<DMP_Setting_FactionConversionChancePerSocialSkill>永久同盟时，两位联姻小人的每一点社交技能每天能提高多少转化整个派系的概率。</DMP_Setting_FactionConversionChancePerSocialSkill>
-	<DMP_Settings_WarningVIPOnTheMap>当联姻的两个关键小人出现在殖民地地图时弹出提示</DMP_Settings_WarningVIPOnTheMap>
-	<DMP_Settings_WarningVIPOnTheMapDetails>虽然本MOD的相关事件已有提示，但由于两个关键小人属于NPC派系，即使是原版和其它MOD事件也一样可能让他们跟着该阵营的队伍出现在你的殖民地上。该功能可以提醒你保护他们。每个游戏日最多提示一次。</DMP_Settings_WarningVIPOnTheMapDetails>
+	<DMP_Setting_WarningVIPOnTheMap>当联姻的两个关键小人出现在殖民地地图时弹出提示</DMP_Setting_WarningVIPOnTheMap>
+	<DMP_Setting_WarningVIPOnTheMapDetails>虽然本MOD的相关事件已有提示，但由于两个关键小人属于NPC派系，即使是原版和其它MOD事件也一样可能让他们跟着该阵营的队伍出现在你的殖民地上。该功能可以提醒你保护他们。每个游戏日最多提示一次。</DMP_Setting_WarningVIPOnTheMapDetails>
 	
+	<DMP_Setting_TemporaryStayMinimumDaysForNostalgia>永久同盟时，领袖的儿女距上次离开殖民地至少多少天后可能产生思乡病而返回暂住。</DMP_Setting_TemporaryStayMinimumDaysForNostalgia>
+	<DMP_Setting_TemporaryStayDailyChanceInitial>在上述间隔过后，产生思乡病的基础每日概率</DMP_Setting_TemporaryStayDailyChanceInitial>
+	<DMP_Setting_TemporaryStayDailyChanceIncrease>在可能产生思乡病时，每多过一天会增加多少概率。</DMP_Setting_TemporaryStayDailyChanceIncrease>
+	<DMP_Setting_TemporaryStayStartAfterDaysMinimum>在决定返回暂住后，最少过多久才回家。</DMP_Setting_TemporaryStayStartAfterDaysMinimum>
+	<DMP_Setting_TemporaryStayStartAfterDaysMaximum>在决定返回暂住后，最多过多久才回家。注意该数值必须大于等于最小值</DMP_Setting_TemporaryStayStartAfterDaysMaximum>
+	<DMP_Setting_TemporaryStayDurationMinimum>暂住最少多少天</DMP_Setting_TemporaryStayDurationMinimum>
+	<DMP_Setting_TemporaryStayDurationMaximum>暂住最多多少天。注意改数值必须大于等于最小值</DMP_Setting_TemporaryStayDurationMaximum>
 </LanguageData>

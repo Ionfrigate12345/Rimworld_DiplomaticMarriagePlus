@@ -15,8 +15,8 @@ namespace DiplomaticMarriagePlus.Global
         public static int DMPGoodwillIncreasePerDay(Pawn playerBetrothed)
         {
             var skillSocial = playerBetrothed.skills.GetSkill(SkillDefOf.Social);
-            int skillSocialLevel = skillSocial.GetLevel();
-            //TODO: Maybe consider passion as well?
+            int skillSocialLevel = skillSocial.GetUnclampedLevel();
+            //TODO: 是否也考虑小人的兴趣？
             return (int)(DMPModWindow.Instance.settings.goodwillDailyIncreaseBaseValue 
                 + skillSocialLevel * DMPModWindow.Instance.settings.goodwillDailyIncreaseSocialSkillFactor
                 );
@@ -104,13 +104,15 @@ namespace DiplomaticMarriagePlus.Global
             stageLoc = CellFinder.RandomEdgeCell(map);
             //stageLoc = RCellFinder.FindSiegePositionFrom(map.Center, map);
 
-            //把VIP小人放到地图上
             var spawnRotation = Rot4.FromAngleFlat((map.Center - stageLoc).AngleFlat);
-            if(vipPawns != null)
+
+            IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
+            //把VIP小人放到地图上
+            if (vipPawns != null)
             {
                 foreach (Pawn vipPawn in vipPawns)
                 {
-                    GenSpawn.Spawn(vipPawn, stageLoc, map, spawnRotation);
+                    GenSpawn.Spawn(vipPawn, loc, map, spawnRotation);
                 }
             }
 
@@ -120,7 +122,6 @@ namespace DiplomaticMarriagePlus.Global
                 incidentPawns = Utils.GenerateIncidentPawns(incidentPawnsTotalThreat, faction, map, pawnGroupKindDefOf);
                 foreach (Pawn incidentPawn in incidentPawns)
                 {
-                    IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
                     GenSpawn.Spawn(incidentPawn, loc, map, spawnRotation);
                 }
             }

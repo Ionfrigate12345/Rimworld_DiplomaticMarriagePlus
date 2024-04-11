@@ -50,16 +50,40 @@
 		Attention! {1} and/or {2}, which are the key married couple of our permanent alliance with {0}, just appeared on our colony. We need to ensure their safety.
 	</DMP_PermanentAllianceWarningVIPOnTheMap>
 	
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>Nostalgia of {0}</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisit>
+		{1}, after spending so long in {0}, I'm starting to miss home. I'd like to come back for a temporary stay. {0} has agreed to let us leave for a while, and {2} will also accompany me.
+		\nWe expect to arrive in about {3} days, and we'll stay for approximately {4} days.
+	</DMP_PermanentAllianceEventTemporaryStayPlanVisit>
+	
+	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>{0} and {1} have Arrived</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
+	<DMP_PermanentAllianceEventTemporaryStayArrival>
+		{0}, we have arrived safely. We will temporarily follow your commands during this period.
+	</DMP_PermanentAllianceEventTemporaryStayArrival>
+	
+	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>{0} and {1} Depart</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
+	<DMP_PermanentAllianceEventTemporaryStayDeparture>
+		{1}, it's time for us to return to {0}. Thank you for your hospitality during this time. See you next time!
+	</DMP_PermanentAllianceEventTemporaryStayDeparture>
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Dad</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Mom</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
 	<!--Settings-->
 	<DMP_Setting_ModName>Diplomatic Marriage +</DMP_Setting_ModName>
-	<DMP_Setting_GoodwillDailyIncreaseBaseValue>The base value of daily goodwill increase</DMP_Setting_GoodwillDailyIncreaseBaseValue>
+	<DMP_Setting_GoodwillDailyIncreaseBaseValue>The base value of daily goodwill increase for permanent ally</DMP_Setting_GoodwillDailyIncreaseBaseValue>
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>The social skill factor multiplier during daily goodwill increase.</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>Determines AI army strength in various Mod events, affects both ally and enemies. 1 = 100%</DMP_Setting_ThreatMultiplier>
 	<DMP_Setting_FactionConversionChancePerSocialSkill>The daily chance to convert the whole ally faction is increased by this value * the sum of social skills of the couple</DMP_Setting_FactionConversionChancePerSocialSkill>
-	<DMP_Settings_WarningVIPOnTheMap>Popup warning letter when the married couple is on the colony map</DMP_Settings_WarningVIPOnTheMap>
-	<DMP_Settings_WarningVIPOnTheMapDetails>Although events from this mod already come with warning letters, vanilla and other mods may still randomly spawn the VIP couple as regular pawns of the permanently allied NPC faction. This option will warn you once they are on any of your colony map, whatever the reason, so that you know when you need to protect them. The warning popup maximum once per in-game day.</DMP_Settings_WarningVIPOnTheMapDetails>
+	<DMP_Setting_WarningVIPOnTheMap>Popup warning letter when the married couple is on the colony map</DMP_Setting_WarningVIPOnTheMap>
+	<DMP_Setting_WarningVIPOnTheMapDetails>Although events from this mod already come with warning letters, vanilla and other mods may still randomly spawn the VIP couple as regular pawns of the permanently allied NPC faction. This option will warn you once they are on any of your colony map, whatever the reason, so that you know when you need to protect them. The warning popup maximum once per in-game day.</DMP_Setting_WarningVIPOnTheMapDetails>
 	
+	<DMP_Setting_TemporaryStayMinimumDaysForNostalgia>Minimum days must pass after the leader's child who left the colony for diplo marriage before they may feel homesickness.</DMP_Setting_TemporaryStayMinimumDaysForNostalgia>
+	<DMP_Setting_TemporaryStayDailyChanceInitial>After the above interval, the initial daily chance of feeling homesickness.</DMP_Setting_TemporaryStayDailyChanceInitial>
+	<DMP_Setting_TemporaryStayDailyChanceIncrease>Whenever homesickness is possible, how much chance increases each day.</DMP_Setting_TemporaryStayDailyChanceIncrease>
+	<DMP_Setting_TemporaryStayStartAfterDaysMinimum>After deciding to return for a temporary stay, the minimum time before arrival.</DMP_Setting_TemporaryStayStartAfterDaysMinimum>
+	<DMP_Setting_TemporaryStayStartAfterDaysMaximum>The maximum time before arrival. This value must be greater than or equal to the minimum value.</DMP_Setting_TemporaryStayStartAfterDaysMaximum>
+	<DMP_Setting_TemporaryStayDurationMinimum>The minimum duration (in days) of a temporary stay.</DMP_Setting_TemporaryStayDurationMinimum>
+	<DMP_Setting_TemporaryStayDurationMaximum>The maximum duration (in days) of a temporary stay. Note: this value must be greater than or equal to the minimum value.</DMP_Setting_TemporaryStayDurationMaximum>
+
 </LanguageData>
