@@ -44,7 +44,7 @@ namespace DiplomaticMarriagePlus.Model
                     MapTriggerNext, 
                     HostileFactionTriggerNext, 
                     null, 
-                    Utils.GetRandomThreatPointsByPlayerWealth(MapTriggerNext, Rand.Range(100, 150)), 
+                    Utils.GetRandomThreatPointsByPlayerWealth(MapTriggerNext, Rand.Range(100, 200)), 
                     PawnGroupKindDefOf.Combat, 
                     out incidentPawns, 
                     out stageLoc

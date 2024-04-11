@@ -15,6 +15,7 @@ namespace DiplomaticMarriagePlus.Model
         private Pawn _npcMarriageSeeker;
 
         private static int tickCount = GenTicks.TicksAbs;
+        private static int lastWarningVIPOnTheMap = 0;
 
         public Faction WithFaction
         {
@@ -123,6 +124,9 @@ namespace DiplomaticMarriagePlus.Model
             {
                 ///每隔1小时更新一次永久同盟状态并试图触发各种事件和判定。
                 ForceUpdatePermanentAllianceStatus();
+
+                //检查关键小人是否在地图上，弹出警报，每天限一次。
+                VIPOnTheMapWarning();
             }
 
             //各种和永久联盟相关的随机小事件，都为每隔一段时间后有一定几率触发
@@ -238,8 +242,8 @@ namespace DiplomaticMarriagePlus.Model
         }
 
         //TODO: （高级功能）NPC阵营领袖死亡，爆发继承人战争。玩家可以帮助来自NPC阵营的儿媳/女婿赢得战争成为NPC阵营下一任领袖。
-        //TODO: 下一任领袖如果是联姻的儿媳/女婿，如何让永久联盟更加巩固？（派出商队的频率翻倍？好感度锁定100？）
-        //TODO: 如果盟友是帝国阵营该怎么办？（需要考虑VE Empire之类的mod）
+        //下一任领袖如果是联姻的儿媳/女婿，如何让永久联盟更加巩固？（派出商队的频率翻倍？好感度锁定100？）
+        //如果盟友是帝国阵营该怎么办？（需要考虑VE Empire之类的mod）
         private void PermanentAllySuccessionWar()
         {
 
@@ -290,16 +294,28 @@ namespace DiplomaticMarriagePlus.Model
             return false;
         }
 
-        //TODO:双方小人遇险求助任务。
-        private void HelpQuest()
-        {
-
-        }
-
-        //TODO: 在婚后不管是MOD制造的事件还是原版事件，如果两个VIP小人的任何一个进入地图时都会弹出警报，以免玩家忽略了保护他们。警报最多每天一次。
+        //在婚后不管是MOD制造的事件还是原版事件，如果两个VIP小人的任何一个进入地图时都会弹出警报，以免玩家忽略了保护他们。
         private void VIPOnTheMapWarning()
         {
-
+            if (
+                DMPModWindow.Instance.settings.warningVIPOnTheMap
+                && GenTicks.TicksAbs > lastWarningVIPOnTheMap + GenDate.TicksPerDay //警报最多每天一次。
+                && (
+                    (PlayerBetrothed.Map != null && PlayerBetrothed.Faction != Faction.OfPlayer) 
+                    || 
+                    (NpcMarriageSeeker.Map != null && NpcMarriageSeeker.Faction != Faction.OfPlayer)
+                    ) //2个关键小人至少有一个出现在小地图上，且不是玩家派系成员（不处于暂时居住状态）
+                )
+            {
+                lastWarningVIPOnTheMap = GenTicks.TicksAbs;
+                var letter = LetterMaker.MakeLetter(
+                        label: "DMP_PermanentAllianceWarningVIPOnTheMapTitle".Translate().CapitalizeFirst(),
+                        text: "DMP_PermanentAllianceWarningVIPOnTheMap".Translate(WithFaction.Name, PlayerBetrothed.Label, NpcMarriageSeeker.Label).CapitalizeFirst(),
+                        def: LetterDefOf.PositiveEvent,
+                        relatedFaction: WithFaction
+                        );
+                Find.LetterStack.ReceiveLetter(@let: letter);
+            }
         }
 
         public override void ExposeData()
@@ -309,6 +325,7 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_References.Look<Pawn>(ref _playerBetrothed, "DMP_PermanentAlliance_PlayerBetrothed", false);
             Scribe_References.Look<Pawn>(ref _npcMarriageSeeker, "DMP_PermanentAlliance_NpcMarriageSeeker", false);
             Scribe_References.Look<Faction>(ref _withFaction, "DMP_PermanentAlliance_WithFaction", false);
+            Scribe_Values.Look<int>(ref lastWarningVIPOnTheMap, "DMP_PermanentAlliance_LastWarningVIPOnTheMap", 0);
         }
 
         public void Invalidate()

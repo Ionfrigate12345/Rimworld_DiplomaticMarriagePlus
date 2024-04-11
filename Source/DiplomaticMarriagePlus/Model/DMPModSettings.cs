@@ -16,6 +16,7 @@ namespace DiplomaticMarriagePlus.Model
         public float goodwillDailyIncreaseSocialSkillFactor = 1.0f;
         public float threatMultiplier = 1.0f;
         public float factionConversionChancePerSocialSkill = 0.05f;
+        public bool warningVIPOnTheMap = true;
 
         public override void ExposeData()
         {
@@ -23,6 +24,7 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_Values.Look(value: ref goodwillDailyIncreaseSocialSkillFactor, label: "DMP_Settings_GoodwillDailyIncreaseSocialSkillFactor", defaultValue: 1.0f);
             Scribe_Values.Look(value: ref threatMultiplier, label: "DMP_Settings_ThreatMultiplier", defaultValue: 1.0f);
             Scribe_Values.Look(value: ref factionConversionChancePerSocialSkill, label: "DMP_Settings_FactionConversionChancePerSocialSkill", defaultValue: 0.15f);
+            Scribe_Values.Look(value: ref warningVIPOnTheMap, label: "DMP_Settings_WarningVIPOnTheMap", defaultValue: true);
             base.ExposeData();
         }
     }

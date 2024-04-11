@@ -27,6 +27,7 @@ namespace DiplomaticMarriagePlus.View
             settings.threatMultiplier = options.Slider(settings.threatMultiplier, 0.5f, 5.0f);
             options.Label($"{"DMP_Setting_FactionConversionChancePerSocialSkill".Translate()}: {settings.factionConversionChancePerSocialSkill.ToStringByStyle(style: ToStringStyle.FloatThree)}");
             settings.factionConversionChancePerSocialSkill = options.Slider(settings.factionConversionChancePerSocialSkill, 0f, 0.2f);
+            options.CheckboxLabeled("DMP_Setting_WarningVIPOnTheMap".Translate(), ref settings.warningVIPOnTheMap, "DMP_Settings_WarningVIPOnTheMapDetails".Translate());
             options.GapLine(15f);
             options.End();
             base.DoSettingsWindowContents(rect);

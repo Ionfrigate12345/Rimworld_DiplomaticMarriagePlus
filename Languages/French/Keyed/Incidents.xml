@@ -45,13 +45,20 @@
 		\nLongue vie à l'amitié entre {1} et {2} !
 	</DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated>
 	
+	<DMP_PermanentAllianceWarningVIPOnTheMapTitle>Personnages importants chez notre colonie</DMP_PermanentAllianceWarningVIPOnTheMapTitle>
+	<DMP_PermanentAllianceWarningVIPOnTheMap>
+		Attention! {1} et/ou {2}, qui constituent le couple important pour notre alliance permanente avec {0}, viennent d'apparaître sur notre colonie. Nous devons assurer leur sécurité.
+	</DMP_PermanentAllianceWarningVIPOnTheMap>
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Papa</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Maman</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
 	<!--Paramètres-->
-	<DMP_Setting_ModName>Mariage Diplomatique et Alliance Permanente</DMP_Setting_ModName>
+	<DMP_Setting_ModName>Mariage Diplomatique +</DMP_Setting_ModName>
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>La compétence sociale est multipliée par cette valeur durant le calcul d'augmentation de la relation.</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>Détermine la force de l'armée AI dans divers événements du mod, pour ennemies et allié les deux. 1 = 100%</DMP_Setting_ThreatMultiplier>
 	<DMP_Setting_FactionConversionChancePerSocialSkill>La chance journalière de conversion de la faction alliée est cette valeur * la somme de la compétence sociale du couple</DMP_Setting_FactionConversionChancePerSocialSkill>
-	
+	<DMP_Settings_WarningVIPOnTheMap>Avertissement quand le couple marié est present sur la carte de colonie, pour que vous sachiez le protéger.</DMP_Settings_WarningVIPOnTheMap>
+	<DMP_Settings_WarningVIPOnTheMapDetails>Bien que les événements de ce mod soient déjà accompagnés de lettres d'avertissement, la Vanille et d'autres mods peuvent toujours mettre aléatoirement le couple VIP comme des personnages réguliers de la faction alliée en permanence. Cette option vous avertira dès qu'ils se trouveront sur l'une de vos cartes de colonie, quelle qu'en soit la raison, afin que vous sachiez quand vous devez les protéger. L'avertissement est affiché au maximum une fois par jour IG.</DMP_Settings_WarningVIPOnTheMapDetails>
+
 </LanguageData>

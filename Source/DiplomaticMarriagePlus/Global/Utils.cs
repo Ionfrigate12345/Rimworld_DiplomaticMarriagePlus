@@ -114,7 +114,7 @@ namespace DiplomaticMarriagePlus.Global
                 }
             }
 
-            //再随机生成些事件小人当VIP的随从。
+            //再随机生成些事件小人。
             incidentPawns = Utils.GenerateIncidentPawns(incidentPawnsTotalThreat, faction, map, pawnGroupKindDefOf);
             foreach (Pawn incidentPawn in incidentPawns)
             {

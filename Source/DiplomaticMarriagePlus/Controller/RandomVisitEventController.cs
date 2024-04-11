@@ -59,25 +59,17 @@ namespace DiplomaticMarriagePlus.Controller
 
             //寻找和玩家及联姻结盟派系同时敌对的第三方派系。
             Faction randomHostileFaction;
-            if (Rand.Range(1, 100) < 15)
+            List<Faction> enemyFactions = (from x in Find.FactionManager.AllFactions
+                                           where !x.IsPlayer && x.GetUniqueLoadID() != WithFaction.GetUniqueLoadID()
+                                                && !x.defeated
+                                                && !x.Hidden
+                                                && x.RelationKindWith(Faction.OfPlayer) == FactionRelationKind.Hostile
+                                                && x.RelationKindWith(WithFaction) == FactionRelationKind.Hostile
+                                           select x).ToList();
+            if (!enemyFactions.TryRandomElement(out randomHostileFaction))
             {
-                //一定几率为机械族。
+                //随机抽取第三方非隐藏派系，如果找不到就选机械族。
                 randomHostileFaction = Faction.OfMechanoids;
-            }
-            else
-            {
-                List<Faction> enemyFactions = (from x in Find.FactionManager.AllFactions
-                                               where !x.IsPlayer && x.GetUniqueLoadID() != WithFaction.GetUniqueLoadID()
-                                                    && !x.defeated
-                                                    && !x.Hidden
-                                                    && x.RelationKindWith(Faction.OfPlayer) == FactionRelationKind.Hostile
-                                                    && x.RelationKindWith(WithFaction) == FactionRelationKind.Hostile
-                                               select x).ToList();
-                if(!enemyFactions.TryRandomElement(out randomHostileFaction))
-                {
-                    //随机抽取第三方非隐藏派系，如果找不到也依然选机械族。
-                    randomHostileFaction = Faction.OfMechanoids;
-                }
             }
 
             //弹出信件

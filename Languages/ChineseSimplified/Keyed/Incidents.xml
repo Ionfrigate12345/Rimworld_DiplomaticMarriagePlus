@@ -46,6 +46,11 @@
 		\n愿{1}和{2}的友谊常存！
 	</DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated>
 	
+	<DMP_PermanentAllianceWarningVIPOnTheMapTitle>联姻关键人物出现在殖民地</DMP_PermanentAllianceWarningVIPOnTheMapTitle>
+	<DMP_PermanentAllianceWarningVIPOnTheMap>
+		注意，我们和{0}的永久同盟所依赖的关键人物{1}和/或{2}出现在我方殖民地地图上，请务必保护他们的安全。
+	</DMP_PermanentAllianceWarningVIPOnTheMap>
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>爸爸</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>妈妈</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
@@ -55,5 +60,7 @@
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>永久同盟时，社交技能对每日好感的增幅乘以该系数。</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>决定各种Mod事件中AI军队强度，同时影响敌军和永久同盟的友军。1 = 100%</DMP_Setting_ThreatMultiplier>
 	<DMP_Setting_FactionConversionChancePerSocialSkill>永久同盟时，两位联姻小人的每一点社交技能每天能提高多少转化整个派系的概率。</DMP_Setting_FactionConversionChancePerSocialSkill>
+	<DMP_Settings_WarningVIPOnTheMap>当联姻的两个关键小人出现在殖民地地图时弹出提示</DMP_Settings_WarningVIPOnTheMap>
+	<DMP_Settings_WarningVIPOnTheMapDetails>虽然本MOD的相关事件已有提示，但由于两个关键小人属于NPC派系，即使是原版和其它MOD事件也一样可能让他们跟着该阵营的队伍出现在你的殖民地上。该功能可以提醒你保护他们。每个游戏日最多提示一次。</DMP_Settings_WarningVIPOnTheMapDetails>
 	
 </LanguageData>

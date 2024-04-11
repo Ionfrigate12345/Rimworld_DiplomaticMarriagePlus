@@ -45,14 +45,21 @@
 		\nMay the friendship of {1} and {2} last forever!
 	</DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated>
 	
+	<DMP_PermanentAllianceWarningVIPOnTheMapTitle>Important pawns in our colony</DMP_PermanentAllianceWarningVIPOnTheMapTitle>
+	<DMP_PermanentAllianceWarningVIPOnTheMap>
+		Attention! {1} and/or {2}, which are the key married couple of our permanent alliance with {0}, just appeared on our colony. We need to ensure their safety.
+	</DMP_PermanentAllianceWarningVIPOnTheMap>
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Dad</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Mom</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
 	<!--Settings-->
-	<DMP_Setting_ModName>Diplomatic Marriage and Permanent Alliance</DMP_Setting_ModName>
+	<DMP_Setting_ModName>Diplomatic Marriage +</DMP_Setting_ModName>
 	<DMP_Setting_GoodwillDailyIncreaseBaseValue>The base value of daily goodwill increase</DMP_Setting_GoodwillDailyIncreaseBaseValue>
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>The social skill factor multiplier during daily goodwill increase.</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>Determines AI army strength in various Mod events, affects both ally and enemies. 1 = 100%</DMP_Setting_ThreatMultiplier>
 	<DMP_Setting_FactionConversionChancePerSocialSkill>The daily chance to convert the whole ally faction is increased by this value * the sum of social skills of the couple</DMP_Setting_FactionConversionChancePerSocialSkill>
+	<DMP_Settings_WarningVIPOnTheMap>Popup warning letter when the married couple is on the colony map</DMP_Settings_WarningVIPOnTheMap>
+	<DMP_Settings_WarningVIPOnTheMapDetails>Although events from this mod already come with warning letters, vanilla and other mods may still randomly spawn the VIP couple as regular pawns of the permanently allied NPC faction. This option will warn you once they are on any of your colony map, whatever the reason, so that you know when you need to protect them. The warning popup maximum once per in-game day.</DMP_Settings_WarningVIPOnTheMapDetails>
 	
 </LanguageData>
