@@ -114,12 +114,19 @@ namespace DiplomaticMarriagePlus.Global
                 }
             }
 
-            //再随机生成些事件小人。
-            incidentPawns = Utils.GenerateIncidentPawns(incidentPawnsTotalThreat, faction, map, pawnGroupKindDefOf);
-            foreach (Pawn incidentPawn in incidentPawns)
+            if(incidentPawnsTotalThreat > 0)
             {
-                IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
-                GenSpawn.Spawn(incidentPawn, loc, map, spawnRotation);
+                //再随机生成些事件小人。
+                incidentPawns = Utils.GenerateIncidentPawns(incidentPawnsTotalThreat, faction, map, pawnGroupKindDefOf);
+                foreach (Pawn incidentPawn in incidentPawns)
+                {
+                    IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
+                    GenSpawn.Spawn(incidentPawn, loc, map, spawnRotation);
+                }
+            }
+            else
+            {
+                incidentPawns = new List<Pawn>();
             }
         }
 

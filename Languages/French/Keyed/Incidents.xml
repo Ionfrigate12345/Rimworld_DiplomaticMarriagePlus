@@ -54,7 +54,7 @@
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Maman</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
 	<!--Paramètres-->
-	<DMP_Setting_ModName>Mariage Diplomatique +</DMP_Setting_ModName>
+	<DMP_Setting_ModName>Le Mariage Diplomatique +</DMP_Setting_ModName>
 	<DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>La compétence sociale est multipliée par cette valeur durant le calcul d'augmentation de la relation.</DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor>
 	<DMP_Setting_ThreatMultiplier>Détermine la force de l'armée AI dans divers événements du mod, pour ennemies et allié les deux. 1 = 100%</DMP_Setting_ThreatMultiplier>
 	<DMP_Setting_FactionConversionChancePerSocialSkill>La chance journalière de conversion de la faction alliée est cette valeur * la somme de la compétence sociale du couple</DMP_Setting_FactionConversionChancePerSocialSkill>

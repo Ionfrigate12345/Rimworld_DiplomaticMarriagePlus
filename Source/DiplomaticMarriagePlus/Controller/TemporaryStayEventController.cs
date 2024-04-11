@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DiplomaticMarriagePlus.Global;
 using DiplomaticMarriagePlus.Model;
 using RimWorld;
 using Verse;
@@ -36,11 +37,14 @@ namespace DiplomaticMarriagePlus.Controller
                 return false;
             }
 
-            Faction WithFaction = permanentAlliance.WithFaction;
-            Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
-            Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
-
-            //TODO
+            //如果TemporaryStay尚未初始化，则强制产生思乡病，开始第一轮访问计划。
+            //往后TemporaryStay会自己运行，在一轮访问完成后自己产生下一次思乡病，无需本事件再次启动，直到永久同盟终结。
+            //TODO: 访问期间会有随机的敌对派系袭击。
+            TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
+            if (!temporaryStay.IsInitialized())
+            {
+                temporaryStay.InitializeByForcingFirstNostalgia();
+            }
 
             return true;
 

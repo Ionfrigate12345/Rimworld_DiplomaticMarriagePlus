@@ -59,6 +59,7 @@
     <Compile Include="Model\LordJob\LordJobDefendMarriageLeave.cs" />
     <Compile Include="Model\LordJob\LordJobCaravanRandomVisit.cs" />
     <Compile Include="Model\RandomVisitAllyCaravanRefugeAttack.cs" />
+    <Compile Include="Model\TemporaryStay.cs" />
     <Compile Include="ViewController\ChoiceLetter_DMPProposalViewController.cs" />
     <Compile Include="Controller\ProposalEventController.cs" />
     <Compile Include="Model\PermanentAlliance.cs" />
