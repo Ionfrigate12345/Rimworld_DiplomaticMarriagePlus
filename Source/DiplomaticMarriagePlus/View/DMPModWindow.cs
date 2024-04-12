@@ -28,6 +28,7 @@ namespace DiplomaticMarriagePlus.View
             options.Label($"{"DMP_Setting_FactionConversionChancePerSocialSkill".Translate()}: {settings.factionConversionChancePerSocialSkill.ToStringByStyle(style: ToStringStyle.FloatThree)}");
             settings.factionConversionChancePerSocialSkill = options.Slider(settings.factionConversionChancePerSocialSkill, 0f, 0.2f);
             options.CheckboxLabeled("DMP_Setting_WarningVIPOnTheMap".Translate(), ref settings.warningVIPOnTheMap, "DMP_Setting_WarningVIPOnTheMapDetails".Translate());
+            options.GapLine(15f);
             options.Label($"{"DMP_Setting_TemporaryStayMinimumDaysForNostalgia".Translate()}: {settings.temporaryStayMinimumDaysForNostalgia}");
             settings.temporaryStayMinimumDaysForNostalgia = (int)options.Slider(settings.temporaryStayMinimumDaysForNostalgia, 0, 60);
             options.Label($"{"DMP_Setting_TemporaryStayDailyChanceInitial".Translate()}: {settings.temporaryStayDailyChanceInitial}");

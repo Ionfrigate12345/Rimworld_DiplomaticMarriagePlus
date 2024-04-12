@@ -9,6 +9,118 @@
 	<packageId>Ionfrigate12345.DiplomaticMarriagePlus</packageId>
 	<description>
 	
+WARNING: This mod is still in Beta. I already fixed alot of bugs in my real playthough, but due to the logical complexity, it may still not be bug-free. So consider backing up your save before using it!
+
+
+# Diplomatic Marriage Plus (DMP)
+
+
+This mod is also known as "Diplomacy Marriage & Permanent Alliance". It s heavily inspired by the famous Paradox game - Crusader Kings.
+	
+You can now form a permanent alliance by marrying a child of your colony leader to an important person of one of your ally, making the latter your in-laws family, providing you more help without worrying about goodwill.
+	
+Even if your child no longer belongs to your colony after marriage, they will continue to work on your behalf inside your ally by maintain diplomatic relation, also they will occasionally return to your colony for a while.
+
+
+# Features:
+
+- After your ideology has a leader, if he/she has an adult unmarried child, allied faction with a goodwill of more than 75 will randomly propose marriage.
+- After the marriage is concluded, the child will leave you and join the ally. From then on, according to their social skill, the goodwill with your ally will increase every day (the algorithm can be adjusted in the mod config). As long as the marriage remains active, the goodwill can easily stay as the maximum value of 100 almost all the time. Natural decay can be quickly offset.
+- You can enjoy the various benefits provided by your permanent ally, such as calling caravans and reinforcements, without worrying about the goodwill declining too quickly.
+- Your colonist will spread your ideology inside your ally, even ending up converting the entire faction.
+- After the permanent alliance, there will be some subsequent random events. The ally caravan with the couple among them may randomly come to seek refuge in your colony. In order to keep the alliance, you need to protect the couple at all cost. (FYI: sometimes it wont be easy to protect a pawn not under your control!)
+- Your child will occasionally get homesick and come back to you colony as temporary pawn with their spouse. Think of it as an opportunity to train them skills, give them weapons, armors or implants, so that they will less likely to die in the future battles after returning to the ally. With Biotech DLC you can even make them immortal so that the permanent alliance can last forever.
+
+
+# COMPATIBILITY
+
+This mod does not change any vanilla content, but simply adds a few new random events managed by my own script, so it s highly unlikely to conflict anything.
+However, if you use some mods together, some unexpected effects may occur in some cases. For example:
+- Some of the new memes provided by VE Culture Expansion will forcibly change your ideology leader based on their skills or royalty titles, which may end the permanent alliance.
+- Dynamic Diplomacy will occasionally change the ideology of a certain faction, which may also void your effort of converting your permanent ally (you can turn it off in the options).
+When using mods like these, you need to always be careful not to let them void the conditions of your permanent alliance (see FAQ).
+
+
+# Hard requirement of DLC
+	Ideology
+
+
+# FAQ:
+
+- Isn’t there already a similar feature in More Faction Interactions (MFI) ? Why do you need to make another dedicated mod?
+MFI is a mod that I have been playing for long. I personally love it very much. This mod is also inspired by MFI, which is why I name it Diplomatic Marriage PLUS. Even many of my codes are learned from MFI.
+However, there are too many various events in MFI, and it is impossible to go too deep on a single one. The diplomatic marriage event  in MFI only allows you to sacrifice a random colonist in exchange for a small one-time goodwill boost. Actually it doesn't really worth IMO.
+This mod however is inspired by Paradox game Crusader Kings, which greatly expands the event of diplomatic marriage, giving it a real purpose of forming a permanent union with an NPC faction, making them at your service in long term. In a word, it will give you long-term benefit rather than a small one-time bonus. 
+More importantly, your child leaving you for marriage wont be lost forever like the similar event in MFI. They will still interact with you frequently, making you truly feel that they still belong to you.
+
+- If I use MFI at the same time, will two similar diplomatic marriage events conflict?
+No, I just inspired by MFI, but this mod is 100% standalone. If you have MFI, both diplomatic marriage events may trigger independently.
+
+- Under what circumstances will a permanent alliance expire?
+1. Death of one or both colonists involved in the marriage
+2. The allied faction is destroyed (Impossible in vanilla but it may happen with mods such as Dynamic Diplomacy or Rim War)
+3. Changing your ideology leader. To maintain the alliance, your ideology leader must have parenthood relation with the married pawn. Replacing any unrelated person as new leader will immediately invalidate the permanent alliance. But if the leadership is simply passed from father to mother, or vice versa, it will not be affected.
+4. The goodwill is too low. Even it increases quickly each day, but falling below 0 may still lead to the breakdown of the permanent alliance. So you need to pay special attention to friendly fire when your ally is present, especially if you are a fan of mechs like Diabolus or Centipede.
+
+- What happens after the permanent alliance expires?
+After the permanent alliance expires, depending on the reason, the child of your leader will return alone, die, or stay in the ex permanent ally forever. In addition, if the goodwill is high enough when the permanent alliance expires, they will still stay as your vanilla ally.
+
+- After the permanent alliance expires, can I form a new permanent alliance?
+Yes, as long as the triggering conditions are met, there is no limit of the total number of permanent alliances you can have per game, either with the same faction or a different one. But only one permanent alliance is allowed at a time.
+	
+- Why is my goodwill with the permanent alliance still declining?
+The permanent alliance will not eliminate the natural goodwill decay, nor the goodwill cost for calling reinforcements or caravans etc.. It will only increase the goodwill each day to negate them.
+
+
+# Supported languages:
+At present, I have made versions in three languages (which are also the languages I speak IRL).
+	- Chinese
+	- English
+	- French
+It is absolutely welcomed to translate into more languages, provided you know how to do it in these xml files. but since this mod is still incomplete, the text may still be changed in the future.
+
+
+# Currently known issues:
+- With only Ideology DLC, sometimes mech enemies cannot be generated. But I didn't encounter such issue with Biotech and Royalty DLC active.
+- I dont know what will happen if you start round 2 with Archonexus, for I have no idea how that quest works.
+
+
+# Acknowledgments
+
+This is my first mod of Rimworld. Many thanks to the authors of the following mods:
+
+- More Faction Interactions: Although the diplomatic marriage event is simple, it s where my inspiration comes from to make this mod. At the same time, the source code on github also helped me a lot.
+- Factional War: Thanks to the author's open source and clear comments, by which I learned how to generate NPC armies and order them to fight each other, for this mod also involves the same feature.
+- Dynamic Diplomacy: Thanks also to the author for publishing the source code. I also learned a lot about incident management.
+
+These mods are what I have been playing all the time. Now I like them even more after learning from their source code. Highly recommanded.
+
+I would also like to thank those who helped me in the Discord mod-development channel, they answered some of my technical questions with incredible speed. (Sorry I dont remember your ID for I didn’t ask many questions).
+
+
+# Other recommended MODs:
+
+- Not My Fault: This mod prevents NPC factions from lowering goodwill for some unreasonable causes, especially those which are not your fault (such as an ally's caravan clashing a mechanical cluster on your colony map). It helps reducing the likelihood of unfairly breacking up your permanent alliance.
+- Better Traders: Let NPC traders have more goods and silver to trade, making your permanent ally easier to supply you.
+	
+
+# Follow-up plan:
+
+This mod is far from being complete. The current version is only Beta. I still have a lot of inspirations that have not yet been implemented.
+For example:
+- If the couple dies in battle, allow a grace period to resurrect them before breaking permanent alliance.
+- Furthermore introduce Crusader King elements like Successor War, supressing claims, such as helping your son/daughter in-laws become the leader of your ally and consolidate further the permanent alliance for more benefits.
+- Add more interactions with permanent ally, even including helping allies attack enemies and rule the entire planet (similar to the mod Empire, but instead you dont need to manage so many colonies, but let your ally do it for you)
+- More incidents where two married couples are in danger and seek help, making it  harder to maintain the permanent alliance. (For example, some quests to save two colonists, and making them die if the quest fails, etc.)
+- Provide a way to actively choose a faction for marriage (such as radiostation, or player caravan visiting the NPC settlement, etc.)
+- With Biotech DLC, can the couple become pregnant and have kids? I'm not sure if it's technically feasible for world pawns from other factions.
+- Maybe let you have a rebate from traders of your permanent ally? (I didn't find a way to implement this)
+
+I may not know how to implement some of the above ideas technically, so any suggestion or especially code examples are welcome. 
+If anyone wants to help me improve this mod, you can also make your pull request directly on my github.
+
+Github
+https://github.com/Ionfrigate12345/Rimworld_DiplomaticMarriagePlus
 
 	</description>
 </ModMetaData>

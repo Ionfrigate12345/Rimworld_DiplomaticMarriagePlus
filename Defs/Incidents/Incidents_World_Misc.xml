@@ -9,7 +9,7 @@
 		<workerClass>DiplomaticMarriagePlus.Controller.ProposalEventController</workerClass>
 		<letterLabel>Diplomatic marriage proposal</letterLabel>
 		<letterDef>DiplomaticMarriagePlusProposal</letterDef>
-		<baseChance>10</baseChance>
+		<baseChance>100</baseChance>
 		<earliestDay>0</earliestDay>
 		<minRefireDays>30</minRefireDays>
 	</IncidentDef>
@@ -20,7 +20,7 @@
 			<li>World</li>
 		</targetTags>
 		<workerClass>DiplomaticMarriagePlus.Controller.RandomVisitEventController</workerClass>
-		<baseChance>5</baseChance>
+		<baseChance>20</baseChance>
 		<earliestDay>60</earliestDay>
 		<minRefireDays>30</minRefireDays>
 	</IncidentDef>
