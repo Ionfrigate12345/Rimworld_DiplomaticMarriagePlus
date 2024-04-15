@@ -51,6 +51,7 @@ namespace DiplomaticMarriagePlus.Controller
             List<Pawn> allCaravanPawns = incidentPawns.Concat(couple).ToList();
 
             IntVec3 caravanTargetLoc;
+
             //寻找地图中央附近的封闭区域
             if (!CellFinder.TryRandomClosewalkCellNear(map.Center, map, 20, out caravanTargetLoc))
             {
@@ -61,7 +62,7 @@ namespace DiplomaticMarriagePlus.Controller
             //抵达地点，等待战斗，结束后停留一段时间然后离开
             var lordJobCaravan = new LordJobCaravanRandomVisit(
                 caravanTargetLoc, 
-                GenDate.HoursPerDay * Rand.Range(3, 6) //在战斗结束后再等这么长时间才离开
+                GenDate.HoursPerDay * Rand.Range(6, 12) //在战斗结束后再等这么长时间才离开
                 );
             var lordCaravan = LordMaker.MakeNewLord(WithFaction, lordJobCaravan, map, allCaravanPawns);
 
@@ -105,7 +106,7 @@ namespace DiplomaticMarriagePlus.Controller
             randomVisitCaravanAttack.HostileFactionTriggerNext = randomHostileFaction;
             randomVisitCaravanAttack.MapTriggerNext = map;
             randomVisitCaravanAttack.LordCaravan = lordCaravan;
-            randomVisitCaravanAttack.IsActivatedFlag = true;
+            randomVisitCaravanAttack.IsEventStartedFlag = true;
 
             return false;
         }
