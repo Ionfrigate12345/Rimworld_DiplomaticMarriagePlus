@@ -186,6 +186,7 @@ namespace DiplomaticMarriagePlus.Controller
            return (from x in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonistsAndPrisoners_NoCryptosleep
                                          where !LovePartnerRelationUtility.HasAnyLovePartner(x)
                                          && x.Faction == Faction.OfPlayer
+                                         && !x.IsPrisoner
                                          && x.ageTracker.AgeBiologicalYears >= 18
                                          && ( //被求婚者必须是玩家派系文化领袖的孩子
                                             (x.GetFather() != null && x.GetFather().thingIDNumber == playerFactionLeader.thingIDNumber)

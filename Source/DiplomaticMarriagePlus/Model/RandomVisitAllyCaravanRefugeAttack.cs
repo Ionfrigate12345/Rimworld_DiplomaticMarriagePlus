@@ -16,12 +16,14 @@ namespace DiplomaticMarriagePlus.Model
         private Map _mapTriggerNext;
         private Lord _lordCaravan;
         private bool _onGoingAttackFlag = false;
+        private bool _isActivatedFlag = false;
 
         public int TickTriggerNext { get { return _tickTriggerNext;  } set { _tickTriggerNext = value;  } }
         public Faction HostileFactionTriggerNext { get { return _hostileFactionTriggerNext; } set { _hostileFactionTriggerNext = value;  } }
         public Map MapTriggerNext { get { return _mapTriggerNext; } set { _mapTriggerNext = value; } }
         public Lord LordCaravan { get { return _lordCaravan; } set { _lordCaravan = value; } }
         public bool OnGoingAttackFlag { get { return _onGoingAttackFlag; } set { _onGoingAttackFlag = value; } }
+        public bool IsActivatedFlag { get { return _isActivatedFlag; } set { _isActivatedFlag = value; } }
 
         public RandomVisitAllyCaravanRefugeAttack(World world) : base(world)
         {
@@ -31,6 +33,11 @@ namespace DiplomaticMarriagePlus.Model
         public override void WorldComponentTick()
         {
             base.WorldComponentTick();
+
+            if(!IsActivatedFlag)
+            {
+                return;
+            }
 
             if(!OnGoingAttackFlag && GenTicks.TicksAbs > TickTriggerNext)
             {
@@ -76,6 +83,7 @@ namespace DiplomaticMarriagePlus.Model
                 );
                 Find.LetterStack.ReceiveLetter(@let: letter);
                 Find.TickManager.Pause();
+                _isActivatedFlag = false;
             }
 
             if (OnGoingAttackFlag && GenTicks.TicksAbs % GenDate.TicksPerHour == 0)
@@ -136,6 +144,7 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_References.Look<Map>(ref _mapTriggerNext, "DMP_PermanentAlliance_RandomVisitCaravanAttack_MapTriggerNext");
             Scribe_References.Look<Lord>(ref _lordCaravan, "DMP_PermanentAlliance_RandomVisitCaravanAttack_LordCaravan");
             Scribe_Values.Look<bool>(ref _onGoingAttackFlag, "DMP_PermanentAlliance_RandomVisitCaravanAttack_OnGoingAttackFlag");
+            Scribe_Values.Look<bool>(ref _isActivatedFlag, "DMP_PermanentAlliance_RandomVisitCaravanAttack_IsActivatedFlag");
         }
 
         public string GetUniqueLoadID()

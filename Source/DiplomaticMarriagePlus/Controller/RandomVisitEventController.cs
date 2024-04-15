@@ -105,6 +105,7 @@ namespace DiplomaticMarriagePlus.Controller
             randomVisitCaravanAttack.HostileFactionTriggerNext = randomHostileFaction;
             randomVisitCaravanAttack.MapTriggerNext = map;
             randomVisitCaravanAttack.LordCaravan = lordCaravan;
+            randomVisitCaravanAttack.IsActivatedFlag = true;
 
             return false;
         }
