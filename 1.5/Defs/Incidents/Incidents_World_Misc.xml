@@ -9,7 +9,7 @@
 		<workerClass>DiplomaticMarriagePlus.Controller.ProposalEventController</workerClass>
 		<letterLabel>Diplomatic marriage proposal</letterLabel>
 		<letterDef>DiplomaticMarriagePlusProposal</letterDef>
-		<baseChance>100</baseChance>
+		<baseChance>50</baseChance>
 		<earliestDay>0</earliestDay>
 		<minRefireDays>30</minRefireDays>
 	</IncidentDef>
