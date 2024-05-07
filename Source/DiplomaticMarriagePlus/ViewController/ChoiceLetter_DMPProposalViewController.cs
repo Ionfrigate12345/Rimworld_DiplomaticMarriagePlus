@@ -69,11 +69,21 @@ namespace DiplomaticMarriagePlus.ViewController
 
                             if (PlayerBetrothed.Map != null)
                             {
-                                //求婚者带着NPC的军队等候被求婚者，汇合后举行婚礼，随后离开地图。
+                                //如果小人在地图上，求婚者带着NPC的军队等候被求婚者，汇合后举行婚礼，随后离开地图。
                                 vipPawns.Add(PlayerBetrothed);
 
-                                //汇合点：任意附近的围城点
-                                var stageLoc = RCellFinder.FindSiegePositionFrom(spawnLoc, map);
+                                //附近的汇合点
+                                IntVec3 stageLoc;
+                                try
+                                {
+                                    //寻找附近的围城点。
+                                    stageLoc = RCellFinder.FindSiegePositionFrom(spawnLoc, map, true);
+                                }
+                                catch (Exception ex)
+                                {
+                                    //B方案：寻找地图中央附近随机位置。
+                                    stageLoc = CellFinder.RandomClosewalkCellNear(map.Center, map, 30);
+                                }
                                 var lordJobEscortPlayerBetrothed = new LordJobDefendMarriageLeave(stageLoc, PlayerBetrothed, NpcMarriageSeeker, 7);
                                 var lord1 = LordMaker.MakeNewLord(NpcMarriageSeeker.Faction, lordJobEscortPlayerBetrothed, map, incidentPawns.Concat(vipPawns).ToList());
                             }
@@ -93,6 +103,7 @@ namespace DiplomaticMarriagePlus.ViewController
                             //开始思乡病和回来暂住事件的判定
                             TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
                             temporaryStay.IsRunning = true;
+                            temporaryStay.TickLastTemporaryVisitEnd = GenTicks.TicksAbs; //初始化：结婚离开的日子算为第一次回家暂住结束。
                         }
                     };
                     DiaNode dialogueNodeAccept = new DiaNode(text: "DMP_DiplomaticMarriagePlusProposalAccept".Translate(NpcMarriageSeeker.Faction.Name, PlayerBetrothed.Label, NpcMarriageSeeker.Label).CapitalizeFirst().AdjustedFor(this.NpcMarriageSeeker));

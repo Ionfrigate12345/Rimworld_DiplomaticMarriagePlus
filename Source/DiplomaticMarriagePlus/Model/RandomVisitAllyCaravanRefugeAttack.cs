@@ -46,7 +46,47 @@ namespace DiplomaticMarriagePlus.Model
                 return;
             }
 
-            if(IsEventStartedFlag && !HasOnGoingAttackFlag && GenTicks.TicksAbs > TickTriggerNext)
+            if (IsEventStartedFlag && HasOnGoingAttackFlag)
+            {
+                var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
+
+                //如果永久联盟已失效（通常是夫妇或玩家派系领袖有人在战斗中死亡），则判定为失败。
+                if (permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
+                {
+                    (LordCaravan.LordJob as LordJobCaravanRandomVisit).SetIsConditionMetExit(true);//允许商队离开地图
+                    //HasOnGoingAttackFlag = false;
+                    ClearAllData();
+                    return;
+                }
+
+                //敌人已清理干净。
+                if (!GenHostility.AnyHostileActiveThreatToPlayer(_mapTriggerNext))
+                {
+                    (LordCaravan.LordJob as LordJobCaravanRandomVisit).SetIsConditionMetExit(true);//允许商队离开地图
+                    //HasOnGoingAttackFlag = false;
+
+                    //夫妇的商队离开，感谢信，留下礼物
+                    var textVocabularyPapaOrMama =
+                    ("DMP_PermanentAllianceEventRandomVocabulary_"
+                    + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
+                    ).Translate();
+                    var letter = LetterMaker.MakeLetter(
+                        label: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle".Translate().CapitalizeFirst(),
+                        text: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated".Translate(
+                            textVocabularyPapaOrMama,
+                            Faction.OfPlayer.Name,
+                            permanentAlliance.WithFaction.Name
+                            ).CapitalizeFirst(),
+                        def: LetterDefOf.PositiveEvent,
+                        relatedFaction: permanentAlliance.WithFaction
+                    );
+                    Find.LetterStack.ReceiveLetter(@let: letter);
+
+                    ClearAllData();
+                }
+            }
+
+            if (IsEventStartedFlag && !HasOnGoingAttackFlag && GenTicks.TicksAbs > TickTriggerNext)
             {
                 //触发入侵
                 var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
@@ -54,15 +94,14 @@ namespace DiplomaticMarriagePlus.Model
                 List<Pawn> incidentPawns = new List<Pawn>();
                 IntVec3 stageLoc;
                 Utils.SpawnVIPAndIncidentPawns(
-                MapTriggerNext,
-                HostileFactionTriggerNext,
-                null,
-                Utils.GetRandomThreatPointsByPlayerWealth(MapTriggerNext, Rand.Range(100, 200)),
-                PawnGroupKindDefOf.Combat,
-                out incidentPawns,
-                out stageLoc
+                    MapTriggerNext,
+                    HostileFactionTriggerNext,
+                    null,
+                    Utils.GetRandomThreatPointsByPlayerWealth(MapTriggerNext, Rand.Range(100, 200)),
+                        PawnGroupKindDefOf.Combat,
+                        out incidentPawns,
+                        out stageLoc
                 );
-
 
                 /*int wave = 1;
                 int rand = Rand.Range(0, 100);
@@ -122,45 +161,7 @@ namespace DiplomaticMarriagePlus.Model
                 Find.TickManager.Pause();
             }
 
-            if (IsEventStartedFlag && HasOnGoingAttackFlag)
-            {
-                var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
-
-                //如果永久联盟已失效（通常是夫妇或玩家派系领袖有人在战斗中死亡），则判定为失败。
-                if (permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
-                {
-                    (LordCaravan.LordJob as LordJobCaravanRandomVisit).SetIsConditionMetExit(true);//允许商队离开地图
-                    //HasOnGoingAttackFlag = false;
-                    ClearAllData();
-                    return;
-                }
-
-                //敌人已清理干净。
-                if (!GenHostility.AnyHostileActiveThreatToPlayer(_mapTriggerNext))
-                {
-                    (LordCaravan.LordJob as LordJobCaravanRandomVisit).SetIsConditionMetExit(true);//允许商队离开地图
-                    //HasOnGoingAttackFlag = false;
-
-                    //夫妇的商队离开，感谢信，留下礼物
-                    var textVocabularyPapaOrMama =
-                    ("DMP_PermanentAllianceEventRandomVocabulary_"
-                    + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
-                    ).Translate();
-                    var letter = LetterMaker.MakeLetter(
-                        label: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeatedTitle".Translate().CapitalizeFirst(),
-                        text: "DMP_PermanentAllianceEventRandomVisitCaravanEnemyDefeated".Translate(
-                            textVocabularyPapaOrMama, 
-                            Faction.OfPlayer.Name, 
-                            permanentAlliance.WithFaction.Name
-                            ).CapitalizeFirst(),
-                        def: LetterDefOf.PositiveEvent,
-                        relatedFaction: permanentAlliance.WithFaction
-                    );
-                    Find.LetterStack.ReceiveLetter(@let: letter);
-
-                    ClearAllData();
-                }
-            }
+            
 
         }
 

@@ -136,11 +136,18 @@ namespace DiplomaticMarriagePlus.Model
                 int temporaryStayStartAfterDaysMaximum = DMPModWindow.Instance.settings.temporaryStayStartAfterDaysMaximum;
                 int temporaryStayDurationMinimum = DMPModWindow.Instance.settings.temporaryStayDurationMinimum;
                 int temporaryStayDurationMaximum = DMPModWindow.Instance.settings.temporaryStayDurationMaximum;
-                //每天有一定几率得思乡病。
-                if (TryGetNostalgia()) {
-                    PlanNextVisit(Rand.RangeInclusive(temporaryStayStartAfterDaysMinimum, temporaryStayStartAfterDaysMaximum), 
-                        Rand.RangeInclusive(temporaryStayDurationMinimum, temporaryStayDurationMaximum)
-                        );
+
+                //联姻生效期间，小人如果不在小地图上，则每天有一定几率得思乡病。
+                var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
+                if (permanentAlliance.IsValid() == PermanentAlliance.Validity.VALID 
+                    && permanentAlliance.PlayerBetrothed.Map == null 
+                    ) {
+                    if (TryGetNostalgia())
+                    {
+                        PlanNextVisit(Rand.RangeInclusive(temporaryStayStartAfterDaysMinimum, temporaryStayStartAfterDaysMaximum),
+                            Rand.RangeInclusive(temporaryStayDurationMinimum, temporaryStayDurationMaximum)
+                            );
+                    }
                 }
             }
         }

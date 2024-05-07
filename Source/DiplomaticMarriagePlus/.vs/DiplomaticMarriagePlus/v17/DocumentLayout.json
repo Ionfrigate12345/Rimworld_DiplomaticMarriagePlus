@@ -3,40 +3,32 @@
   "WorkspaceRootPath": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|d:\\onedrive\\games\\rimworldmodsources\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\controller\\randomvisiteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:controller\\randomvisiteventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\viewcontroller\\choiceletter_dmpproposalviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:viewcontroller\\choiceletter_dmpproposalviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\lordjob\\lordjobdefendmarriageleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\lordjob\\lordjobdefendmarriageleave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\randomvisitallycaravanrefugeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\lordjob\\lordjobcaravanrandomvisit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|d:\\onedrive\\games\\rimworldmodsources\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\global\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:global\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|d:\\onedrive\\games\\rimworldmodsources\\diplomaticmarriageplus\\source\\diplomaticmarriageplus\\model\\randomvisitallycaravanrefugeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\randomvisitallycaravanrefugeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\viewcontroller\\choiceletter_dmpproposalviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:viewcontroller\\choiceletter_dmpproposalviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\permanentalliance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\permanentalliance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\view\\dmpmodwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:view\\dmpmodwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\model\\temporarystay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:model\\temporarystay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\controller\\proposaleventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:controller\\proposaleventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\view\\dmpmodwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A681D535-9D46-4B8C-B947-0F3A07944CD9}|DiplomaticMarriagePlus.csproj|solutionrelative:view\\dmpmodwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,40 +38,54 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RandomVisitAllyCaravanRefugeAttack.cs",
+              "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\RandomVisitAllyCaravanRefugeAttack.cs",
+              "RelativeDocumentMoniker": "Model\\RandomVisitAllyCaravanRefugeAttack.cs",
+              "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\RandomVisitAllyCaravanRefugeAttack.cs",
+              "RelativeToolTip": "Model\\RandomVisitAllyCaravanRefugeAttack.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAA8wFcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-07T18:50:01.295Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Global\\Utils.cs",
+              "RelativeDocumentMoniker": "Global\\Utils.cs",
+              "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Global\\Utils.cs",
+              "RelativeToolTip": "Global\\Utils.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAYwGMAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T03:38:35.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LordJobCaravanRandomVisit.cs",
               "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobCaravanRandomVisit.cs",
               "RelativeDocumentMoniker": "Model\\LordJob\\LordJobCaravanRandomVisit.cs",
               "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobCaravanRandomVisit.cs",
               "RelativeToolTip": "Model\\LordJob\\LordJobCaravanRandomVisit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAMAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAxwBUAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-15T21:45:24.043Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RandomVisitAllyCaravanRefugeAttack.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\RandomVisitAllyCaravanRefugeAttack.cs",
-              "RelativeDocumentMoniker": "Model\\RandomVisitAllyCaravanRefugeAttack.cs",
-              "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\RandomVisitAllyCaravanRefugeAttack.cs",
-              "RelativeToolTip": "Model\\RandomVisitAllyCaravanRefugeAttack.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAYwGUAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T21:10:20.493Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "LordJobDefendMarriageLeave.cs",
               "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\LordJob\\LordJobDefendMarriageLeave.cs",
               "RelativeDocumentMoniker": "Model\\LordJob\\LordJobDefendMarriageLeave.cs",
@@ -87,32 +93,21 @@
               "RelativeToolTip": "Model\\LordJob\\LordJobDefendMarriageLeave.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAQwEcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T20:59:01.468Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RandomVisitEventController.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\RandomVisitEventController.cs",
-              "RelativeDocumentMoniker": "Controller\\RandomVisitEventController.cs",
-              "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\RandomVisitEventController.cs",
-              "RelativeToolTip": "Controller\\RandomVisitEventController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAewDUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T19:08:27.163Z",
+              "WhenOpened": "2024-04-15T20:59:01.468Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ChoiceLetter_DMPProposalViewController.cs",
               "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\ViewController\\ChoiceLetter_DMPProposalViewController.cs",
               "RelativeDocumentMoniker": "ViewController\\ChoiceLetter_DMPProposalViewController.cs",
               "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\ViewController\\ChoiceLetter_DMPProposalViewController.cs",
               "RelativeToolTip": "ViewController\\ChoiceLetter_DMPProposalViewController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAmwEIAAAAxAAAA",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAAAF4AAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T02:37:09.683Z"
+              "WhenOpened": "2024-04-10T02:37:09.683Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -122,45 +117,23 @@
               "RelativeDocumentMoniker": "View\\DMPModWindow.cs",
               "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\View\\DMPModWindow.cs",
               "RelativeToolTip": "View\\DMPModWindow.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAwB0AAACoAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwB0AAACoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T23:16:22.3Z"
+              "WhenOpened": "2024-04-09T23:16:22.3Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "TemporaryStay.cs",
               "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\TemporaryStay.cs",
               "RelativeDocumentMoniker": "Model\\TemporaryStay.cs",
               "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\TemporaryStay.cs",
               "RelativeToolTip": "Model\\TemporaryStay.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAowF8AAAA+AAAA",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAcwJEAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T01:55:53.094Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PermanentAlliance.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\PermanentAlliance.cs",
-              "RelativeDocumentMoniker": "Model\\PermanentAlliance.cs",
-              "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Model\\PermanentAlliance.cs",
-              "RelativeToolTip": "Model\\PermanentAlliance.cs",
-              "ViewState": "AQIAAH8AAAAAAAAAAAAvwDcBAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T02:53:39.329Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProposalEventController.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\ProposalEventController.cs",
-              "RelativeDocumentMoniker": "Controller\\ProposalEventController.cs",
-              "ToolTip": "D:\\OneDrive\\Games\\RimworldModSources\\DiplomaticMarriagePlus\\Source\\DiplomaticMarriagePlus\\Controller\\ProposalEventController.cs",
-              "RelativeToolTip": "Controller\\ProposalEventController.cs",
-              "ViewState": "AQIAAKoAAAAAAAAAAADwv7wAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T22:38:09.29Z"
+              "WhenOpened": "2024-04-11T01:55:53.094Z",
+              "EditorCaption": ""
             }
           ]
         }

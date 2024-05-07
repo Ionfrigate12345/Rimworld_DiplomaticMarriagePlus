@@ -22,28 +22,17 @@ namespace DiplomaticMarriagePlus.Global
                 );
         }
 
-        //找出玩家派系领袖。如果玩家派系没有领袖（通常都是这种情况），则返回玩家文化领袖。如果都找不到则返回NULL。
+        //找出玩家派系领袖（文化领袖）。如果找不到则返回NULL。
         public static Pawn GetPlayerFactionLeader()
         {
-            Pawn playerFactionLeader = Faction.OfPlayer.leader;
-            if (playerFactionLeader == null)
+            foreach (Precept_Role role in Faction.OfPlayer.ideos.PrimaryIdeo.RolesListForReading)
             {
-                foreach (Precept_Role role in Faction.OfPlayer.ideos.PrimaryIdeo.RolesListForReading)
+                if (role.def.leaderRole)
                 {
-                    if (role.def.leaderRole)
-                    {
-                        playerFactionLeader = role.ChosenPawnSingle();
-                        return playerFactionLeader;
-                    }
+                    return role.ChosenPawnSingle();
                 }
-                    
-                return null;
             }
-            else
-            {
-                return playerFactionLeader;
-            }
-
+            return null;
         }
 
         //生成单个小人。Null参数代表该属性随机，或默认值
