@@ -94,13 +94,13 @@ namespace DiplomaticMarriagePlus.Global
             //stageLoc = RCellFinder.FindSiegePositionFrom(map.Center, map);
 
             var spawnRotation = Rot4.FromAngleFlat((map.Center - stageLoc).AngleFlat);
-
-            IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
+            
             //把VIP小人放到地图上
             if (vipPawns != null)
             {
                 foreach (Pawn vipPawn in vipPawns)
                 {
+                    IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
                     GenSpawn.Spawn(vipPawn, loc, map, spawnRotation);
                 }
             }
@@ -111,6 +111,7 @@ namespace DiplomaticMarriagePlus.Global
                 incidentPawns = Utils.GenerateIncidentPawns(incidentPawnsTotalThreat, faction, map, pawnGroupKindDefOf);
                 foreach (Pawn incidentPawn in incidentPawns)
                 {
+                    IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
                     GenSpawn.Spawn(incidentPawn, loc, map, spawnRotation);
                 }
             }
