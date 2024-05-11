@@ -90,7 +90,10 @@ namespace DiplomaticMarriagePlus.Global
             out IntVec3 stageLoc
             )
         {
-            stageLoc = CellFinder.RandomEdgeCell(map);
+            if (!RCellFinder.TryFindRandomPawnEntryCell(out stageLoc, map, CellFinder.EdgeRoadChance_Neutral))
+            {
+                stageLoc = CellFinder.RandomEdgeCell(map);
+            }
             //stageLoc = RCellFinder.FindSiegePositionFrom(map.Center, map);
 
             var spawnRotation = Rot4.FromAngleFlat((map.Center - stageLoc).AngleFlat);
