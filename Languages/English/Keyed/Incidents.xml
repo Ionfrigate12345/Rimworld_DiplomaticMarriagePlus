@@ -29,6 +29,12 @@
 	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>Due to the destruction of {0}, the permanent alliance has ended. Unfortunately, both {1} and {2} have died in the war.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>
 	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>As our leader has been replaced by {3}, who is not the parent of {1}, {0} no longer sees us as a reliable permanent alliance. However, {0} still keep {1} and {2} to continue living among them.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>
 	
+	<DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>Warning: Wrong Faction Detected for Key Pawn of Diplomatic Marriage</DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>
+	<DMP_PermanentAllianceVIPUnexpectedFactionWarning>
+		It has been detected that the key pawn {0}, on whom the permanent alliance with {1} depends, does not belong to the supposed allied faction {1}, but instead to the faction {2}, and he/she is not in the temporary stay event. This is unexpected, so their faction has been forcibly corrected.
+		\nWarning: During the permanent alliance, unless for the temporary home visit, in no way you should attempt to imprison or recruit anyone of the key couple, whether through the vanilla game, dev mode, or by other mods (such as Hospitality). Doing so may completely break this mod (Diplomatic Marriage and Permanent Alliance)!
+	</DMP_PermanentAllianceVIPUnexpectedFactionWarning>
+
 	<DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>Help Request from Kin Ally Caravan</DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>
 	<DMP_PermanentAllianceEventRandomVisitCaravanArrive>
 		{0}, this is {1}. {2} and I are in a caravan from {3}, but {4} is attempting to ambush us. They outnumber us, so we had to retreat to your colony for refuge.

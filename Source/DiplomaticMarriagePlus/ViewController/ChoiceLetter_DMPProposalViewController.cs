@@ -37,8 +37,6 @@ namespace DiplomaticMarriagePlus.ViewController
                     {
                         action = () =>
                         {
-                            //TODO: 如果玩家方的小人是玩家派系的领袖该怎么处理？是否应该反过来让NPC阵营的配偶来投靠玩家？
-
                             //如果玩家方的小人是派系领袖的子女，则结成永久同盟。
                             permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
                             permanentAlliance.PlayerFactionLeader = PlayerFactionLeader;

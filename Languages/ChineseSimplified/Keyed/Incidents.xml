@@ -30,6 +30,12 @@
 	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>由于{0}整个派系已被摧毁，永久同盟失效。更不幸的是，{1}和{2}都已死于战火。</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>
 	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>由于我方领袖换成了{3}，却不是{1}的父母，{0}因此不再视我们为可靠的永久同盟。但{0}依然收留了{1}和{2}继续在他们中生活。</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>
 	
+	<DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>联姻关键人物所属阵营错误警告</DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>
+	<DMP_PermanentAllianceVIPUnexpectedFactionWarning>
+		检测到和{1}的永久同盟所依赖的关键人物{0}不属于联姻阵营{1}，而属于阵营{2}，同时也非处于回家暂住状态。此非正常情况，已强制修正其阵营。
+		\n警告：在永久同盟生效期间，除了回家暂住状态外，请不要试图用任何方式囚禁或招募两位联姻关键人物，无论是原版，控制台还是其它mod（如访客接待Hospitality）。否则可能会导致本Mod《外交婚姻和永久同盟》无法正常运行！
+	</DMP_PermanentAllianceVIPUnexpectedFactionWarning>
+	
 	<DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>来自姻亲盟友商队的求助</DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>
 	<DMP_PermanentAllianceEventRandomVisitCaravanArrive>
 		{0}，我是{1}。我和{2}在{3}的商队中，但{4}试图截杀我们。他们数量太多，我们不得不撤到你的殖民地避难。

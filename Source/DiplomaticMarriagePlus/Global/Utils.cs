@@ -73,13 +73,17 @@ namespace DiplomaticMarriagePlus.Global
 
         public static void SpawnOnePawn(Map map, Pawn pawn)
         {
-            var stageLoc = RCellFinder.FindSiegePositionFrom(map.Center, map);
+            IntVec3 stageLoc;
+            if (!RCellFinder.TryFindRandomPawnEntryCell(out stageLoc, map, CellFinder.EdgeRoadChance_Neutral))
+            {
+                stageLoc = RCellFinder.FindSiegePositionFrom(map.Center, map);
+            }
             IntVec3 loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
-            loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, 6);
             var spawnRotation = Rot4.FromAngleFlat((map.Center - stageLoc).AngleFlat);
             GenSpawn.Spawn(pawn, loc, map, spawnRotation);
         }
 
+        //生成小人。vipPawns是必定会出现的小人，而incidentPawns则是根据给定的威胁点数随机生成
         public static void SpawnVIPAndIncidentPawns (
             Map map, 
             Faction faction, 

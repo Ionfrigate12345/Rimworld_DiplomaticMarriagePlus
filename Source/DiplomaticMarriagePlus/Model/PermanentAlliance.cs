@@ -161,13 +161,38 @@ namespace DiplomaticMarriagePlus.Model
             }
             else if (validity == Validity.VALID)
             {
-                //强制夫妇都属于NPC阵营（除了回归玩家阵营暂住期间），这是为了防止有些mod把两个关键小人弄到第三方阵营。
-                if (PlayerBetrothed.Faction != WithFaction && PlayerBetrothed.Faction != Faction.OfPlayer)
+                //强制夫妇都属于NPC阵营（除了回归玩家阵营暂住期间），这是为了防止两个关键小人被玩家通过其它mod或方式招募，或弄到第三方阵营。
+
+                var temporaryStay = Find.World.GetComponent<TemporaryStay>();
+
+                if (PlayerBetrothed.Faction != WithFaction
+                    &&
+                    (temporaryStay.IsRunning == false || temporaryStay.IsCurrentlyOnVisit == false)
+                    )
                 {
+                    String text = "DMP_PermanentAllianceVIPUnexpectedFactionWarning";
+                    var letter = LetterMaker.MakeLetter(
+                            label: "DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle".Translate().CapitalizeFirst(),
+                            text: text.Translate(PlayerBetrothed.Label, WithFaction.Name, PlayerBetrothed.Faction.Name).CapitalizeFirst(),
+                            def: LetterDefOf.NegativeEvent,
+                            relatedFaction: WithFaction
+                            );
+                    Find.LetterStack.ReceiveLetter(@let: letter);
                     PlayerBetrothed.SetFaction(newFaction: WithFaction);
                 }
-                if (NpcMarriageSeeker.Faction != WithFaction && PlayerBetrothed.Faction != Faction.OfPlayer)
+                if (NpcMarriageSeeker.Faction != WithFaction
+                    &&
+                    (temporaryStay.IsRunning == false || temporaryStay.IsCurrentlyOnVisit == false)
+                    )
                 {
+                    String text = "DMP_PermanentAllianceVIPUnexpectedFactionWarning";
+                    var letter = LetterMaker.MakeLetter(
+                            label: "DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle".Translate().CapitalizeFirst(),
+                            text: text.Translate(NpcMarriageSeeker.Label, WithFaction.Name, NpcMarriageSeeker.Faction.Name).CapitalizeFirst(),
+                            def: LetterDefOf.NegativeEvent,
+                            relatedFaction: WithFaction
+                            );
+                    Find.LetterStack.ReceiveLetter(@let: letter);
                     NpcMarriageSeeker.SetFaction(newFaction: WithFaction);
                 }
             }

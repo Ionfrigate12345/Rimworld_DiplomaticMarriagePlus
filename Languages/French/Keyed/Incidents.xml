@@ -29,6 +29,12 @@
 	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>En raison de la destruction de la faction {0}, l'alliance permanente a pris fin. Malheureusement, {1} et {2} sont tous morts dans la guerre.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_FACTION_DEFEATED>
 	<DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>Comme notre dirigeant(e) a été remplacé(e) par {3}, qui n'est pas le parent de {1}, {0} ne nous considère plus comme une alliance permanente fiable. Cependant, {0} continuera d'accueillir {1} et {2} pour qu'ils vivrent parmi eux.</DMP_PermanentAllianceEventAllianceEnded_Reason_INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED>
 	
+	<DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>Avertissement : Le personnage important du mariage diplomatique n'a pas la bonne faction</DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>
+	<DMP_PermanentAllianceVIPUnexpectedFactionWarning>
+		Il a été détecté que le personnage {0}, dont l'alliance permanente avec {1} dépend, n'appartient pas à la faction alliée supposée {1}, mais à la faction {2}, et il/elle n'est pas dans l'événement de séjour temporaire. C'est un cas inattendu, donc sa faction a été corrigée de force.
+		\nRemarque : Pendant une alliance permanente, à moins pour la visite temporaire, vous ne devez jamais tenter d'emprisonner ou de recruter l'un des membres du couple clé du mariage diplomatique, que ce soit par le jeu vanilla, le mode dév ou par d'autres mods (comme Hospitality). En faisant cela il risque de mettre ce mod (Mariage Diplomatique et Alliance Permanente) en tout désordre!
+	</DMP_PermanentAllianceVIPUnexpectedFactionWarning>
+	
 	<DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>Au secours de la Caravane Alliée</DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>
 	<DMP_PermanentAllianceEventRandomVisitCaravanArrive>
 		{0}, ici {1}. {2} et moi sommes dans une caravane venant de {3}, mais {4} tente de nous tendre une embuscade. Ils sont en surnombre, donc nous avons dû nous réfugier dans votre colonie.
