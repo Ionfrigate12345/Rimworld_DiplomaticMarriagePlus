@@ -93,42 +93,32 @@ namespace DiplomaticMarriagePlus.Model
 
                 List<Pawn> incidentPawns = new List<Pawn>();
                 IntVec3 stageLoc;
-                Utils.SpawnVIPAndIncidentPawns(
-                    MapTriggerNext,
-                    HostileFactionTriggerNext,
-                    null,
-                    Utils.GetRandomThreatPointsByPlayerWealth(MapTriggerNext, Rand.Range(100, 200)),
-                        PawnGroupKindDefOf.Combat,
-                        out incidentPawns,
-                        out stageLoc
-                );
 
-                /*int wave = 1;
+                int wave = 3;//默认3波敌兵
                 int rand = Rand.Range(0, 100);
-                if (rand < 30)
+                if (rand < 20) //20%概率4波兵
                 {
-                    wave = 3;
+                    wave = 5;
                 }
-                else if (rand < 60)
+                else if (rand < 60) //60%-20%=40%概率4波兵
                 {
-                    wave = 2;
+                    wave = 4;
                 }
                 while(wave > 0)
                 {
-                    IntVec3 stageLoc;
-                    List<Pawn> incidentPawnsWave;
-                    wave--;
+                    List<Pawn> incidentPawnsWave = new List<Pawn>();
                     Utils.SpawnVIPAndIncidentPawns(
-                    MapTriggerNext,
-                    HostileFactionTriggerNext,
-                    null,
-                    Utils.GetRandomThreatPointsByPlayerWealth(MapTriggerNext, Rand.Range(100, 200)),
-                    PawnGroupKindDefOf.Combat,
-                    out incidentPawnsWave,
-                    out stageLoc
+                        MapTriggerNext,
+                        HostileFactionTriggerNext,
+                        null,
+                        Utils.GetRandomThreatPointsByPlayerWealth(MapTriggerNext, Rand.Range(100, 200)),
+                        PawnGroupKindDefOf.Combat,
+                        out incidentPawnsWave,
+                        out stageLoc
                     );
                     incidentPawns.Concat(incidentPawnsWave).ToList();
-                }*/
+                    wave--;
+                }
 
                 //攻击目标为两个关键小人夫妇。
                 List<Thing> caravanPawnsThings = new List<Thing>
