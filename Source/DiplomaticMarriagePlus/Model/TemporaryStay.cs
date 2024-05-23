@@ -64,6 +64,12 @@ namespace DiplomaticMarriagePlus.Model
                     Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
                     Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
 
+                    if (playerBetrothed.Map != null || npcMarriageSeeker.Map != null)
+                    {
+                        //如果二人中任何一人当前在小地图上，则无法触发
+                        return;
+                    }
+
                     List<Pawn> couple = new List<Pawn>();
                     couple.Add(playerBetrothed);
                     couple.Add(npcMarriageSeeker);

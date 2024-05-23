@@ -37,6 +37,14 @@ namespace DiplomaticMarriagePlus.Controller
             }
 
             Map map = TradeUtility.PlayerHomeMapWithMostLaunchableSilver();
+
+            if (GenHostility.AnyHostileActiveThreatToPlayer(map))
+            {
+                Log.Warning("Random visit event aborted: The player colony has hostile raiders");
+                //地图上有敌人时无法触发
+                return false;
+            }
+
             Faction WithFaction = permanentAlliance.WithFaction;
             Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
             Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;

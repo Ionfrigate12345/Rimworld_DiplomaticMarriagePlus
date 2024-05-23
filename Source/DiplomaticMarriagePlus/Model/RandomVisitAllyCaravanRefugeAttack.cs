@@ -160,9 +160,6 @@ namespace DiplomaticMarriagePlus.Model
                 Find.LetterStack.ReceiveLetter(@let: letter);
                 Find.TickManager.Pause();
             }
-
-            
-
         }
 
         private void ClearAllData()
