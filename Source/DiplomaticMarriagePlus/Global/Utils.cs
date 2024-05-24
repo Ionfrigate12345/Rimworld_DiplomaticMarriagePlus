@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DiplomaticMarriagePlus.Model;
 using DiplomaticMarriagePlus.View;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.Noise;
@@ -144,6 +145,34 @@ namespace DiplomaticMarriagePlus.Global
                 * DMPModWindow.Instance.settings.threatMultiplier //玩家mod设置，范围为0.5 - 5.0。
                 ;
             return Math.Min((int)threat, 10000);
+        }
+
+        //获取玩家财富值最高的地图。SOS2的太空地图会被排除。
+        public static Map GetPlayerMainColonyMapSOS2Excluded()
+        {
+            var allPlayerHomes = (from x in Find.Maps
+                                  where x.IsPlayerHome
+                                  select x).ToList();
+
+            var allNonSpaceMaps = new List<Map>();
+            foreach (var map in allPlayerHomes)
+            {
+                var traverse = Traverse.Create(map);
+                var isSpaceMethod = traverse.Method("IsSpace");
+                if (isSpaceMethod.MethodExists() && (bool)isSpaceMethod.GetValue())
+                {
+                    //SOS2安装了且是太空图
+                    continue;
+                }
+                allNonSpaceMaps.Add(map);
+            }
+
+            if (!allNonSpaceMaps.Any())
+            {
+                return null;
+            }
+
+            return allNonSpaceMaps.OrderByDescending(map => map.PlayerWealthForStoryteller).First();
         }
     }
 }

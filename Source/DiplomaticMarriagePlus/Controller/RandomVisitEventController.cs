@@ -36,7 +36,13 @@ namespace DiplomaticMarriagePlus.Controller
                 return false;
             }
 
-            Map map = TradeUtility.PlayerHomeMapWithMostLaunchableSilver();
+            Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+            if(map == null) 
+            {
+                Log.Warning("Random visit event aborted: The player doesnt have a valid non-SOS2 colony");
+                //玩家没有非SOS2主基地
+                return false;
+            }
 
             if (GenHostility.AnyHostileActiveThreatToPlayer(map))
             {

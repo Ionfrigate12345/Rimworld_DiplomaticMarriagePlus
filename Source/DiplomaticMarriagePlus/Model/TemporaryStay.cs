@@ -45,7 +45,12 @@ namespace DiplomaticMarriagePlus.Model
             {
                 if(_isReadyForNextVisit && IsCurrentlyTimeForVisit())
                 {
-                    Map map = TradeUtility.PlayerHomeMapWithMostLaunchableSilver();
+                    Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+                    if(map == null)
+                    {
+                        //如果没有合适的小地图
+                        return;
+                    }
                     if (GenHostility.AnyHostileActiveThreatToPlayer(map))
                     {
                         //如果此刻地图上有敌人则无法触发。
@@ -66,7 +71,7 @@ namespace DiplomaticMarriagePlus.Model
 
                     if (playerBetrothed.Map != null || npcMarriageSeeker.Map != null)
                     {
-                        //如果二人中任何一人当前在小地图上，则无法触发
+                        //如果二人中任何一人当前在任何小地图上，则无法触发
                         return;
                     }
 

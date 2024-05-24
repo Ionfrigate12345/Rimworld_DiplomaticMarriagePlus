@@ -65,10 +65,10 @@ namespace DiplomaticMarriagePlus.Controller
                 Log.Warning(text: "DMP warning: Player faction has no leader or ideology leader. Proposal aborted.");
                 return false;
             }
-            if (playerFactionLeader.Map == null)
+            if (Utils.GetPlayerMainColonyMapSOS2Excluded() == null)
             {
-                //玩家派系领袖不在小地图上
-                Log.Warning(text: "DMP warning: Player faction leader is not on the colony map. Proposal aborted.");
+                //玩家没有小地图
+                Log.Warning(text: "DMP warning: Player faction has no available colony map. Proposal aborted.");
                 return false;
             }
             if (!TryFindBetrothed(out playerBetrothed))

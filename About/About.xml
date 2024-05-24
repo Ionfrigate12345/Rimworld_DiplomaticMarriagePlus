@@ -6,6 +6,16 @@
 		<li>1.5</li>
 	</supportedVersions>
 	<packageId>Ionfrigate12345.DiplomaticMarriagePlus</packageId>
+	<modDependenciesByVersion>
+		<v1.5>
+			<li>
+				<packageId>brrainz.harmony</packageId>
+				<displayName>Harmony</displayName>
+				<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+				<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			</li>
+		</v1.5>
+	</modDependenciesByVersion>
 	<description>This mod, also known as Diplomatic Marriage Plus or DMP, is heavily inspired by the famous Paradox game - Crusader Kings. It's also inspired by the Diplomatic Marriage event in the mod More Faction Interactions as a starting point, which is also why I call this mod Diplomatic Marriage "Plus".
 	\nFeatures:
 	\nYou can now form a permanent alliance by marrying a child of your colony leader to an important person of one of your ally, making the latter your in-laws family, providing you more help without worrying about goodwill decay. But in return you need to protect the key couple from all random dangers to keep the alliance active (any death will result in immediate breakup, just like how it works in CK).

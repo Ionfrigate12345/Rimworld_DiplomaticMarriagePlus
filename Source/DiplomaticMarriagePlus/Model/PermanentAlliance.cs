@@ -209,8 +209,8 @@ namespace DiplomaticMarriagePlus.Model
                     PlayerBetrothed.SetFaction(Faction.OfPlayer);
                     if (PlayerBetrothed.Map == null)
                     {
-                        //如果此时小人在地图外，把小人生成到玩家可交易货币最多的地图（通常也是主殖民地）
-                        Map map = TradeUtility.PlayerHomeMapWithMostLaunchableSilver();
+                        Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+                        //如果此时小人在地图外，把小人生成到玩家主基地
                         Utils.SpawnOnePawn(map, PlayerBetrothed);
                     }
                 }

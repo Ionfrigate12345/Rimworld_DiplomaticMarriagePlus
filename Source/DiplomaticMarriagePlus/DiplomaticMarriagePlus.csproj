@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\SteamLibrary\steamapps\workshop\content\294100\2009463077\1.4\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>C:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -50,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\RandomVisitEventController.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Model\DMPModSettings.cs" />
     <Compile Include="Model\LordJob\LordJobDefendMarriageLeave.cs" />
     <Compile Include="Model\LordJob\LordJobCaravanRandomVisit.cs" />
