@@ -147,6 +147,18 @@ namespace DiplomaticMarriagePlus.Global
             return Math.Min((int)threat, 10000);
         }
 
+        //判断该地图是否为SOS2的太空地图。
+        public static bool IsSOS2SpaceMap(Map map)
+        {
+            var traverse = Traverse.Create(map);
+            var isSpaceMethod = traverse.Method("IsSpace");
+            if (isSpaceMethod.MethodExists() && (bool)isSpaceMethod.GetValue())
+            {
+                return true;
+            }
+            return false;
+        }
+
         //获取玩家财富值最高的地图。SOS2的太空地图会被排除。
         public static Map GetPlayerMainColonyMapSOS2Excluded()
         {
@@ -157,14 +169,10 @@ namespace DiplomaticMarriagePlus.Global
             var allNonSpaceMaps = new List<Map>();
             foreach (var map in allPlayerHomes)
             {
-                var traverse = Traverse.Create(map);
-                var isSpaceMethod = traverse.Method("IsSpace");
-                if (isSpaceMethod.MethodExists() && (bool)isSpaceMethod.GetValue())
+                if (IsSOS2SpaceMap(map) == false)
                 {
-                    //SOS2安装了且是太空图
-                    continue;
+                    allNonSpaceMaps.Add(map);
                 }
-                allNonSpaceMaps.Add(map);
             }
 
             if (!allNonSpaceMaps.Any())
