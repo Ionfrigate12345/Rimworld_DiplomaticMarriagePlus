@@ -156,6 +156,10 @@ namespace DiplomaticMarriagePlus.Global
             {
                 return true;
             }
+            else if (map.Biome.defName.Contains("OuterSpace"))
+            {
+                return true;
+            }
             return false;
         }
 
