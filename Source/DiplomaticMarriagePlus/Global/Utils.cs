@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using DiplomaticMarriagePlus.Model;
 using DiplomaticMarriagePlus.View;
 using HarmonyLib;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 using Verse.Noise;
 
@@ -185,6 +187,28 @@ namespace DiplomaticMarriagePlus.Global
             }
 
             return allNonSpaceMaps.OrderByDescending(map => map.PlayerWealthForStoryteller).First();
+        }
+
+        public static Map GetPlayerMainColonyMap()
+        {
+            var allPlayerHomes = (from x in Find.Maps
+                                  where x.IsPlayerHome
+                                  select x).ToList();
+
+            return allPlayerHomes.OrderByDescending(map => map.PlayerWealthForStoryteller).First();
+        }
+
+        public static bool RunIncident(IncidentDef incidentDef)
+        {
+            var incidentParms = StorytellerUtility.DefaultParmsNow(incidentDef.category, Find.World);
+            if (incidentDef.pointsScaleable)
+            {
+                var storytellerComp = Find.Storyteller.storytellerComps.First(comp =>
+                    comp is StorytellerComp_OnOffCycle || comp is StorytellerComp_RandomMain);
+                incidentParms = storytellerComp.GenerateParms(incidentDef.category, incidentParms.target);
+            }
+
+            return incidentDef.Worker.TryExecute(incidentParms);
         }
     }
 }

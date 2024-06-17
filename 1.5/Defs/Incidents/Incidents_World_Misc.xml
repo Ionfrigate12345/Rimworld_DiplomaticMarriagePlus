@@ -20,8 +20,19 @@
 			<li>World</li>
 		</targetTags>
 		<workerClass>DiplomaticMarriagePlus.Controller.RandomVisitEventController</workerClass>
-		<baseChance>20</baseChance>
+		<baseChance>2</baseChance>
 		<earliestDay>60</earliestDay>
 		<minRefireDays>30</minRefireDays>
+	</IncidentDef>
+	<IncidentDef>
+		<defName>DMP_Rimcities_PACombinedAssault</defName>
+		<category>Misc</category>
+		<targetTags>
+			<li>World</li>
+		</targetTags>
+		<workerClass>DiplomaticMarriagePlus.Controller.Rimcities_PACombinedAssaultEventController</workerClass>
+		<baseChance>2</baseChance>
+		<earliestDay>0</earliestDay>
+		<minRefireDays>7</minRefireDays>
 	</IncidentDef>
 </Defs>

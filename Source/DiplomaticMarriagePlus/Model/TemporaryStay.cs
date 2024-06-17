@@ -43,14 +43,14 @@ namespace DiplomaticMarriagePlus.Model
 
             if (GenTicks.TicksAbs % (GenDate.TicksPerHour * 3) == 0)
             {
-                if(_isReadyForNextVisit && IsCurrentlyTimeForVisit())
+                Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+                if (map == null)
                 {
-                    Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
-                    if(map == null)
-                    {
-                        //如果没有合适的小地图
-                        return;
-                    }
+                    //如果没有合适的小地图
+                    return;
+                }
+                if (_isReadyForNextVisit && IsCurrentlyTimeForVisit())
+                {
                     if (GenHostility.AnyHostileActiveThreatToPlayer(map))
                     {
                         //如果此刻地图上有敌人则无法触发。
@@ -176,6 +176,13 @@ namespace DiplomaticMarriagePlus.Model
             if (_isCurrentlyOnVisit) 
             {
                 //目前正在访问中
+                return false;
+            }
+
+            Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+            if (map == null)
+            {
+                //如果没有合适的小地图
                 return false;
             }
 

@@ -56,21 +56,26 @@
 		Attention! {1} and/or {2}, which are the key married couple of our permanent alliance with {0}, just appeared on our colony. We need to ensure their safety.
 	</DMP_PermanentAllianceWarningVIPOnTheMap>
 	
-	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>Nostalgia of {0}</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>Nostalgia from permanent ally</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
 	<DMP_PermanentAllianceEventTemporaryStayPlanVisit>
 		{1}, after spending so long in {0}, I'm starting to miss home. I'd like to come back for a temporary stay. {0} has agreed to let us leave for a while, and {2} will also accompany me.
 		\nWe expect to arrive in about {3} days, and we'll stay for approximately {4} days.
 	</DMP_PermanentAllianceEventTemporaryStayPlanVisit>
 	
-	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>{0} and {1} have Arrived</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
+	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>Married couple arriving</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
 	<DMP_PermanentAllianceEventTemporaryStayArrival>
 		{0}, we have arrived safely. We will temporarily follow your commands during this period.
 	</DMP_PermanentAllianceEventTemporaryStayArrival>
 	
-	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>{0} and {1} Depart</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
+	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>Married couple leaving</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
 	<DMP_PermanentAllianceEventTemporaryStayDeparture>
 		{1}, it's time for us to return to {0}. Thank you for your hospitality during this time. See you next time!
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
+	
+	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>Permanent ally assaulting city</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
+	<DMP_PermanentAllianceEventRimcitiesAssault>
+		{0}, I'm {1}. We {2} are planning an assault against the large city {4} of our enemy {3}. We need your help.
+	</DMP_PermanentAllianceEventRimcitiesAssault>
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Dad</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Mom</DMP_PermanentAllianceEventRandomVocabulary_Mother>

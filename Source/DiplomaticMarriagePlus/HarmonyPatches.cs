@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using System;
+using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace DiplomaticMarriagePlus
@@ -11,7 +13,7 @@ namespace DiplomaticMarriagePlus
 
         static HarmonyPatches()
         {
-            _harmonyInstance = new Harmony("com.ionfrigate12345.diplomaticmarriageplus.saveourships2.filterspacemap");
+            _harmonyInstance = new Harmony("com.ionfrigate12345.diplomaticmarriageplus");
             _harmonyInstance.PatchAll();
         }
     }

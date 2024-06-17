@@ -58,22 +58,26 @@
 	</DMP_PermanentAllianceWarningVIPOnTheMap>
 	
 	
-	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>来自{0}的思念</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>来自永久同盟的思念</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
 	<DMP_PermanentAllianceEventTemporaryStayPlanVisit>
 		{1}，在{0}这么长时间，我有点想家，想回来住一段时间。{0}已经同意我们离开一段时间，{2}也准备和我一起来。
 		\n我们{3}天后抵达，并且呆{4}天。
 	</DMP_PermanentAllianceEventTemporaryStayPlanVisit>
 	
-	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>{0}和{1}已抵达</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
+	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>联姻夫妇已抵达</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
 	<DMP_PermanentAllianceEventTemporaryStayArrival>
 		{0}，我们已经安全抵达。这段时间内我们都会听从你的命令。
 	</DMP_PermanentAllianceEventTemporaryStayArrival>
 	
-	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>{0}和{1}离开</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
+	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>联姻夫妇离开</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
 	<DMP_PermanentAllianceEventTemporaryStayDeparture>
 		{1}，时间到了，我们要返回{0}了。感谢这段时间的招待。下次再见！
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
 	
+	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>永久同盟请求帮助攻打城市</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
+	<DMP_PermanentAllianceEventRimcitiesAssault>
+		{0}，我是{1}。我们{2}准备攻打{3}的大城市{4}，需要你的帮助。
+	</DMP_PermanentAllianceEventRimcitiesAssault>
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>爸爸</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>妈妈</DMP_PermanentAllianceEventRandomVocabulary_Mother>

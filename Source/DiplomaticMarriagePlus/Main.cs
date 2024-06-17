@@ -11,9 +11,26 @@ namespace DiplomaticMarriagePlus
     [StaticConstructorOnStartup]
     public static class Main
     {
-        static Main() //our constructor
+        public static List<IncidentDef> IncidentsRimcities;
+
+        static Main() 
         {
-            Log.Message("DiplomaticMarriagePlus loaded"); 
+            Log.Message("DiplomaticMarriagePlus loaded");
+            UpdateRimcitiesQuests();
+        }
+
+        public static void UpdateRimcitiesQuests()
+        {
+            IncidentsRimcities = new List<IncidentDef>();
+            foreach (var def in DefDatabase<IncidentDef>.AllDefsListForReading.OrderBy(def => def.label).ToList())
+            {
+                if (!def.defName.Contains("Quest_City_"))
+                {
+                    continue;
+                }
+                IncidentsRimcities.Add(def);
+            }
+            Log.Message("[DMP] Rimcities quests loaded for DiplomaticMarriagePlus. Totally " + IncidentsRimcities.Count);
         }
     }
 }

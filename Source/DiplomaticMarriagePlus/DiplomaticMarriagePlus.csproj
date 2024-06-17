@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\RandomVisitEventController.cs" />
+    <Compile Include="Controller\Rimcities_PACombinedAssaultEventController.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Model\DMPModSettings.cs" />
     <Compile Include="Model\LordJob\LordJobDefendMarriageLeave.cs" />

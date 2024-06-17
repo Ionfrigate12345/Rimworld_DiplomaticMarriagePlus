@@ -56,22 +56,26 @@
 		Attention! {1} et/ou {2}, qui constituent le couple important pour notre alliance permanente avec {0}, viennent d'apparaître sur notre colonie. Nous devons assurer leur sécurité.
 	</DMP_PermanentAllianceWarningVIPOnTheMap>
 	
-	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>La nostalgie de {0}</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
+	<DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>La nostalgie chez l'allié permanent</DMP_PermanentAllianceEventTemporaryStayPlanVisitTitle>
 	<DMP_PermanentAllianceEventTemporaryStayPlanVisit>
 		{1}, après avoir passé autant de temps chez {0}, je commence à ressentir le mal du pays. J'aimerais revenir pour un moment. {0} a accepté de nous laisser partir pour une période, et {2} est également prêt à m'accompagner. 
 		\nNous prévoyons d'arriver dans environ {3} jours, et nous resterons environ {4} jours.
 	</DMP_PermanentAllianceEventTemporaryStayPlanVisit>
 	
-	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>{0} et {1} sont arrivés</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
+	<DMP_PermanentAllianceEventTemporaryStayArrivalTitle>Le couple est arrivé</DMP_PermanentAllianceEventTemporaryStayArrivalTitle>
 	<DMP_PermanentAllianceEventTemporaryStayArrival>
 		{0}, nous sommes arrivés en toute sécurité. Nous suivrons vos ordres pendant ce temps.
 	</DMP_PermanentAllianceEventTemporaryStayArrival>
 	
-	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>Départ de {0} et {1}</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
+	<DMP_PermanentAllianceEventTemporaryStayDepartureTitle>Le couple est parti</DMP_PermanentAllianceEventTemporaryStayDepartureTitle>
 	<DMP_PermanentAllianceEventTemporaryStayDeparture>
 		{1}, il est temps pour nous de retourner chez {0}. Merci pour votre hospitalité. À la prochaine !
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
 
+	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>L'allié permanent attaque une grande ville</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
+	<DMP_PermanentAllianceEventRimcitiesAssault>
+		{0}, je suis {1}. Nous, {2}, somme à la préparation d'une invasion de la grande ville {4} de notre enemi {3}. Venez nous aider!
+	</DMP_PermanentAllianceEventRimcitiesAssault>
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Papa</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Maman</DMP_PermanentAllianceEventRandomVocabulary_Mother>
