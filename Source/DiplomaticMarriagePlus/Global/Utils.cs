@@ -74,10 +74,9 @@ namespace DiplomaticMarriagePlus.Global
             return PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
         }
 
-        public static void SpawnOnePawn(Map map, Pawn pawn)
+        public static void SpawnOnePawn(Map map, Pawn pawn, IntVec3 stageLoc)
         {
-            IntVec3 stageLoc;
-            if (!RCellFinder.TryFindRandomPawnEntryCell(out stageLoc, map, CellFinder.EdgeRoadChance_Neutral))
+            if (stageLoc == IntVec3.Invalid && !RCellFinder.TryFindRandomPawnEntryCell(out stageLoc, map, CellFinder.EdgeRoadChance_Neutral))
             {
                 stageLoc = RCellFinder.FindSiegePositionFrom(map.Center, map);
             }

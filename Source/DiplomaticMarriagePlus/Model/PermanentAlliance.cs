@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DiplomaticMarriagePlus.Global;
 using DiplomaticMarriagePlus.View;
+using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
+using Verse.AI.Group;
+using Verse.Noise;
 namespace DiplomaticMarriagePlus.Model
 {
     public class PermanentAlliance : WorldComponent, ILoadReferenceable
@@ -128,7 +132,12 @@ namespace DiplomaticMarriagePlus.Model
                 ///每隔1小时更新一次永久同盟状态并试图触发各种事件和判定。
                 ForceUpdatePermanentAllianceStatus();
             }
-            else if (tickCount % GenDate.TicksPerHour == 10) //同样每小时一次，但选个不同的tick触发
+            else if (tickCount % GenDate.TicksPerHour == 100) //同样每小时一次，但选个不同的tick触发
+            {
+                //在边缘城市地图的某些任务期间，如果永久同盟的队伍出现，则联姻小人必定出现（除非已经在别的小地图）
+                TryForceVIPOnRimcitiesQuestMaps();
+            }
+            else if (tickCount % GenDate.TicksPerHour == 200) //同样每小时一次，但选个不同的tick触发
             {
                 //检查关键小人是否在地图上，弹出警报，每天限一次。
                 VIPOnTheMapWarning();
@@ -153,7 +162,7 @@ namespace DiplomaticMarriagePlus.Model
             //检查永久同盟是否依然有效
             Validity validity = IsValid();
 
-            Log.Message("DMP: Permanent Alliance Validity Check. Result code:" + validity);
+            //Log.Message("[DMP] Permanent Alliance Validity Check. Result code:" + validity);
 
             if (validity == Validity.INVALID_EMPTY)
             {
@@ -211,7 +220,7 @@ namespace DiplomaticMarriagePlus.Model
                     {
                         Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
                         //如果此时小人在地图外，把小人生成到玩家主基地
-                        Utils.SpawnOnePawn(map, PlayerBetrothed);
+                        Utils.SpawnOnePawn(map, PlayerBetrothed, IntVec3.Invalid);
                     }
                 }
                 else if (validity == Validity.INVALID_REASON_FACTION_DEFEATED)
@@ -228,7 +237,7 @@ namespace DiplomaticMarriagePlus.Model
                     //只要二人在玩家殖民地，是否就能继续保持永久同盟？
                 }
 
-                Log.Message("DMP: Permanent Alliance with " + WithFaction.Name + " is no longer valid. Reason code: " + validity.ToString());
+                Log.Message("[DMP] Permanent Alliance with " + WithFaction.Name + " is no longer valid. Reason code: " + validity.ToString());
 
                 //弹出信件通知永久同盟终结。
                 String text = "DMP_PermanentAllianceEventAllianceEnded_Reason_" + validity.ToString();
@@ -256,27 +265,6 @@ namespace DiplomaticMarriagePlus.Model
                 WithFaction.TryAffectGoodwillWith(other: Faction.OfPlayer, goodwillChange: goodWillToIncrease, canSendMessage: true, canSendHostilityLetter: true);
             }
             return;
-        }
-
-        //我方小人每天都有机会社交技能+1，以后改善关系效率越来越高，技能最高到20。
-        private void SocialSkillIncrease()
-        {
-            //TODO:考虑平衡性因素暂时不实现
-            return;
-        }
-
-        //TODO:联姻期间即使在地图外，这对小人是否可能随机怀孕生子？
-        private void PregnancyAndBirth()
-        {
-            return;
-        }
-
-        //TODO: （高级功能）NPC阵营领袖死亡，爆发继承人战争。玩家可以帮助来自NPC阵营的儿媳/女婿赢得战争成为NPC阵营下一任领袖。
-        //下一任领袖如果是联姻的儿媳/女婿，如何让永久联盟更加巩固？（派出商队的频率翻倍？好感度锁定100？）
-        //如果盟友是帝国阵营该怎么办？（需要考虑VE Empire之类的mod）
-        private void PermanentAllySuccessionWar()
-        {
-
         }
 
         //双方小人在联姻的NPC阵营内部随机传播玩家的文化，如果二人社交技能足够高，有一定概率直接转化整个阵营。
@@ -318,11 +306,88 @@ namespace DiplomaticMarriagePlus.Model
             return;
         }
 
-        //TODO:双方小人离婚事件随机判定，通常判定成功概率为0。但如果二人互相好感过低，我方和NPC阵营关系过低（即使依然大于0），且我方小人社交技能太低，则有判定成功的风险。
-        private bool DivorceCheck()
+        private void TryForceVIPOnRimcitiesQuestMaps()
         {
-            //TODO:考虑平衡性因素暂时不实现
-            return false;
+            //检测有边缘城市任务的边缘城市地图，并强制联姻小人在永久同盟给的任务时出现
+
+            if (!ModsConfig.IsActive("cabbage.rimcities"))
+            {
+                //边缘城市没有开启时无法触发。
+                return;
+            }
+
+            PermanentAlliance permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
+            if (permanentAlliance == null || permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
+            {
+                Log.Message("[DMP] Rimcities force VIP aborted: No valid permanent alliance");
+                //只有永久同盟生效时才会检测
+                return;
+            }
+
+            if(permanentAlliance.PlayerBetrothed.Map != null && permanentAlliance.NpcMarriageSeeker.Map != null)
+            {
+                Log.Message("[DMP] Rimcities force VIP aborted: All VIP are already on a map.");
+                return;
+            }
+
+            var rimcitiesCityType = AccessTools.TypeByName("Cities.City");
+            if(rimcitiesCityType == null)
+            {
+                Log.Error("[DMP] Reflection failure for RimCities force VIP:  Cities.City.");
+                return;
+            }
+            var rimcitiesCityFindQuestsMethod = rimcitiesCityType.GetMethod("FindQuests");
+            if (rimcitiesCityFindQuestsMethod == null)
+            {
+                Log.Error("[DMP] Reflection failure for RimCities force VIP:  (Cities.city) FindQuests.");
+                return;
+            }
+            var rimcitiesQuestType = AccessTools.TypeByName("Cities.Quest");
+            if (rimcitiesQuestType == null)
+            {
+                Log.Error("[DMP] Reflection failure for RimCities force VIP:  Cities.Quest.");
+                return;
+            }
+            var rimcitiesQuestAssaultType = AccessTools.TypeByName("Cities.Quest_Assault");
+            if (rimcitiesQuestAssaultType == null)
+            {
+                Log.Error("[DMP] Reflection failure for RimCities force VIP:  Cities.Quest_Assault.");
+                return;
+            }
+            var rimcitiesQuestDefendType = AccessTools.TypeByName("Cities.Quest_Defend");
+            if (rimcitiesQuestDefendType == null)
+            {
+                Log.Error("[DMP] Reflection failure for RimCities force VIP:  Cities.Quest_Defend.");
+                return;
+            }
+
+            var rimcitiesSettlements = (from settlement in Find.WorldObjects.Settlements
+                                        where settlement.def.defName.Equals("City_Faction")
+                                        && settlement.HasMap
+                                        select settlement).ToList();
+            foreach(var rimcitiesSettlement in rimcitiesSettlements)
+            {
+                List<Pawn> permanentAllyPawnsOnMap = rimcitiesSettlement.Map.mapPawns.SpawnedPawnsInFaction(permanentAlliance.WithFaction)
+                    .Where(p => !p.IsSlave && !p.IsPrisoner)
+                    .ToList();
+
+                if (permanentAllyPawnsOnMap.Count > 0)
+                {
+                    Pawn randomExistingPawn = permanentAllyPawnsOnMap.RandomElement();
+                    IntVec3 spawnLoc = randomExistingPawn.Position;
+                    if (permanentAlliance.PlayerBetrothed.Map == null)
+                    {
+                        Utils.SpawnOnePawn(rimcitiesSettlement.Map, permanentAlliance.PlayerBetrothed, spawnLoc);
+                        randomExistingPawn.GetLord().AddPawn(permanentAlliance.PlayerBetrothed);
+                    }
+                    if (permanentAlliance.NpcMarriageSeeker.Map == null)
+                    {
+                        Utils.SpawnOnePawn(rimcitiesSettlement.Map, permanentAlliance.NpcMarriageSeeker, spawnLoc);
+                        randomExistingPawn.GetLord().AddPawn(permanentAlliance.NpcMarriageSeeker);
+                    }
+                    return;
+                }
+            }
         }
 
         //在婚后不管是MOD制造的事件还是原版事件，如果两个VIP小人的任何一个进入地图时都会弹出警报，以免玩家忽略了保护他们。
@@ -342,12 +407,22 @@ namespace DiplomaticMarriagePlus.Model
                     ) //2个关键小人至少有一个出现在小地图上，且不是玩家派系成员（不处于暂时居住状态）
                 )
             {
+                Pawn lookTargetVIP = null;
+                if(PlayerBetrothed.Map != null)
+                {
+                    lookTargetVIP = PlayerBetrothed;
+                }
+                else if(NpcMarriageSeeker.Map != null)
+                {
+                    lookTargetVIP = NpcMarriageSeeker;
+                }
                 lastWarningVIPOnTheMap = GenTicks.TicksAbs;
                 var letter = LetterMaker.MakeLetter(
                         label: "DMP_PermanentAllianceWarningVIPOnTheMapTitle".Translate().CapitalizeFirst(),
                         text: "DMP_PermanentAllianceWarningVIPOnTheMap".Translate(WithFaction.Name, PlayerBetrothed.Label, NpcMarriageSeeker.Label).CapitalizeFirst(),
                         def: LetterDefOf.PositiveEvent,
-                        relatedFaction: WithFaction
+                        relatedFaction: WithFaction,
+                        lookTargets: lookTargetVIP
                         );
                 Find.LetterStack.ReceiveLetter(@let: letter);
             }
@@ -373,6 +448,35 @@ namespace DiplomaticMarriagePlus.Model
             //终止小人思乡病和回来定居的事件
             TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
             temporaryStay.IsRunning = false;
+        }
+
+        /**---------------------------暂不实现的功能---------------------------------*/
+        //我方小人每天都有机会社交技能+1，以后改善关系效率越来越高，技能最高到20。
+        private void SocialSkillIncrease()
+        {
+            //TODO:考虑平衡性因素暂时不实现
+            return;
+        }
+
+        //TODO:联姻期间即使在地图外，这对小人是否可能随机怀孕生子？
+        private void PregnancyAndBirth()
+        {
+            return;
+        }
+
+        //TODO: （高级功能）NPC阵营领袖死亡，爆发继承人战争。玩家可以帮助来自NPC阵营的儿媳/女婿赢得战争成为NPC阵营下一任领袖。
+        //下一任领袖如果是联姻的儿媳/女婿，如何让永久联盟更加巩固？（派出商队的频率翻倍？好感度锁定100？）
+        //如果盟友是帝国阵营该怎么办？（需要考虑VE Empire之类的mod）
+        private void PermanentAllySuccessionWar()
+        {
+
+        }
+
+        //TODO:双方小人离婚事件随机判定，通常判定成功概率为0。但如果二人互相好感过低，我方和NPC阵营关系过低（即使依然大于0），且我方小人社交技能太低，则有判定成功的风险。
+        private bool DivorceCheck()
+        {
+            //TODO:考虑平衡性因素暂时不实现
+            return false;
         }
     }
 }

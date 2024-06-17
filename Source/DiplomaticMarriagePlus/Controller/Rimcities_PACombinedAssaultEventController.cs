@@ -26,21 +26,21 @@ namespace DiplomaticMarriagePlus.Controller
             if (!ModsConfig.IsActive("cabbage.rimcities"))
             {
                 //边缘城市没有开启时无法触发。
-                Log.Warning("Rimcities Assault event aborted: Rimcities not installed!");
+                Log.Message("[DMP] Rimcities Assault event aborted: Rimcities not installed!");
                 return false;
             }
 
             PermanentAlliance permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
             if (permanentAlliance == null || permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
             {
-                Log.Warning("Rimcities Assault event aborted: No permanent alliance");
+                Log.Message("[DMP] Rimcities Assault event aborted: No permanent alliance");
                 //只有永久同盟生效时才可能启动该事件
                 return false;
             }
 
             if (permanentAlliance.NpcMarriageSeeker.Map != null || permanentAlliance.PlayerBetrothed.Map != null)
             {
-                Log.Warning("Rimcities Assault event aborted: At least one of the couple is on player's colony map");
+                Log.Message("[DMP] Rimcities Assault event aborted: At least one of the couple is on player's colony map");
                 //只有二人都不在小地图时才能触发。
                 return false;
             }
@@ -48,7 +48,7 @@ namespace DiplomaticMarriagePlus.Controller
             TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
             if (temporaryStay.IsCurrentlyOnVisit)
             {
-                Log.Warning("Rimcities Assault event aborted: The couples are currently on visit of player colony.");
+                Log.Message("[DMP] Rimcities Assault event aborted: The couples are currently on visit of player colony.");
                 //小人在回到玩家殖民地暂住期间无法触发。
                 return false;
             }
@@ -83,8 +83,6 @@ namespace DiplomaticMarriagePlus.Controller
                 Find.LetterStack.ReceiveLetter(@let: letter);
             }
             
-            //TODO:在抵达地图后，如果地图上有永久同盟的友军，而联姻关键夫妇没出现，则强制其出现。同时可考虑调整友军和敌军兵力。
-
             return result;
         }
 

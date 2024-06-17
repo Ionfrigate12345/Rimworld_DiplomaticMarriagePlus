@@ -15,7 +15,7 @@ namespace DiplomaticMarriagePlus
 
         static Main() 
         {
-            Log.Message("DiplomaticMarriagePlus loaded");
+            Log.Message("[DMP] DiplomaticMarriagePlus loaded");
             UpdateRimcitiesQuests();
         }
 

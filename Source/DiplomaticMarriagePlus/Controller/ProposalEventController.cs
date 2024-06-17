@@ -55,32 +55,32 @@ namespace DiplomaticMarriagePlus.Controller
             PermanentAlliance permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
             if (permanentAlliance != null && permanentAlliance.IsValid() == PermanentAlliance.Validity.VALID)
             {
-                Log.Warning(text: "DMP warning: Maximum permanent alliance reached. Proposal aborted.");
+                Log.Message(text: "[DMP] Maximum permanent alliance reached. Proposal aborted.");
                 return false;
             }
             playerFactionLeader = Utils.GetPlayerFactionLeader();
             if (playerFactionLeader == null)
             {
                 //玩家派系没有文化领袖
-                Log.Warning(text: "DMP warning: Player faction has no leader or ideology leader. Proposal aborted.");
+                Log.Message(text: "[DMP] Player faction has no leader or ideology leader. Proposal aborted.");
                 return false;
             }
             if (Utils.GetPlayerMainColonyMapSOS2Excluded() == null)
             {
                 //玩家没有小地图
-                Log.Warning(text: "DMP warning: Player faction has no available colony map. Proposal aborted.");
+                Log.Message(text: "[DMP] Player faction has no available colony map. Proposal aborted.");
                 return false;
             }
             if (!TryFindBetrothed(out playerBetrothed))
             {
                 //玩家派系的文化领袖没有成年未婚，且此刻和派系领袖处于同一小地图上的子女
-                Log.Warning(text: "DMP warning: No player betrothed available. Proposal aborted.");
+                Log.Message(text: "[DMP] No player betrothed available. Proposal aborted.");
                 return false;
             }
             if (!FindOrSpawnMarriageSeeker(out npcMarriageSeeker, playerBetrothed))
             {
                 //没有合适的NPC派系求婚者
-                Log.Warning(text: "DMP warning: No npcMarriageSeeker available. The player might not have a suitable allied faction.");
+                Log.Message(text: "[DMP] No npcMarriageSeeker available. The player might not have a suitable allied faction.");
                 return false;
             }
             return true;
@@ -173,7 +173,6 @@ namespace DiplomaticMarriagePlus.Controller
                     null,
                     (playerBetrothed.gender == Gender.Female) ? Gender.Male : Gender.Female
                     );
-                Log.Message("Candidate generated: " + npcMarriageSeeker.Label + " from faction " + npcMarriageSeeker.Faction.Name);
                 return true;
             }
 

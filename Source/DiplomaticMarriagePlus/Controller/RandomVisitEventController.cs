@@ -16,14 +16,14 @@ namespace DiplomaticMarriagePlus.Controller
             PermanentAlliance permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
             if(permanentAlliance == null || permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
             {
-                Log.Warning("Random visit event aborted: No permanent alliance");
+                Log.Message("[DMP] Random visit event aborted: No permanent alliance");
                 //只有永久同盟生效时才可能启动该事件
                 return false;
             }
 
             if (permanentAlliance.NpcMarriageSeeker.Map != null || permanentAlliance.PlayerBetrothed.Map != null)
             {
-                Log.Warning("Random visit event aborted: At least one of the couple is on player's colony map");
+                Log.Message("[DMP] Random visit event aborted: At least one of the couple is on player's colony map");
                 //只有二人都不在小地图时才能触发。
                 return false;
             }
@@ -31,7 +31,7 @@ namespace DiplomaticMarriagePlus.Controller
             TemporaryStay temporaryStay = Find.World.GetComponent<TemporaryStay>();
             if(temporaryStay.IsCurrentlyOnVisit)
             {
-                Log.Warning("Random visit event aborted: The couples are currently on visit of player colony.");
+                Log.Message("[DMP] Random visit event aborted: The couples are currently on visit of player colony.");
                 //小人在回到玩家殖民地暂住期间无法触发。
                 return false;
             }
@@ -39,14 +39,14 @@ namespace DiplomaticMarriagePlus.Controller
             Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
             if(map == null) 
             {
-                Log.Warning("Random visit event aborted: The player doesnt have a valid non-SOS2 colony");
+                Log.Message("[DMP] Random visit event aborted: The player doesnt have a valid non-SOS2 colony");
                 //玩家没有非SOS2主基地
                 return false;
             }
 
             if (GenHostility.AnyHostileActiveThreatToPlayer(map))
             {
-                Log.Warning("Random visit event aborted: The player colony has hostile raiders");
+                Log.Message("[DMP] Random visit event aborted: The player colony has hostile raiders");
                 //地图上有敌人时无法触发
                 return false;
             }
