@@ -38,6 +38,12 @@ namespace DiplomaticMarriagePlus.Global
             return null;
         }
 
+        public static int GetFactionTotalSettlementCount(Faction faction)
+        {
+            var settlementsForFaction = Find.WorldObjects.Settlements.Where(s => s.Faction == faction).ToList();
+            return settlementsForFaction.Count;
+        }
+
         //生成单个小人。Null参数代表该属性随机，或默认值
         public static Pawn GenerateOnePawn(Faction faction, 
             int minAge, 
