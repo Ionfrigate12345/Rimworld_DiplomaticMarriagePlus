@@ -79,6 +79,11 @@
 		{0}，我是{1}。我们{2}准备攻打{3}的大城市{4}，需要你的帮助。
 	</DMP_PermanentAllianceEventRimcitiesAssault>
 	
+	<DMP_PermanentAllianceEventRimcitiesDefenseTitle>永久同盟的城市被攻击</DMP_PermanentAllianceEventRimcitiesDefenseTitle>
+	<DMP_PermanentAllianceEventRimcitiesDefense>
+		{0}，我是{1}。我们的敌人{3}正在攻打我们{2}的大城市{4}。请速来支援！
+	</DMP_PermanentAllianceEventRimcitiesDefense>
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>爸爸</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>妈妈</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	

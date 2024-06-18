@@ -30,7 +30,10 @@ namespace DiplomaticMarriagePlus
                 }
                 IncidentsRimcities.Add(def);
             }
-            Log.Message("[DMP] Rimcities quests loaded for DiplomaticMarriagePlus. Totally " + IncidentsRimcities.Count);
+            if(IncidentsRimcities.Count > 0)
+            {
+                Log.Message("[DMP] Rimcities quests loaded for DiplomaticMarriagePlus. Totally " + IncidentsRimcities.Count);
+            }
         }
     }
 }

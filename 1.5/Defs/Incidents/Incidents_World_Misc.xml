@@ -33,6 +33,17 @@
 		<workerClass>DiplomaticMarriagePlus.Controller.Rimcities_PACombinedAssaultEventController</workerClass>
 		<baseChance>2</baseChance>
 		<earliestDay>0</earliestDay>
-		<minRefireDays>7</minRefireDays>
+		<minRefireDays>15</minRefireDays>
+	</IncidentDef>
+	<IncidentDef>
+		<defName>DMP_Rimcities_PACombinedDefense</defName>
+		<category>Misc</category>
+		<targetTags>
+			<li>World</li>
+		</targetTags>
+		<workerClass>DiplomaticMarriagePlus.Controller.Rimcities_PACombinedDefenseEventController</workerClass>
+		<baseChance>2</baseChance>
+		<earliestDay>0</earliestDay>
+		<minRefireDays>15</minRefireDays>
 	</IncidentDef>
 </Defs>

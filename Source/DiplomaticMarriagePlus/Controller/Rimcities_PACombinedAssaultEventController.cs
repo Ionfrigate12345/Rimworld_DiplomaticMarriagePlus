@@ -9,6 +9,7 @@ using DiplomaticMarriagePlus.Model;
 using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
+using RimWorld.QuestGen;
 using Verse;
 
 namespace DiplomaticMarriagePlus.Controller
@@ -90,6 +91,7 @@ namespace DiplomaticMarriagePlus.Controller
         {
             target = null;
 
+
             //启动Rimcities的该事件
             var incidentRimcitiesAssaultQuest = Main.IncidentsRimcities.Where(i => i.defName == "Quest_City_Assault").First();
             if (incidentRimcitiesAssaultQuest == null)
@@ -98,11 +100,14 @@ namespace DiplomaticMarriagePlus.Controller
                 return false;
             }
 
-            if(!Utils.RunIncident(incidentRimcitiesAssaultQuest))
+            if (!Utils.RunIncident(incidentRimcitiesAssaultQuest))
             {
                 Log.Error("[DMP] Failed to run RimCities assault quest incident.");
                 return false;
             }
+
+            Faction oldAlliedFaction = null;
+            Settlement oldTarget = null;
 
             //获取Rimcities的任务实例
             var rimCitiesIncidentWorkerQuestType = AccessTools.TypeByName("Cities.IncidentWorker_Quest");
@@ -122,6 +127,7 @@ namespace DiplomaticMarriagePlus.Controller
                 Log.Error("[DMP] Reflection failure for RimCities assault quest. Field alliedFaction doesn't exist on Cities.Quest_Assault.");
                 return false;
             }
+            oldAlliedFaction = alliedFactionField.GetValue(rimCitiesQuestAssaultInstance) as Faction;
             alliedFactionField.SetValue(rimCitiesQuestAssaultInstance, alliedFaction);
             Log.Message("[DMP] Rimcities Assault quest: Allied Faction locked to Permanent Ally.");
 
@@ -132,6 +138,7 @@ namespace DiplomaticMarriagePlus.Controller
                 Log.Error("[DMP] Reflection failure for RimCities assault quest. Field target doesn't exist on Cities.Quest_Assault.");
                 return false;
             }
+            //找出任务对应的玩家地图
             var homeMapProperty = rimCitiesQuestAssaultType.GetProperty("HomeMap", BindingFlags.Public | BindingFlags.Instance);
             if (homeMapProperty == null)
             {
@@ -141,9 +148,9 @@ namespace DiplomaticMarriagePlus.Controller
             Map homeMap = homeMapProperty.GetValue(rimCitiesQuestAssaultInstance) as Map;
             if (homeMap == null)
             {
-                Log.Warning("[DMP] Reflection warning for RimCities assault quest. Property HomeMap is null. Using player colony map determined by DMP instead");
+                Log.Warning("[DMP] Reflection warning for RimCities assault quest. Property HomeMap is null. Using player colony map determined by DMP instead.");
                 homeMap = Utils.GetPlayerMainColonyMap();
-                if(homeMap == null)
+                if (homeMap == null)
                 {
                     Log.Warning("[DMP] Reflection warning for RimCities assault quest. Player doesnt have a valid colony map. Incident aborted.");
                     return false;
@@ -155,14 +162,34 @@ namespace DiplomaticMarriagePlus.Controller
                                && settlement.Faction.HostileTo(alliedFaction)
                                select settlement)
                 .ToList();
-            if(settlements.Count == 0)
+            if (settlements.Count == 0)
             {
                 Log.Warning("[DMP] No valid city target for RimCities assault quest.");
                 return false;
             }
             target = settlements.OrderBy(settlement => Find.WorldGrid.ApproxDistanceInTiles(settlement.Tile, homeMap.Tile)).FirstOrDefault();
+
+            oldTarget = targetField.GetValue(rimCitiesQuestAssaultInstance) as Settlement;
             targetField.SetValue(rimCitiesQuestAssaultInstance, target);
             Log.Message("[DMP] Rimcities Assault quest target chosen : " + target.Name);
+
+            /*var formatArgsProperty = rimCitiesQuestAssaultType.GetProperty("FormatArgs", BindingFlags.Public | BindingFlags.Instance);
+            var formatArgs = (NamedArgument[])formatArgsProperty.GetValue(rimCitiesQuestAssaultInstance);
+            formatArgs[0] = new NamedArgument(alliedFaction.Name, "{0}");
+            formatArgs[1] = new NamedArgument(target.Faction.Name, "{1}");
+            formatArgs[2] = new NamedArgument(target.Name, "{2}");*/
+
+            //替换任务信息。
+            var handleField = rimCitiesQuestAssaultType.GetField("handle", BindingFlags.NonPublic | BindingFlags.Instance);
+            var handle = handleField.GetValue(rimCitiesQuestAssaultInstance) as Quest;
+            handle.description = handle.description
+                .Replace(oldAlliedFaction.Name, alliedFaction.Name)
+                .Replace(oldTarget.Faction.Name, target.Faction.Name)
+                .Replace(oldTarget.Name, target.Name)
+                ;
+            handle.PartsListForReading.Clear();
+            var OnSetupHandleMethod = rimCitiesQuestAssaultType.GetMethod("OnSetupHandle", BindingFlags.NonPublic | BindingFlags.Instance);
+            OnSetupHandleMethod.Invoke(rimCitiesQuestAssaultInstance, new Object[] { handle });
 
             return true;
         }

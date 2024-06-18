@@ -368,7 +368,7 @@ namespace DiplomaticMarriagePlus.Model
             foreach(var rimcitiesSettlement in rimcitiesSettlements)
             {
                 List<Pawn> permanentAllyPawnsOnMap = rimcitiesSettlement.Map.mapPawns.SpawnedPawnsInFaction(permanentAlliance.WithFaction)
-                    .Where(p => !p.IsSlave && !p.IsPrisoner)
+                    .Where(p => !p.IsSlave && !p.IsPrisoner && !p.Dead && !p.Downed)
                     .ToList();
 
                 if (permanentAllyPawnsOnMap.Count > 0)
