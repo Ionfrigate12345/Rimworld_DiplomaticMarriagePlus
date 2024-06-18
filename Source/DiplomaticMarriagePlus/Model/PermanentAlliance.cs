@@ -132,12 +132,12 @@ namespace DiplomaticMarriagePlus.Model
                 ///每隔1小时更新一次永久同盟状态并试图触发各种事件和判定。
                 ForceUpdatePermanentAllianceStatus();
             }
-            else if (tickCount % GenDate.TicksPerHour == 100) //同样每小时一次，但选个不同的tick触发
+            if (tickCount % GenDate.TicksPerHour == 5) //同样每小时一次，但选个不同的tick触发
             {
                 //在边缘城市地图的某些任务期间，如果永久同盟的队伍出现，则联姻小人必定出现（除非已经在别的小地图）
                 TryForceVIPOnRimcitiesQuestMaps();
             }
-            else if (tickCount % GenDate.TicksPerHour == 200) //同样每小时一次，但选个不同的tick触发
+            if (tickCount % 120 == 2) 
             {
                 //检查关键小人是否在地图上，弹出警报，每天限一次。
                 VIPOnTheMapWarning();
@@ -393,7 +393,7 @@ namespace DiplomaticMarriagePlus.Model
         //在婚后不管是MOD制造的事件还是原版事件，如果两个VIP小人的任何一个进入地图时都会弹出警报，以免玩家忽略了保护他们。
         private void VIPOnTheMapWarning()
         {
-            if(IsValid() != Validity.VALID)
+            if (IsValid() != Validity.VALID)
             {
                 return;
             }
@@ -404,7 +404,7 @@ namespace DiplomaticMarriagePlus.Model
                     (PlayerBetrothed.Map != null && PlayerBetrothed.Faction != Faction.OfPlayer) 
                     || 
                     (NpcMarriageSeeker.Map != null && NpcMarriageSeeker.Faction != Faction.OfPlayer)
-                    ) //2个关键小人至少有一个出现在小地图上，且不是玩家派系成员（不处于暂时居住状态）
+                    ) //2个关键小人至少有一个出现在小地图上，且不是玩家派系成员
                 )
             {
                 Pawn lookTargetVIP = null;
@@ -416,6 +416,7 @@ namespace DiplomaticMarriagePlus.Model
                 {
                     lookTargetVIP = NpcMarriageSeeker;
                 }
+                Log.Warning("Test Warning lookTargetVIP" + lookTargetVIP.Name);
                 lastWarningVIPOnTheMap = GenTicks.TicksAbs;
                 var letter = LetterMaker.MakeLetter(
                         label: "DMP_PermanentAllianceWarningVIPOnTheMapTitle".Translate().CapitalizeFirst(),
