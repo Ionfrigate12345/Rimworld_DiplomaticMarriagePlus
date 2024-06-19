@@ -21,6 +21,9 @@ namespace DiplomaticMarriagePlus.Model
         private static int tickCount = GenTicks.TicksAbs;
         private static int lastWarningVIPOnTheMap = 0;
 
+        //上一次检测到使用A Petition For Provisions的贸易时间
+        public static int LastAPFPTradeTicks = 0;
+
         public Faction WithFaction
         {
             get { return _withFaction; }
@@ -437,6 +440,7 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_References.Look<Pawn>(ref _npcMarriageSeeker, "DMP_PermanentAlliance_NpcMarriageSeeker", false);
             Scribe_References.Look<Faction>(ref _withFaction, "DMP_PermanentAlliance_WithFaction", false);
             Scribe_Values.Look<int>(ref lastWarningVIPOnTheMap, "DMP_PermanentAlliance_LastWarningVIPOnTheMap", 0);
+            Scribe_Values.Look<int>(ref LastAPFPTradeTicks, "DMP_PermanentAlliance_LastAPFPTradeTicks", 0);
         }
 
         public void Invalidate()

@@ -101,5 +101,11 @@
 	<DMP_Setting_TemporaryStayStartAfterDaysMaximum>Le nombre de jours maximal pour le voyage. Remarque : cette valeur doit être supérieure ou égale à la valeur précédente.</DMP_Setting_TemporaryStayStartAfterDaysMaximum>
 	<DMP_Setting_TemporaryStayDurationMinimum>La durée minimale en jours d'un séjour temporaire.</DMP_Setting_TemporaryStayDurationMinimum>
 	<DMP_Setting_TemporaryStayDurationMaximum>La durée maximale en jours d'un séjour temporaire. Remarque : cette valeur doit être supérieure ou égale à la valeur minimale.</DMP_Setting_TemporaryStayDurationMaximum>
+	
+	<DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentage>Réduction du temps de recharge APFP pour chaque 1% de pourcentage de colonies AP dans le monde</DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentage>
+	<DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
+	Après chaque commerce APFP (A Petition For Provisions), combien d'heures de réduction de temps de recharge en jeu pour chaque 1% de colonies de votre allié permanent(AP) sur le nombre total de colonies dans le monde entier. Cette fonctionnalité est pour les joueurs ayant installé APFP en même temps. Elle modifie légèrement comment APFP marche (qui est trop imba) en la faisant un privilège exclusivement offert par la faction AP. Elle calcule le pourcentage du nombre de colonies de faction AP par rapport à celui du monde entier, puis l'utilise pour calculer le temps de recharge après chaque commerce APFP. Cela signifie que plus votre faction AP est puissante, plus vous pouvez bénéficier des échanges APFP. Le temps de recharge est toujours compris entre 3 jours et 1 an. Le joueur doit attendre avant de pouvoir demander des provisions à nouveau auprès de la faction AP. De plus, les échanges APFP seront toujours refusés par toutes les factions autre que votre AP (même les alliés vanilla). Si Rimcities est installé, les grandes villes sont également comptées comme des colonies. Cette fonctionnalité encourage les joueurs à aider la faction AP à conquérir plus de territoire via des mods comme Rimcities ou autres, afin qu'ils puissent bénéficier davantage des échanges APFP.
+	</DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
+
 
 </LanguageData>

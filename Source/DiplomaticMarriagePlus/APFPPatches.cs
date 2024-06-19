@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using DiplomaticMarriagePlus.Model;
+using DiplomaticMarriagePlus.View;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -14,42 +15,63 @@ namespace DiplomaticMarriagePlus
     [StaticConstructorOnStartup]
     public static class APFPPatches
     {
+        //A Petition For Provisions（以下简称APFP）补丁
         static APFPPatches()
         {
-            // Create a Harmony instance
             var harmony = new Harmony("DiplomaticMarriagePlus.APFPPatches");
 
-            //A Petition For Provisions
-            MethodInfo targetMethod = AccessTools.Method(
+            MethodInfo targetMethodDialogWindowRequestItemOption = AccessTools.Method(
                 "ItemRequests.DialogWindow:RequestItemOption",
                 new Type[] { typeof(Map), typeof(Faction), typeof(Pawn) }
             );
 
-            var postfix = new HarmonyMethod(typeof(APFPPatches).GetMethod(nameof(RequestItemOptionPostfix)));
-            harmony.Patch(targetMethod, postfix: postfix);
+            harmony.Patch(targetMethodDialogWindowRequestItemOption, postfix: new HarmonyMethod(typeof(APFPPatches).GetMethod(nameof(RequestItemOptionPostfix))));
+
+            MethodInfo targetMethodFulfillItemRequestWindowSpawnItem = AccessTools.Method(
+                "ItemRequests.FulfillItemRequestWindow:SpawnItem",
+                new Type[] { AccessTools.TypeByName("ItemRequests.RequestItem") }
+            );
+
+            harmony.Patch(targetMethodFulfillItemRequestWindowSpawnItem, postfix: new HarmonyMethod(typeof(APFPPatches).GetMethod(nameof(SpawnItemPostfix))));
         }
 
-        // A Petition For Provisions补丁：除了永久同盟外，禁止其它派系提供该mod的交易系统。此外永久同盟也有CD时间，取决于殖民地总数（包括边缘城市的城市类基地）
+        //除了永久同盟外，禁止其它派系提供APFP的交易系统（屏蔽通讯台该选项）。此外永久同盟也有CD时间
         public static void RequestItemOptionPostfix(ref DiaOption __result, Map map, Faction faction, Pawn negotiator)
         {
             var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
 
+            //检查该派系是否为永久同盟派系，如果不是就禁止对话选项
             if (permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID || faction != permanentAlliance.WithFaction)
             {
-                __result = DisableDiaOption(__result, map, faction, negotiator, "[DMP] Disabled for not being permanent ally");//TODO: Language
+                __result.Disable("[DMP] Disabled for not being permanent ally");
+                return;
             }
+
+            //检查永久同盟上次交易时间是否冷却完毕。并根据同盟派系的总殖民地占全球比例和模组设置来计算当前冷却时间。
+            /*int totalGlobalSettlementCount = Find.WorldObjects.Settlements.Count;
+            int totalPAFactionSettlementCount = Find.WorldObjects.Settlements.Where(s => s.Faction == permanentAlliance.WithFaction).ToList().Count;
+            int apfpCoolDownReductionHours = (int)(DMPModWindow.Instance.settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage * totalPAFactionSettlementCount * 100.0f / totalGlobalSettlementCount);
+            int apfpCooldownIncreaseTicks = GenDate.TicksPerYear - apfpCoolDownReductionHours * GenDate.TicksPerHour;
+            if(apfpCooldownIncreaseTicks < 0)
+            {
+                apfpCooldownIncreaseTicks = 0;
+            }
+            var remainingTicks = PermanentAlliance.LastAPFPTradeTicks + 240000 + apfpCooldownIncreaseTicks - Find.TickManager.TicksGame;
+            if (remainingTicks > 0)
+            {
+                Log.Message("[DMP] Current permanent ally settlement global percentage APFP cooldown reduction hours:" + apfpCoolDownReductionHours);
+                __result.Disable("[DMP] Disabled for permanent ally in cooldown. Reamining days:" + (int)(remainingTicks / GenDate.TicksPerDay));
+                return;
+            }*/
+            Log.Message("[DMP] APFP trade granted.");
         }
 
-        private static DiaOption DisableDiaOption(DiaOption diaOptionRet, Map map, Faction faction, Pawn negotiator, String newText)
+        //每次检测到APFP的交易成功，记录下交易的Tick时间，用来判定冷却开始。
+        public static void SpawnItemPostfix(IExposable requested)
         {
-            diaOptionRet = new DiaOption(newText);
-            diaOptionRet.Disable(newText);
-            diaOptionRet.action = () =>
-            {
-                Log.Message("[DMP] A Petition For Provision dialog option disabled. Only permanent ally not under CD will offer provisions.");
-            };
+            Log.Message("[DMP] SpawnItem detected in A Petition For Provisions. PermanentAlliance.LastAPFPTradeTicks value updated. ");
 
-            return diaOptionRet;
+            PermanentAlliance.LastAPFPTradeTicks = Find.TickManager.TicksGame;
         }
     }
 }

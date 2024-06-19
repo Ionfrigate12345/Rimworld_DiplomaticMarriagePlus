@@ -101,5 +101,9 @@
 	<DMP_Setting_TemporaryStayStartAfterDaysMaximum>The maximum time before arrival. This value must be greater than or equal to the minimum value.</DMP_Setting_TemporaryStayStartAfterDaysMaximum>
 	<DMP_Setting_TemporaryStayDurationMinimum>The minimum duration (in days) of a temporary stay.</DMP_Setting_TemporaryStayDurationMinimum>
 	<DMP_Setting_TemporaryStayDurationMaximum>The maximum duration (in days) of a temporary stay. Note: this value must be greater than or equal to the minimum value.</DMP_Setting_TemporaryStayDurationMaximum>
-
+	
+	<DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentage>APFP CD reduction for each 1% of PA global settlement percentage</DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentage>
+	<DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
+	After each APFP (A Petition For Provisions) trade, how many In-Game hours of cooldown reduction for each 1% of global settlement percentage for your permanent ally. This feature is for players having APFP installed at the same time. It changes abit the APFP trade (which is too OP) by making it a privilege exclusively offered by permanent allied faction. It calculates the percentage of number of PA faction settlements over total global settlements, then use it to determine the cooldown time after each APFP trade. This means that the more powerful your PA faction, the more you can benefit from APFP trades. The cooldown time is always between 3 days and 1 year. The player has to wait until being able to request provision from PA faction again. Also APFP trades will always be refused by all factions except your permanent ally (even vanilla allies will no longer do it), If Rimcities is installed, large cites are also counted as settlements. This feature encourages players to help permanent ally to conquer more settlements via mods like Rimcities or others, so that they can benefit more from APFP trades. 
+	</DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
 </LanguageData>

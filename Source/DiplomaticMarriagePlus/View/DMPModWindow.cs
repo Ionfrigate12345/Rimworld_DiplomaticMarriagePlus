@@ -1,6 +1,7 @@
 ﻿using DiplomaticMarriagePlus.Model;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 
 namespace DiplomaticMarriagePlus.View
 {
@@ -15,10 +16,15 @@ namespace DiplomaticMarriagePlus.View
             Instance = this;
         }
 
+        private static Vector2 scrollPosition;
+
         public override void DoSettingsWindowContents(Rect rect)
         {
+            Rect viewRect = new Rect(0f, 0f, rect.width - 16f, rect.height + 250f);
             Listing_Standard options = new Listing_Standard();
-            options.Begin(rect: rect);
+            Widgets.BeginScrollView(rect, ref scrollPosition, viewRect);
+            options.Begin(viewRect);
+            Text.Font = GameFont.Small;
             options.Label($"{"DMP_Setting_GoodwillDailyIncreaseBaseValue".Translate()}: {settings.goodwillDailyIncreaseBaseValue}");
             settings.goodwillDailyIncreaseBaseValue = (int)options.Slider(settings.goodwillDailyIncreaseBaseValue, 0.0f, 20.0f);
             options.Label($"{"DMP_Setting_GoodwillDailyIncreaseSocialSkillFactor".Translate()}: {settings.goodwillDailyIncreaseSocialSkillFactor.ToStringByStyle(style: ToStringStyle.FloatOne)}");
@@ -44,7 +50,11 @@ namespace DiplomaticMarriagePlus.View
             options.Label($"{"DMP_Setting_TemporaryStayDurationMaximum".Translate()}: {settings.temporaryStayDurationMaximum}");
             settings.temporaryStayDurationMaximum = (int)options.Slider(settings.temporaryStayDurationMaximum, 1, 15);
             options.GapLine(15f);
+            options.Label($"{"DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentage".Translate()}: {settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage}h", -1f, "DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails".Translate());
+            settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage = (int)options.Slider(settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage, 0, 72);
+            options.GapLine(15f);
             options.End();
+            Widgets.EndScrollView();
             base.DoSettingsWindowContents(rect);
         }
 

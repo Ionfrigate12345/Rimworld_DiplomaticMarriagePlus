@@ -26,6 +26,9 @@ namespace DiplomaticMarriagePlus.Model
         public int temporaryStayDurationMinimum = 7;
         public int temporaryStayDurationMaximum = 15;
 
+        //永久同盟派系每提高一点全球殖民地总数的百分比，在使用A Petition For Provision的特权时能减少多少CD时间，单位为（游戏内）小时
+        public int apfpCooldownReductionHoursPerGlobalSettlementPercentage = 24;
+
         public override void ExposeData()
         {
             Scribe_Values.Look(value: ref goodwillDailyIncreaseBaseValue, label: "DMP_Settings_GoodwillDailyIncreaseBaseValue", defaultValue: 5);
@@ -41,6 +44,8 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_Values.Look(value: ref temporaryStayStartAfterDaysMaximum, label: "DMP_Settings_TemporaryStayStartAfterDaysMaximum", defaultValue: 6);
             Scribe_Values.Look(value: ref temporaryStayDurationMinimum, label: "DMP_Settings_TemporaryStayDurationMinimum", defaultValue: 7);
             Scribe_Values.Look(value: ref temporaryStayDurationMaximum, label: "DMP_Settings_TemporaryStayDurationMaximum", defaultValue: 15);
+
+            Scribe_Values.Look(value: ref apfpCooldownReductionHoursPerGlobalSettlementPercentage, label: "DMP_Settings_APFPCooldownReductionHoursPerGlobalSettlementPercentage", defaultValue: 24);
 
             base.ExposeData();
         }

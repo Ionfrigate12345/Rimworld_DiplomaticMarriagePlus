@@ -20,10 +20,8 @@
 		<li>brrainz.harmony</li>
 		<li>Ludeon.RimWorld</li>
 		<li>cabbage.rimcities</li>
+		<li>mlie.apetitionforprovisions</li>
 	</loadAfter>
-	<description>This mod, also known as Diplomatic Marriage Plus or DMP, is heavily inspired by the famous Paradox game - Crusader Kings. It's also inspired by the Diplomatic Marriage event in the mod More Faction Interactions as a starting point, which is also why I call this mod Diplomatic Marriage "Plus".
-	\nFeatures:
-	\nYou can now form a permanent alliance by marrying a child of your colony leader to an important person of one of your ally, making the latter your in-laws family, providing you more help without worrying about goodwill decay. But in return you need to protect the key couple from all random dangers to keep the alliance active (any death will result in immediate breakup, just like how it works in CK).
-	\nSince the key couple is considered as World Pawns of that NPC faction, not only events from this mod, but all mods spawning NPC pawns (Factional War for example) or even Vanilla may randomly spawn them on your map. So the challenge always exists. Do not take it for granted, it will not be so easy to protect NPC not under your control!
+	<description>You can now form a permanent alliance(PA) by marrying off one of the child of your colony ideology leader to one of your vanilla ally. PA goodwill will quickly increase each day, usually be locked to 100 (if your child has high social skill) unless you really do something terrible. While you can enjoy benefits like endless caravan or military reinforcement, you need to work hard to keep the union, like keeping the couple safe, avoid changing ideology leader, just like how it often works in CK alliance. WARNING: In most time the couple are not under your control so it wont be so easy.
 	</description>
 </ModMetaData>
