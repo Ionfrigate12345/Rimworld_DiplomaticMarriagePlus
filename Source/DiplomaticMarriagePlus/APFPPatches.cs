@@ -18,6 +18,11 @@ namespace DiplomaticMarriagePlus
         //A Petition For Provisions（以下简称APFP）补丁
         static APFPPatches()
         {
+            if (!ModsConfig.IsActive("mlie.apetitionforprovisions"))
+            {
+                return;
+            }
+
             var harmony = new Harmony("DiplomaticMarriagePlus.APFPPatches");
 
             MethodInfo targetMethodDialogWindowRequestItemOption = AccessTools.Method(
@@ -43,12 +48,12 @@ namespace DiplomaticMarriagePlus
             //检查该派系是否为永久同盟派系，如果不是就禁止对话选项
             if (permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID || faction != permanentAlliance.WithFaction)
             {
-                __result.Disable("[DMP] Disabled for not being permanent ally");
+                __result.Disable("DMP_PermanentAllianceAPFPButtonDisabledNotPA".Translate());
                 return;
             }
 
             //检查永久同盟上次交易时间是否冷却完毕。并根据同盟派系的总殖民地占全球比例和模组设置来计算当前冷却时间。
-            /*int totalGlobalSettlementCount = Find.WorldObjects.Settlements.Count;
+            int totalGlobalSettlementCount = Find.WorldObjects.Settlements.Count;
             int totalPAFactionSettlementCount = Find.WorldObjects.Settlements.Where(s => s.Faction == permanentAlliance.WithFaction).ToList().Count;
             int apfpCoolDownReductionHours = (int)(DMPModWindow.Instance.settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage * totalPAFactionSettlementCount * 100.0f / totalGlobalSettlementCount);
             int apfpCooldownIncreaseTicks = GenDate.TicksPerYear - apfpCoolDownReductionHours * GenDate.TicksPerHour;
@@ -56,22 +61,21 @@ namespace DiplomaticMarriagePlus
             {
                 apfpCooldownIncreaseTicks = 0;
             }
-            var remainingTicks = PermanentAlliance.LastAPFPTradeTicks + 240000 + apfpCooldownIncreaseTicks - Find.TickManager.TicksGame;
-            if (remainingTicks > 0)
+            var remainingTicks = PermanentAlliance.LastAPFPTradeTicks + 240000 + apfpCooldownIncreaseTicks - GenTicks.TicksAbs;
+            if (PermanentAlliance.LastAPFPTradeTicks > 0 //本存档第一次使用时不会算为禁止。
+                && remainingTicks > 0)
             {
-                Log.Message("[DMP] Current permanent ally settlement global percentage APFP cooldown reduction hours:" + apfpCoolDownReductionHours);
-                __result.Disable("[DMP] Disabled for permanent ally in cooldown. Reamining days:" + (int)(remainingTicks / GenDate.TicksPerDay));
+                __result.Disable("DMP_PermanentAllianceAPFPButtonDisabledInCD".Translate((int)(remainingTicks / GenDate.TicksPerDay)));
                 return;
-            }*/
+            }
             Log.Message("[DMP] APFP trade granted.");
+            __result.disabled = false;
         }
 
         //每次检测到APFP的交易成功，记录下交易的Tick时间，用来判定冷却开始。
         public static void SpawnItemPostfix(IExposable requested)
         {
-            Log.Message("[DMP] SpawnItem detected in A Petition For Provisions. PermanentAlliance.LastAPFPTradeTicks value updated. ");
-
-            PermanentAlliance.LastAPFPTradeTicks = Find.TickManager.TicksGame;
+            PermanentAlliance.LastAPFPTradeTicks = GenTicks.TicksAbs;
         }
     }
 }

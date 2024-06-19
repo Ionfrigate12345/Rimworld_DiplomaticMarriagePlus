@@ -72,6 +72,7 @@
 		{1}, it's time for us to return to {0}. Thank you for your hospitality during this time. See you next time!
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
 	
+	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>Permanent ally assaulting city</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
 	<DMP_PermanentAllianceEventRimcitiesAssault>
 		{0}, this is {1}. We {2} are planning an assault against the large city {4} of our enemy {3}. We need your help.
@@ -81,6 +82,10 @@
 	<DMP_PermanentAllianceEventRimcitiesDefense>
 		{0}, this is {1}. Our enemy {3} is sieging our large city {4} of {2}. Please come and help us!
 	</DMP_PermanentAllianceEventRimcitiesDefense>
+	
+	<!--Collaborated mod: A Petition For Provisions(APFP)-->
+	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>Request specific items disabled (Not permanent ally)</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
+	<DMP_PermanentAllianceAPFPButtonDisabledInCD>Request specific items disabled (Remaining cooldown:{0} days)</DMP_PermanentAllianceAPFPButtonDisabledInCD>
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Dad</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Mom</DMP_PermanentAllianceEventRandomVocabulary_Mother>

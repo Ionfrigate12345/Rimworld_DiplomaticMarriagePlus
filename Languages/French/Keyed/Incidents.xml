@@ -72,6 +72,7 @@
 		{1}, il est temps pour nous de retourner chez {0}. Merci pour votre hospitalité. À la prochaine !
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
 
+	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>L'allié permanent attaque une grande ville</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
 	<DMP_PermanentAllianceEventRimcitiesAssault>
 		{0}, c'est {1} ici. Nous, {2}, somme à la préparation d'une invasion de la grande ville {4} de notre enemi {3}. Venez nous aider!
@@ -81,6 +82,10 @@
 	<DMP_PermanentAllianceEventRimcitiesDefense>
 		{0}, c'est {1} ici. L'enemi {3} a siegé la grande ville {4} chez nous {2}. Venez nous aider!
 	</DMP_PermanentAllianceEventRimcitiesDefense>
+	
+	<!--Collaborated mod: A Petition For Provisions(APFP)-->
+	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>Demande d'articles spécifiques indisponible (Alliance permanente requise)</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
+	<DMP_PermanentAllianceAPFPButtonDisabledInCD>Demande d'articles spécifiques indisponible (Temps de recharge restant:{0} jours)</DMP_PermanentAllianceAPFPButtonDisabledInCD>
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Papa</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Maman</DMP_PermanentAllianceEventRandomVocabulary_Mother>
