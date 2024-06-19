@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APFPPatches.cs" />
     <Compile Include="Controller\RandomVisitEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedAssaultEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedDefenseEventController.cs" />
