@@ -52,6 +52,7 @@ namespace DiplomaticMarriagePlus.View
             options.GapLine(15f);
             options.Label($"{"DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentage".Translate()}: {settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage}h", -1f, "DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails".Translate());
             settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage = (int)options.Slider(settings.apfpCooldownReductionHoursPerGlobalSettlementPercentage, 0, 72);
+            options.CheckboxLabeled("DMP_Setting_EnableAllianceAgainstPAEvent".Translate(), ref settings.enableAllianceAgainstPAEvent, "DMP_Setting_EnableAllianceAgainstPAEventDetails".Translate());
             options.GapLine(15f);
             options.End();
             Widgets.EndScrollView();

@@ -55,10 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APFPPatches.cs" />
+    <Compile Include="Controller\DynamicDiplomacy_AllianceAgainstPAEventController.cs" />
     <Compile Include="Controller\RandomVisitEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedAssaultEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedDefenseEventController.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="Model\AllianceAgainstPA.cs" />
     <Compile Include="Model\DMPModSettings.cs" />
     <Compile Include="Model\LordJob\LordJobDefendMarriageLeave.cs" />
     <Compile Include="Model\LordJob\LordJobCaravanRandomVisit.cs" />

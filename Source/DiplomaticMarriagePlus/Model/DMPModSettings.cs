@@ -28,6 +28,7 @@ namespace DiplomaticMarriagePlus.Model
 
         //永久同盟派系每提高一点全球殖民地总数的百分比，在使用A Petition For Provision的特权时能减少多少CD时间，单位为（游戏内）小时
         public int apfpCooldownReductionHoursPerGlobalSettlementPercentage = 24;
+        public bool enableAllianceAgainstPAEvent = true;
 
         public override void ExposeData()
         {
@@ -46,6 +47,7 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_Values.Look(value: ref temporaryStayDurationMaximum, label: "DMP_Settings_TemporaryStayDurationMaximum", defaultValue: 15);
 
             Scribe_Values.Look(value: ref apfpCooldownReductionHoursPerGlobalSettlementPercentage, label: "DMP_Settings_APFPCooldownReductionHoursPerGlobalSettlementPercentage", defaultValue: 24);
+            Scribe_Values.Look(value: ref enableAllianceAgainstPAEvent, label: "DMP_Settings_EnableAllianceAgainstPAEvent", defaultValue: true);
 
             base.ExposeData();
         }
