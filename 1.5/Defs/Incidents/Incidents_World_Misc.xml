@@ -47,7 +47,7 @@
 		<minRefireDays>15</minRefireDays>
 	</IncidentDef>
 	<IncidentDef>
-		<defName>DynamicDiplomacy_AllianceAgainstPA</defName>
+		<defName>DMP_DynamicDiplomacy_AllianceAgainstPA</defName>
 		<category>Misc</category>
 		<targetTags>
 			<li>World</li>

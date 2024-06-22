@@ -87,6 +87,24 @@
 	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>Demande d'articles spécifiques indisponible (Alliance permanente requise)</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
 	<DMP_PermanentAllianceAPFPButtonDisabledInCD>Demande d'articles spécifiques indisponible (Temps de recharge restant:{0} jours)</DMP_PermanentAllianceAPFPButtonDisabledInCD>
 	
+	<!--Collaborated mod: Dynamic Diplomacy-->
+	<DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>Alliance militaire contre nous et notre AP</DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>
+	<DMP_DynamicDiplomacyAllianceAgainstPAStarted>
+	Notre allié permanent {0} est devenu trop puissant, de nombreuses factions sur la planète ont formé une alliance militaire contre eux. En raison de notre union, ils nous ont également déclaré la guerre !
+	</DMP_DynamicDiplomacyAllianceAgainstPAStarted>
+	
+	<DMP_DynamicDiplomacyAllianceAgainstPAEndedTitle>Alliance militaire dissoute</DMP_DynamicDiplomacyAllianceAgainstPAEndedTitle>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_TOO_WEAK>
+	Comme notre allié permanent {0} est maintenant fortement affaibli, l'alliance militaire a été dissoute. Mais nous devons travailler dur pour restaurer les relations une après l'autre.
+	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_TOO_WEAK>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_ENDED>
+	Comme {0} n'est plus notre allié permanent, toutes les factions (sauf celles qui sont en hostilité permanente) ont cessé la guerre permanente contre nous. Mais nous devons travailler dur pour restaurer les relations une après l'autre. De plus, l'alliance contre {0} restera toujours pendant un certain temps.
+	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_ENDED>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>
+	Comme il n'y a plus assez de factions contre notre allié permanent {0}, l'alliance militaire a été dissoute.
+	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>
+
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Papa</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Maman</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
@@ -112,5 +130,8 @@
 	Après chaque commerce APFP (A Petition For Provisions), combien d'heures de réduction de temps de recharge en jeu pour chaque 1% de colonies de votre allié permanent(AP) sur le nombre total de colonies dans le monde entier. Cette fonctionnalité est pour les joueurs ayant installé APFP en même temps. Elle modifie légèrement comment APFP marche (qui est trop imba) en la faisant un privilège exclusivement offert par la faction AP. Elle calcule le pourcentage du nombre de colonies de faction AP par rapport à celui du monde entier, puis l'utilise pour calculer le temps de recharge après chaque commerce APFP. Cela signifie que plus votre faction AP est puissante, plus vous pouvez bénéficier des échanges APFP. Le temps de recharge est toujours compris entre 3 jours et 1 an. Le joueur doit attendre avant de pouvoir demander des provisions à nouveau auprès de la faction AP. De plus, les échanges APFP seront toujours refusés par toutes les factions autre que votre AP (même les alliés vanilla). Si Rimcities est installé, les grandes villes sont également comptées comme des colonies. Cette fonctionnalité encourage les joueurs à aider la faction AP à conquérir plus de territoire via des mods comme Rimcities ou autres, afin qu'ils puissent bénéficier davantage des échanges APFP.
 	</DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
 
+	<DMP_Setting_EnableAllianceAgainstPAEvent>Activer l'alliance mondiale contre l'AP</DMP_Setting_EnableAllianceAgainstPAEvent>
+	<DMP_Setting_EnableAllianceAgainstPAEventDetails>Lorsque votre faction AP atteint un certain pourcentage de colonies mondiales, d'autres factions peuvent former une alliance contre elle, elles arrêteront la guerre entre elles et commenceront une guerre contre votre AP et aussi contre le joueur. Aucune paix ne peut être conclue pendant cet événement (même si le joueur ou d'autres mods essaient de le faire, elle ne durera pas longtemps). Cet événement nécessite Dynamic Diplomacy pour se déclencher, et dans Dynamic Diplomacy, la configuration du mod concernant l'alliance globale doit être activée. L'alliance de cet événement est également comptée comme une alliance de Dynamic Diplomacy à moins qu'elle n'ait pas de limite de temps. L'alliance ne se termine que lorsque la faction AP devient suffisamment faible, ou que l'AP elle-même est terminé avec le joueur. Aucune autre alliance Dynamic Diplomacy ne peut être formée pendant cet événement. De plus, si les factions ennemies permanentes et l'Empire peuvent rejoindre à l'alliance dépend également des configs du mod Dynamic Diplomacy (Ce mod lit les config du mod Dynamic Diplomacy).
+	</DMP_Setting_EnableAllianceAgainstPAEventDetails>
 
 </LanguageData>

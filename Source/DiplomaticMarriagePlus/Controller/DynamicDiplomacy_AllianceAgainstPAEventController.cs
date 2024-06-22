@@ -11,6 +11,7 @@ using RimWorld;
 using RimWorld.Planet;
 using Verse;
 using static System.Collections.Specialized.BitVector32;
+using static DiplomaticMarriagePlus.Model.AllianceAgainstPA;
 
 namespace DiplomaticMarriagePlus.Controller
 {
@@ -47,7 +48,7 @@ namespace DiplomaticMarriagePlus.Controller
 
             //读取动态外交的mod设置：是否允许联盟
             var incidentWorker_NPCConquestType = AccessTools.TypeByName("DynamicDiplomacy.IncidentWorker_NPCConquest");
-            var allowAllianceField = incidentWorker_NPCConquestType.GetField("allowAlliance", BindingFlags.Static);
+            var allowAllianceField = incidentWorker_NPCConquestType.GetField("allowAlliance", BindingFlags.Static | BindingFlags.Public);
             bool allowAlliance = (bool)allowAllianceField.GetValue(null);
             if (!allowAlliance)
             {
@@ -57,8 +58,8 @@ namespace DiplomaticMarriagePlus.Controller
 
             //读取动态外交的mod数据：当前联盟冷却时间。
             var diplomacyWorldComponentType = AccessTools.TypeByName("DynamicDiplomacy.DiplomacyWorldComponent");
-            var diplomacyWorldComponent = Find.World.components.Where(c => diplomacyWorldComponentType.IsInstanceOfType(c)).FirstOrDefault();
-            var allianceCooldownField = diplomacyWorldComponent.GetType().GetField("allianceCooldown");
+            var allianceCooldownField = diplomacyWorldComponentType.GetField("allianceCooldown", BindingFlags.Static | BindingFlags.Public);
+            var diplomacyWorldComponent = Find.World.GetComponent(diplomacyWorldComponentType);
             int allianceCooldown = (int)allianceCooldownField.GetValue(diplomacyWorldComponent);
             if (allianceCooldown > 0)
             {
@@ -83,25 +84,38 @@ namespace DiplomaticMarriagePlus.Controller
             }
 
             //计算永久同盟占全球据点百分比
-            if(!AllianceAgainstPA.IsPAFactionTooPowerful(permanentAlliance))
+            if (!AllianceAgainstPA.IsPAFactionTooPowerful(permanentAlliance))
             {
                 Log.Message("^[DMP] PA not powerful enough. Alliance against PA event aborted.");
                 return false;
             }
 
             //读取动态外交的mod设置：是否允许帝国，是否允许永久敌对派系参加
-            var IncidentWorker_NPCDiploChangeType = AccessTools.TypeByName("DynamicDiplomacy.IncidentWorker_NPCDiploChange");
-            var allowPermField = IncidentWorker_NPCDiploChangeType.GetField("allowPerm", BindingFlags.Static);
-            bool allowPerm = (bool)allowPermField.GetValue(null);
-            var excludeEmpireField = IncidentWorker_NPCDiploChangeType.GetField("excludeEmpire", BindingFlags.Static);
-            bool excludeEmpire = (bool)excludeEmpireField.GetValue(null);
+            var npcDiploSettingsType = AccessTools.TypeByName("DynamicDiplomacy.NPCDiploSettings");
+            var npcDiploSettingsInstanceProperty = npcDiploSettingsType.GetProperty("Instance", BindingFlags.Static | BindingFlags.Public);
+            var npcDiploSettingsInstance = npcDiploSettingsInstanceProperty.GetValue(null);
+            var npcDiploSettingsSettingsField = npcDiploSettingsType.GetField("settings", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var npcDiploSettingsSettingsInstance = npcDiploSettingsSettingsField.GetValue(npcDiploSettingsInstance);
+
+            var npcDiploModSettingsType = AccessTools.TypeByName("DynamicDiplomacy.NPCDiploModSettings");
+            var allowPermField = npcDiploModSettingsType.GetField("repAllowPerm", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            bool allowPerm = (bool)allowPermField.GetValue(npcDiploSettingsSettingsInstance);
+            var excludeEmpireField = npcDiploModSettingsType.GetField("repExcludeEmpire", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            bool excludeEmpire = (bool)excludeEmpireField.GetValue(npcDiploSettingsSettingsInstance);
 
             //组建联盟
-            allianceAgainstPA.formAlliance(permanentAlliance, allowPerm, excludeEmpire);
+            allianceAgainstPA.GenerateAllianceFactionList(permanentAlliance, excludeEmpire, allowPerm);
             allianceAgainstPA.Status = AllianceAgainstPA.AllianceStatus.ACTIVE_RUNNING;
             allianceAgainstPA.UpdateFactionRelations(permanentAlliance);
 
-            //TODO:弹出信件
+            //弹出信件
+            var text = "DMP_DynamicDiplomacyAllianceAgainstPAStarted";
+            var letter = LetterMaker.MakeLetter(
+                    label: "DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle".Translate().CapitalizeFirst(),
+                    text: text.Translate(permanentAlliance.WithFaction).CapitalizeFirst(),
+                    def: LetterDefOf.NegativeEvent
+                    );
+            Find.LetterStack.ReceiveLetter(@let: letter);
 
             return true;
         }

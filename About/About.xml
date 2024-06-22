@@ -21,6 +21,7 @@
 		<li>Ludeon.RimWorld</li>
 		<li>cabbage.rimcities</li>
 		<li>mlie.apetitionforprovisions</li>
+		<li>nilchei.dynamicdiplomacycontinued</li>
 	</loadAfter>
 	<description>You can now form a permanent alliance(PA) by marrying off one of the child of your colony ideology leader to one of your vanilla ally. PA goodwill will quickly increase each day, usually be locked to 100 (if your child has high social skill) unless you really do something terrible. While you can enjoy benefits like endless caravan or military reinforcement, you need to work hard to keep the union, like keeping the couple safe, avoid changing ideology leader, just like how it often works in CK alliance. WARNING: In most time the couple are not under your control so it wont be so easy.
 	</description>

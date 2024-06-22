@@ -87,6 +87,23 @@
 	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>Request specific items disabled (Not permanent ally)</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
 	<DMP_PermanentAllianceAPFPButtonDisabledInCD>Request specific items disabled (Remaining cooldown:{0} days)</DMP_PermanentAllianceAPFPButtonDisabledInCD>
 	
+	<!--Collaborated mod: Dynamic Diplomacy-->
+	<DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>Military alliance against us and our PA</DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>
+	<DMP_DynamicDiplomacyAllianceAgainstPAStarted>
+	Our permanent ally {0} has grown too powerful, alot of factions on the planet has formed a military alliance against them. Because of our union, they also declared war on us! 
+	</DMP_DynamicDiplomacyAllianceAgainstPAStarted>
+	
+	<DMP_DynamicDiplomacyAllianceAgainstPAEndedTitle>Military alliance ended</DMP_DynamicDiplomacyAllianceAgainstPAEndedTitle>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_TOO_WEAK>
+	Since our permanent ally {0} is heavily weaken now, the military alliance has been disbanded. But we still need to work hard to restore relationship with them one by one.
+	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_TOO_WEAK>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_ENDED>
+	Since {0} is no longer our permanent ally, all factions (except permanently hostile ones) has ceased hostility against us. But we still need to work hard to restore relationship with them one by one. Besides, the alliance against {0} will still remain for some time.
+	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_ENDED>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>
+	Since there are no longer enough factions in the alliance against our permanent ally {0}, the military alliance has been disbanded.
+	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>
+	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Dad</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Mom</DMP_PermanentAllianceEventRandomVocabulary_Mother>
 	
@@ -111,4 +128,8 @@
 	<DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
 	After each APFP (A Petition For Provisions) trade, how many In-Game hours of cooldown reduction for each 1% of global settlement percentage for your permanent ally. This feature is for players having APFP installed at the same time. It changes abit the APFP trade (which is too OP) by making it a privilege exclusively offered by permanent allied faction. It calculates the percentage of number of PA faction settlements over total global settlements, then use it to determine the cooldown time after each APFP trade. This means that the more powerful your PA faction, the more you can benefit from APFP trades. The cooldown time is always between 3 days and 1 year. The player has to wait until being able to request provision from PA faction again. Also APFP trades will always be refused by all factions except your permanent ally (even vanilla allies will no longer do it), If Rimcities is installed, large cites are also counted as settlements. This feature encourages players to help permanent ally to conquer more settlements via mods like Rimcities or others, so that they can benefit more from APFP trades. 
 	</DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
+	
+	<DMP_Setting_EnableAllianceAgainstPAEvent>Enable global alliance against PA</DMP_Setting_EnableAllianceAgainstPAEvent>
+	<DMP_Setting_EnableAllianceAgainstPAEventDetails>When your PA reached a certain percentage of global settlements, other factions may form alliance against them, they will stop war among themselves and start war against your PA and against player as well. No peace can be made during this event (even the player or other mods try to make peace it wont last long). This event require Dynamic Diplomacy to trigger, and in Dynamic Diplomacy the mod config about global alliance needs to be activated. The alliance of this event is counted as an Dynamic Diplomacy alliance as well unless it has no time limit. The alliance ends only when the PA faction becomes weak enough, or PA itself is ended. No other Dynamic Diplomacy alliances can be formed during this event. Besides, whether permanent enemy factions and the Empire will join the alliance depends also on the mod config settings in Dynamic Diplomacy (This mod reads the mod config of Dynamic Diplomacy). 
+	</DMP_Setting_EnableAllianceAgainstPAEventDetails>
 </LanguageData>

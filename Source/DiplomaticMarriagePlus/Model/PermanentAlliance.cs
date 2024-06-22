@@ -322,14 +322,12 @@ namespace DiplomaticMarriagePlus.Model
             PermanentAlliance permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
             if (permanentAlliance == null || permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
             {
-                Log.Message("[DMP] Rimcities force VIP aborted: No valid permanent alliance");
                 //只有永久同盟生效时才会检测
                 return;
             }
 
             if(permanentAlliance.PlayerBetrothed.Map != null && permanentAlliance.NpcMarriageSeeker.Map != null)
             {
-                Log.Message("[DMP] Rimcities force VIP aborted: All VIP are already on a map.");
                 return;
             }
 

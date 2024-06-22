@@ -85,9 +85,23 @@
 		{0}，我是{1}。我们的敌人{3}正在攻打我们{2}的大城市{4}。请速来支援！
 	</DMP_PermanentAllianceEventRimcitiesDefense>
 	
+	
 	<!--Collaborated mod: A Petition For Provisions(APFP)-->
 	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>物资申请禁用：非永久同盟</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
 	<DMP_PermanentAllianceAPFPButtonDisabledInCD>物资申请禁用：冷却时间剩余{0}天</DMP_PermanentAllianceAPFPButtonDisabledInCD>
+	
+	<!--Collaborated mod: Dynamic Diplomacy-->
+	<DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>针对我们和永久同盟的军事联盟</DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>
+	<DMP_DynamicDiplomacyAllianceAgainstPAStarted>
+	由于我们的永久同盟{0}的实力已经太过强大，星球上许多派系组成了军事同盟来与之对抗。他们同时也把有姻亲关系的我们也一并视为敌人，并向我们宣战！
+	</DMP_DynamicDiplomacyAllianceAgainstPAStarted>
+	
+	<DMP_DynamicDiplomacyAllianceAgainstPAEndedTitle>军事联盟已失效</DMP_DynamicDiplomacyAllianceAgainstPAEndedTitle>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_TOO_WEAK>由于永久同盟{0}实力已经被严重削弱，针对我们的全球军事联盟已解散。但我们依然需要逐个恢复外交关系。</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_TOO_WEAK>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_ENDED>
+	由于{0}已不是我们的永久同盟，全球军事联盟中的所有非永久敌对派系已停止对我们的永久敌对状态。但我们依然需要逐个恢复外交关系。此外针对{0}的军事同盟仍将持续一段时间。
+	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_ENDED>
+	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>由于我们的永久同盟{0}的敌对派系数量不足，针对我们的全球军事联盟已解散</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>爸爸</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>妈妈</DMP_PermanentAllianceEventRandomVocabulary_Mother>
@@ -113,5 +127,9 @@
 	<DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
 	永久同盟的据点总数占全球总据点数的百分比每提高1%，能降低多少（游戏内）小时的APFP（A Petition For Provisions）物资申请交易冷却时间。本功能专门针对安装了APFP该模组的玩家，将该模组太过正义的交易变成只有永久同盟才会提供的特权。本模组会计算永久同盟派系当前占全球殖民地总数的百分比，以此来决定在每次使用物资申请后能减少的冷却时间。永久同盟越强大，冷却时间也越短。该冷却时间最大为一年，最小为3天，每次冷却过后才能再次向永久同盟申请物资。同时，除了永久同盟外的所有派系都禁止使用物资申请。如果安装了边缘城市，则大城市也算作据点。该设定鼓励玩家用边缘城市和其它模组帮助永久同盟壮大实力，以使自己获得更多物资申请上的便利。
 	</DMP_Setting_APFPCooldownReductionHoursPerGlobalSettlementPercentageDetails>
+	
+	<DMP_Setting_EnableAllianceAgainstPAEvent>开启反永久同盟全球联盟事件</DMP_Setting_EnableAllianceAgainstPAEvent>
+	<DMP_Setting_EnableAllianceAgainstPAEventDetails>				如果你的永久同盟占领了全球一定百分比的据点，其它派系可能组建全球同盟，互相停战并向你的永久同盟宣战，同时也会向玩家一并宣战。在该事件期间玩家无法和这些派系和谈（即使和平也会被强制重新开战）。该事件需要“动态外交(DynamicDiplomacy)”模组并开启全球同盟事件。本事件的联盟也算为动态外交的同盟，但无时间限制，只有永久同盟实力被削弱到不符合条件，或永久同盟失效才会结束。期间动态外交模组也无法形成新的同盟。永久敌对势力和帝国是否会参加联盟则取决于动态外交的设定（本模组会读取动态外交的模组设定）。
+	</DMP_Setting_EnableAllianceAgainstPAEventDetails>
 	
 </LanguageData>
