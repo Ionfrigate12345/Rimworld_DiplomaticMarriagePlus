@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using DiplomaticMarriagePlus.Global;
 using DiplomaticMarriagePlus.Model;
 using DiplomaticMarriagePlus.View;
 using HarmonyLib;
@@ -50,6 +51,12 @@ namespace DiplomaticMarriagePlus
             if (permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID || faction != permanentAlliance.WithFaction)
             {
                 __result.Disable("DMP_PermanentAllianceAPFPButtonDisabledNotPA".Translate());
+                return;
+            }
+
+            if (Utils.IsSOS2SpaceMap(map))
+            {
+                __result.Disable("DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap".Translate());
                 return;
             }
 

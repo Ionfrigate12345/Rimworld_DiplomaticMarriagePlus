@@ -86,6 +86,7 @@
 	<!--Collaborated mod: A Petition For Provisions(APFP)-->
 	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>Demande d'articles spécifiques indisponible (Alliance permanente requise)</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
 	<DMP_PermanentAllianceAPFPButtonDisabledInCD>Demande d'articles spécifiques indisponible (Temps de recharge restant:{0} jours)</DMP_PermanentAllianceAPFPButtonDisabledInCD>
+	<DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>>Demande d'articles spécifiques indisponible (Impossible sur la carte spaciale SOS2)</DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>
 	
 	<!--Collaborated mod: Dynamic Diplomacy-->
 	<DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>Alliance militaire contre nous et notre AP</DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>

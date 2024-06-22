@@ -86,6 +86,7 @@
 	<!--Collaborated mod: A Petition For Provisions(APFP)-->
 	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>Request specific items disabled (Not permanent ally)</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
 	<DMP_PermanentAllianceAPFPButtonDisabledInCD>Request specific items disabled (Remaining cooldown:{0} days)</DMP_PermanentAllianceAPFPButtonDisabledInCD>
+	<DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>Request specific items disabled (Unavailable on SOS2 space map)</DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>
 	
 	<!--Collaborated mod: Dynamic Diplomacy-->
 	<DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>Military alliance against us and our PA</DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>
