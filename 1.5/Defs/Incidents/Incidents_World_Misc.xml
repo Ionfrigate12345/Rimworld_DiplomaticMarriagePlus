@@ -44,7 +44,7 @@
 		<workerClass>DiplomaticMarriagePlus.Controller.Rimcities_PACombinedDefenseEventController</workerClass>
 		<baseChance>2</baseChance>
 		<earliestDay>0</earliestDay>
-		<minRefireDays>15</minRefireDays>
+		<minRefireDays>1</minRefireDays>
 	</IncidentDef>
 	<IncidentDef>
 		<defName>DMP_DynamicDiplomacy_AllianceAgainstPA</defName>

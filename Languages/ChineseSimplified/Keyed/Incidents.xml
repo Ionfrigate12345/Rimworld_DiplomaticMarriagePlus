@@ -87,9 +87,9 @@
 	
 	
 	<!--Collaborated mod: A Petition For Provisions(APFP)-->
-	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>物资申请禁用：非永久同盟</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
-	<DMP_PermanentAllianceAPFPButtonDisabledInCD>物资申请禁用：冷却时间剩余{0}天</DMP_PermanentAllianceAPFPButtonDisabledInCD>
-	<DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>物资申请禁用：SOS2太空地图上禁止使用</DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>
+	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>禁用：非永久同盟</DMP_PermanentAllianceAPFPButtonDisabledNotPA>
+	<DMP_PermanentAllianceAPFPButtonDisabledInCD>禁用：冷却时间剩余{0}天</DMP_PermanentAllianceAPFPButtonDisabledInCD>
+	<DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>禁用：SOS2和Rimnauts2的太空地图上禁止使用</DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap>
 	
 	<!--Collaborated mod: Dynamic Diplomacy-->
 	<DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>针对我们和永久同盟的军事联盟</DMP_DynamicDiplomacyAllianceAgainstPAStartedTitle>

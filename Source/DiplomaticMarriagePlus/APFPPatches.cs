@@ -54,7 +54,7 @@ namespace DiplomaticMarriagePlus
                 return;
             }
 
-            if (Utils.IsSOS2SpaceMap(map))
+            if (Utils.IsSOS2OrRimNauts2SpaceMap(map))
             {
                 __result.Disable("DMP_PermanentAllianceAPFPButtonDisabledSOS2SpaceMap".Translate());
                 return;

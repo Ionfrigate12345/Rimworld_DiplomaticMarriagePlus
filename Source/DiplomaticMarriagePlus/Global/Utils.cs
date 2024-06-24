@@ -169,8 +169,17 @@ namespace DiplomaticMarriagePlus.Global
             }
             return false;
         }
+        public static bool IsRimNauts2SpaceMap(Map map)
+        {
+            return map.Biome.defName.StartsWith("RimNauts2_");
+        }
 
-        //获取玩家财富值最高的地图。SOS2的太空地图会被排除。
+        public static bool IsSOS2OrRimNauts2SpaceMap(Map map)
+        {
+            return IsSOS2SpaceMap(map) || IsRimNauts2SpaceMap(map);
+        }
+
+        //获取玩家财富值最高的地图。SOS2和Rimnauts2的太空地图会被排除。
         public static Map GetPlayerMainColonyMapSOS2Excluded()
         {
             var allPlayerHomes = (from x in Find.Maps
@@ -180,7 +189,7 @@ namespace DiplomaticMarriagePlus.Global
             var allNonSpaceMaps = new List<Map>();
             foreach (var map in allPlayerHomes)
             {
-                if (IsSOS2SpaceMap(map) == false)
+                if (IsSOS2OrRimNauts2SpaceMap(map) == false)
                 {
                     allNonSpaceMaps.Add(map);
                 }
