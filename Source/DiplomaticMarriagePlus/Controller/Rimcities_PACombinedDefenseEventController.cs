@@ -15,7 +15,7 @@ namespace DiplomaticMarriagePlus.Controller
 {
     internal class Rimcities_PACombinedDefenseEventController : IncidentWorker
     {
-        private const float INITIAL_BASE_CHANCE = 2.0f;
+        public static float initialBaseChance = 2.0f;
 
         //触发边缘城市(Rimcities）的防御任务，联合者规定为永久同盟
         protected override bool CanFireNowSub(IncidentParms parms)
@@ -24,16 +24,16 @@ namespace DiplomaticMarriagePlus.Controller
             {
                 return false;
             }
-            this.def.baseChance = INITIAL_BASE_CHANCE;
-            this.def.baseChanceWithRoyalty = INITIAL_BASE_CHANCE;
+            def.baseChance = initialBaseChance;
+            def.baseChanceWithRoyalty = initialBaseChance;
             //如果特殊版全球同盟事件进行中（永久同盟被全球派系联合针对），该事件概率翻3倍。每天最多一次。
             if (ModsConfig.IsActive("nilchei.dynamicdiplomacycontinued") || ModsConfig.IsActive("nilchei.dynamicdiplomacy"))
             {
                 var allianceAgainstPA = Find.World.GetComponent<AllianceAgainstPA>();
                 if(allianceAgainstPA != null && allianceAgainstPA.Status == AllianceAgainstPA.AllianceStatus.ACTIVE_RUNNING)
                 {
-                    this.def.baseChance = INITIAL_BASE_CHANCE * 3;
-                    this.def.baseChanceWithRoyalty = INITIAL_BASE_CHANCE * 3;
+                    def.baseChance = initialBaseChance * 3;
+                    def.baseChanceWithRoyalty = initialBaseChance * 3;
                 }
             }
             return true;
