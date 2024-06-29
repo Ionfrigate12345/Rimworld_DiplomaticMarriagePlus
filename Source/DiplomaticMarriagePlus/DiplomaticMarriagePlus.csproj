@@ -38,7 +38,6 @@
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>C:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,6 +51,12 @@
       <HintPath>C:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APFPPatches.cs" />
@@ -59,6 +64,7 @@
     <Compile Include="Controller\RandomVisitEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedAssaultEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedDefenseEventController.cs" />
+    <Compile Include="Global\UIUtils.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Model\AllianceAgainstPA.cs" />
     <Compile Include="Model\DMPModSettings.cs" />

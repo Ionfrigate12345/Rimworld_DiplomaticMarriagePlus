@@ -72,6 +72,13 @@
 		{1}, it's time for us to return to {0}. Thank you for your hospitality during this time. See you next time!
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
 	
+	<!--Widgets-->
+	<DMP_PermanentAllianceInfo_WidgetTitle>Active Permanent Alliance</DMP_PermanentAllianceInfo_WidgetTitle>
+	<DMP_PermanentAllianceInfo_WidgetTitleDesc>With the marriage between the child of our leader, {0}, and the key person {1} from {2}, we are currently under permanent alliance with {2}. Our goodwill increases automatically each day, and they will take special care of us with some privileges. However if one of the couple dies, our goodwill with them is too low, or we change our ideology leader but he/she is neither the father nor the mother of {0}, then the permanent alliance will end immediately.</DMP_PermanentAllianceInfo_WidgetTitleDesc>
+	
+	<DMP_TemporaryStay_WidgetTitle>PA couple in visit</DMP_TemporaryStay_WidgetTitle>
+	<DMP_TemporaryStay_WidgetTitleDesc>The VIP couple of our permanent ally {0}，{1} and {2} are currently visiting our colony. They will return in {3} days.</DMP_TemporaryStay_WidgetTitleDesc>
+	
 	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>Permanent ally assaulting city</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
 	<DMP_PermanentAllianceEventRimcitiesAssault>
@@ -107,6 +114,7 @@
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Dad</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Mom</DMP_PermanentAllianceEventRandomVocabulary_Mother>
+	
 	
 	<!--Settings-->
 	<DMP_Setting_ModName>Diplomatic Marriage +</DMP_Setting_ModName>

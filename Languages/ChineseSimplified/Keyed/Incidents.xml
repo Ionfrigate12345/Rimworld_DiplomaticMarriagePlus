@@ -33,7 +33,7 @@
 	<DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>联姻关键人物所属阵营错误警告</DMP_PermanentAllianceVIPUnexpectedFactionWarningTitle>
 	<DMP_PermanentAllianceVIPUnexpectedFactionWarning>
 		检测到和{1}的永久同盟所依赖的关键人物{0}不属于联姻阵营{1}，而属于阵营{2}，同时也非处于回家暂住状态。此非正常情况，已强制修正其阵营。
-		\n警告：在永久同盟生效期间，除了回家暂住状态外，请不要试图用任何方式囚禁或招募两位联姻关键人物，无论是原版，控制台还是其它mod（如访客接待Hospitality）。否则可能会导致本Mod《外交婚姻和永久同盟》无法正常运行！
+		\n警告：在永久同盟生效期间，除了回家暂住状态外，请不要试图用任何方式囚禁或招募两位联姻关键人物，无论是原版，控制台还是其它模组（如访客接待）。否则可能会导致本模组《外交婚姻和永久同盟》无法正常运行！
 	</DMP_PermanentAllianceVIPUnexpectedFactionWarning>
 	
 	<DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>来自姻亲盟友商队的求助</DMP_PermanentAllianceEventRandomVisitCaravanArriveTitle>
@@ -74,6 +74,13 @@
 		{1}，时间到了，我们要返回{0}了。感谢这段时间的招待。下次再见！
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
 	
+	<!--Widgets-->
+	<DMP_PermanentAllianceInfo_WidgetTitle>姻亲同盟</DMP_PermanentAllianceInfo_WidgetTitle>
+	<DMP_PermanentAllianceInfo_WidgetTitleDesc>由于我方领袖的孩子{0}和{2}的要人{1}的婚姻，我们和{2}目前是姻亲同盟。我们的关系度每天会自动增加，并且他们会给我们各种特殊照顾。注意如果夫妇中任何一人死亡，阵营派系关系过低，或除了{0}的父亲或母亲之外的任何第三者成了我方文化领袖，都将导致姻亲同盟终结。</DMP_PermanentAllianceInfo_WidgetTitleDesc>
+	
+	<DMP_TemporaryStay_WidgetTitle>联姻夫妇拜访中</DMP_TemporaryStay_WidgetTitle>
+	<DMP_TemporaryStay_WidgetTitleDesc>姻亲同盟{0}的关键夫妇，{1}和{2}正在我们的基地暂住。他们会在{3}天后返回姻亲同盟阵营。</DMP_TemporaryStay_WidgetTitleDesc>
+	
 	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>永久同盟请求帮助攻打城市</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
 	<DMP_PermanentAllianceEventRimcitiesAssault>
@@ -103,6 +110,7 @@
 	由于{0}已不是我们的永久同盟，全球军事联盟中的所有非永久敌对派系已停止对我们的永久敌对状态。但我们依然需要逐个恢复外交关系。此外针对{0}的军事同盟仍将持续一段时间。
 	</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_ENDED>
 	<DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>由于我们的永久同盟{0}的敌对派系数量不足，针对我们的全球军事联盟已解散</DMP_DynamicDiplomacyAllianceAgainstPAEnded_PA_NO_ENOUGH_FACTIONS>
+	
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>爸爸</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>妈妈</DMP_PermanentAllianceEventRandomVocabulary_Mother>

@@ -71,6 +71,13 @@
 	<DMP_PermanentAllianceEventTemporaryStayDeparture>
 		{1}, il est temps pour nous de retourner chez {0}. Merci pour votre hospitalité. À la prochaine !
 	</DMP_PermanentAllianceEventTemporaryStayDeparture>
+	
+	<!--Widgets-->
+	<DMP_PermanentAllianceInfo_WidgetTitle>L'alliance permanente active</DMP_PermanentAllianceInfo_WidgetTitle>
+	<DMP_PermanentAllianceInfo_WidgetTitleDesc>Grâce au mariage entre l'enfant de notre dirigeant, {0}, et la personne clé {1} de {2}, nous sommes actuellement en alliance permanente avec {2}. Notre relation augmente automatiquement chaque jour, et ils prendront particulièrement soin de nous avec certains privilèges. Cependant, si l'un des couples décède, ou notre relation devient trop faible, ou nous imposons un nouveau leader idéologique qui n'est ni le père ni la mère de {0}, dans ces cas l'alliance permanente prendra fin immédiatement.</DMP_PermanentAllianceInfo_WidgetTitleDesc>
+	
+	<DMP_TemporaryStay_WidgetTitle>Le couple AP en visite</DMP_TemporaryStay_WidgetTitle>
+	<DMP_TemporaryStay_WidgetTitleDesc>Le couple VIP de notre allié permanent {0}，{1} et {2}, sont en train de visiter notre colonie. Ils vont retourner chez eux dans {3} jours.</DMP_TemporaryStay_WidgetTitleDesc>
 
 	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>L'allié permanent attaque une grande ville</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
@@ -108,6 +115,7 @@
 	
 	<DMP_PermanentAllianceEventRandomVocabulary_Father>Papa</DMP_PermanentAllianceEventRandomVocabulary_Father>
 	<DMP_PermanentAllianceEventRandomVocabulary_Mother>Maman</DMP_PermanentAllianceEventRandomVocabulary_Mother>
+	
 	
 	<!--Paramètres-->
 	<DMP_Setting_ModName>Le Mariage Diplomatique +</DMP_Setting_ModName>
