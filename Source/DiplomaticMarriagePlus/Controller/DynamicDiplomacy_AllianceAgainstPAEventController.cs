@@ -84,7 +84,7 @@ namespace DiplomaticMarriagePlus.Controller
             }
 
             //计算永久同盟占全球据点百分比
-            if (!AllianceAgainstPA.IsPAFactionTooPowerful(permanentAlliance))
+            if (!AllianceAgainstPA.IsFactionTooPowerful(permanentAlliance.WithFaction, GLOBAL_SETTLEMENT_PERCT_THRESHOLD))
             {
                 Log.Message("^[DMP] PA not powerful enough. Alliance against PA event aborted.");
                 return false;

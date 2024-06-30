@@ -208,13 +208,14 @@ namespace DiplomaticMarriagePlus.Controller
                  && !x.Faction.IsPlayer
                  && !x.Faction.defeated
                  && x.Faction.leader != null
-                 && !x.Faction.leader.IsPrisoner
                  && x.Faction.AllyOrNeutralTo(Faction.OfPlayer)
                  && x.Faction.GoodwillWith(Faction.OfPlayer) >= 75
-                 && !x.IsPrisoner 
-                 && !x.Spawned 
+                 && !x.IsPrisoner
+                 && !x.IsSlave
+                 && !x.Spawned
                  && x.relations != null 
                  && x.RaceProps.Humanlike
+                 && x != x.Faction.leader
                  && Utils.GetFactionTotalSettlementCount(x.Faction) > 0 //不是某些mod生成的弱小派系（必须有至少一个正规殖民地）
                  && !SettlementUtility.IsPlayerAttackingAnySettlementOf(faction: x.Faction)
                  && x.ageTracker.AgeBiologicalYears >= 18

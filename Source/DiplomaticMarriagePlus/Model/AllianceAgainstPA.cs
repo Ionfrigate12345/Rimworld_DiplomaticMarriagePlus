@@ -76,7 +76,7 @@ namespace DiplomaticMarriagePlus.Model
                 _status = AllianceStatus.ACTIVE_STOPPING_PA_ENDED;
             }
 
-            if (!IsPAFactionTooPowerful(permanentAlliance))
+            if (!IsFactionTooPowerful(permanentAlliance.WithFaction, GLOBAL_SETTLEMENT_PERCT_THRESHOLD / 2))
             {
                 Log.Message("^[DMP] PA faction is no longer powerful enough. Alliance against PA disbanded..");
                 _status = AllianceStatus.ACTIVE_STOPPING_PA_TOO_WEAK;
@@ -176,15 +176,39 @@ namespace DiplomaticMarriagePlus.Model
             return _allianceAgainstPAFactionList;
         }
 
-        public static bool IsPAFactionTooPowerful(PermanentAlliance permanentAlliance)
+        public static bool IsFactionTooPowerful(Faction targetFaction, float threshold)
         {
             var globalSettlements = Find.WorldObjects.Settlements.Where(settlement =>
-                    !settlement.def.defName.Equals("City_Abandoned") //排除边缘城市据点中的废弃据点和鬼城
+                    !settlement.def.defName.Equals("City_Abandoned") //排除边缘城市据点中的非派系据点
                     && !settlement.def.defName.Equals("City_Ghost")
+                    && !settlement.def.defName.Equals("City_Compromised")
                     ).ToList();
-            int totalGlobalSettlements = globalSettlements.Count;
-            int totalPASettlements = globalSettlements.Where(settlement => settlement.Faction == permanentAlliance.WithFaction).ToList().Count();
-            if ((totalPASettlements * 1.0f / totalGlobalSettlements) < GLOBAL_SETTLEMENT_PERCT_THRESHOLD)
+
+            float pointsPA = 0, pointsOtherFactions = 0;
+            foreach (var settlement in globalSettlements) 
+            {
+                float points = 1.0f;//普通据点算1分
+
+                //边缘城市的大城市算分更多
+                if (settlement.def.defName.Equals("City_Faction"))
+                {
+                    points = 2.0f; 
+                }
+                else if (settlement.def.defName.Equals("City_Citadel"))
+                {
+                    points = 2.5f;
+                }
+
+                if (settlement.Faction == targetFaction)
+                {
+                    pointsPA += points;
+                }
+                else
+                {
+                    pointsOtherFactions += points;
+                }
+            }
+            if ((pointsPA * 1.0f / (pointsPA + pointsOtherFactions)) < threshold)
             {
                 return false;
             }
