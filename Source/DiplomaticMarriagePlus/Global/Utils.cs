@@ -157,13 +157,7 @@ namespace DiplomaticMarriagePlus.Global
         //判断该地图是否为SOS2的太空地图。
         public static bool IsSOS2SpaceMap(Map map)
         {
-            var traverse = Traverse.Create(map);
-            var isSpaceMethod = traverse.Method("IsSpace");
-            if (isSpaceMethod.MethodExists() && (bool)isSpaceMethod.GetValue())
-            {
-                return true;
-            }
-            else if (map.Biome.defName.Contains("OuterSpace"))
+            if (map.Biome.defName.Contains("OuterSpace"))
             {
                 return true;
             }
@@ -179,37 +173,15 @@ namespace DiplomaticMarriagePlus.Global
             return IsSOS2SpaceMap(map) || IsRimNauts2SpaceMap(map);
         }
 
-        //获取玩家财富值最高的地图。SOS2和Rimnauts2的太空地图会被排除。
-        public static Map GetPlayerMainColonyMapSOS2Excluded()
+        //获取玩家财富值最高的地图。
+        public static Map GetPlayerMainColonyMap(bool excludeSOS2Rimnauts2SpaceMaps = true, bool requirePlayerHome = true)
         {
-            var allPlayerHomes = (from x in Find.Maps
-                                  where x.IsPlayerHome
-                                  select x).ToList();
+            var playerHomes = (from map in Find.Maps
+                               where (requirePlayerHome == false || map.IsPlayerHome)
+                               && (excludeSOS2Rimnauts2SpaceMaps == false || !IsSOS2OrRimNauts2SpaceMap(map))
+                               select map).OrderByDescending(map => map.PlayerWealthForStoryteller).ToList();
 
-            var allNonSpaceMaps = new List<Map>();
-            foreach (var map in allPlayerHomes)
-            {
-                if (IsSOS2OrRimNauts2SpaceMap(map) == false)
-                {
-                    allNonSpaceMaps.Add(map);
-                }
-            }
-
-            if (!allNonSpaceMaps.Any())
-            {
-                return null;
-            }
-
-            return allNonSpaceMaps.OrderByDescending(map => map.PlayerWealthForStoryteller).First();
-        }
-
-        public static Map GetPlayerMainColonyMap()
-        {
-            var allPlayerHomes = (from x in Find.Maps
-                                  where x.IsPlayerHome
-                                  select x).ToList();
-
-            return allPlayerHomes.OrderByDescending(map => map.PlayerWealthForStoryteller).First();
+            return playerHomes.Count > 0 ? playerHomes.First() : null;
         }
 
         public static bool RunIncident(IncidentDef incidentDef)

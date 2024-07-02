@@ -65,7 +65,7 @@ namespace DiplomaticMarriagePlus.Controller
                 Log.Message(text: "[DMP] Player faction has no leader or ideology leader. Proposal aborted.");
                 return false;
             }
-            if (Utils.GetPlayerMainColonyMapSOS2Excluded() == null)
+            if (Utils.GetPlayerMainColonyMap() == null)
             {
                 //玩家没有小地图
                 Log.Message(text: "[DMP] Player faction has no available colony map. Proposal aborted.");

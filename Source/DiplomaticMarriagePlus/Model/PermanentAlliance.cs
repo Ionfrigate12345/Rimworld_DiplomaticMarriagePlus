@@ -221,7 +221,7 @@ namespace DiplomaticMarriagePlus.Model
                     PlayerBetrothed.SetFaction(Faction.OfPlayer);
                     if (PlayerBetrothed.Map == null)
                     {
-                        Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+                        Map map = Utils.GetPlayerMainColonyMap();
                         //如果此时小人在地图外，把小人生成到玩家主基地
                         Utils.SpawnOnePawn(map, PlayerBetrothed, IntVec3.Invalid);
                     }

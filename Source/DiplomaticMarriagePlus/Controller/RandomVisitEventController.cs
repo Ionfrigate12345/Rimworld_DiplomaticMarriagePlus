@@ -36,7 +36,7 @@ namespace DiplomaticMarriagePlus.Controller
                 return false;
             }
 
-            Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+            Map map = Utils.GetPlayerMainColonyMap();
             if(map == null) 
             {
                 Log.Message("[DMP] Random visit event aborted: The player doesnt have a valid non-SOS2 colony");

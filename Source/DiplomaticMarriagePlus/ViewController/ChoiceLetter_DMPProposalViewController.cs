@@ -53,7 +53,7 @@ namespace DiplomaticMarriagePlus.ViewController
                             vipPawns.Add(NpcMarriageSeeker);
                             List<Pawn> incidentPawns;
                             IntVec3 spawnLoc;
-                            Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+                            Map map = Utils.GetPlayerMainColonyMap();
                             //把NPC小人生成到地图（玩家派系领袖此刻所处的小地图）,再随机生成些事件小人当求婚者的随从。
                             Utils.SpawnVIPAndIncidentPawns(map, NpcMarriageSeeker.Faction, vipPawns, Utils.GetRandomThreatPointsByPlayerWealth(map, 120), PawnGroupKindDefOf.Combat, out incidentPawns, out spawnLoc);
 

@@ -43,102 +43,13 @@ namespace DiplomaticMarriagePlus.Model
 
             if (GenTicks.TicksAbs % (GenDate.TicksPerHour * 3) == 0)
             {
-                Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
-                if (map == null)
-                {
-                    //如果没有合适的小地图
-                    return;
-                }
                 if (_isReadyForNextVisit && IsCurrentlyTimeForVisit())
                 {
-                    if (GenHostility.AnyHostileActiveThreatToPlayer(map))
-                    {
-                        //如果此刻地图上有敌人则无法触发。
-                        return;
-                    }
-                    var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
-                    if(permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
-                    {
-                        //如果永久联盟已终结，则重置所有属性,不再运行。
-                        _isRunning = false;
-                        return;
-                    }
-
-                    //地图上生成小人，开始访问
-                    Faction WithFaction = permanentAlliance.WithFaction;
-                    Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
-                    Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
-
-                    if (playerBetrothed.Map != null || npcMarriageSeeker.Map != null)
-                    {
-                        //如果二人中任何一人当前在任何小地图上，则无法触发
-                        return;
-                    }
-
-                    List<Pawn> couple = new List<Pawn>();
-                    couple.Add(playerBetrothed);
-                    couple.Add(npcMarriageSeeker);
-                    List<Pawn> incidentPawns;
-                    IntVec3 stageLog;
-
-                    playerBetrothed.SetFaction(Faction.OfPlayer);
-                    npcMarriageSeeker.SetFaction(Faction.OfPlayer);
-
-                    Utils.SpawnVIPAndIncidentPawns(map, Faction.OfPlayer, couple, 0, PawnGroupKindDefOf.Combat, out incidentPawns, out stageLog);
-
-                    //弹出小人抵达信件
-                    var textVocabularyPapaOrMama =
-                        ("DMP_PermanentAllianceEventRandomVocabulary_"
-                        + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
-                        ).Translate();
-                    var letter = LetterMaker.MakeLetter(
-                        label: "DMP_PermanentAllianceEventTemporaryStayArrivalTitle".Translate().CapitalizeFirst(),
-                        text: "DMP_PermanentAllianceEventTemporaryStayArrival".Translate(
-                            textVocabularyPapaOrMama
-                            ).CapitalizeFirst(),
-                        def: LetterDefOf.PositiveEvent,
-                        relatedFaction: WithFaction
-                    );
-                    Find.LetterStack.ReceiveLetter(@let: letter);
-
-                    _isReadyForNextVisit = false;
-                    _isCurrentlyOnVisit = true;
+                    TryStartVisit();
                 }
-                else if (_isCurrentlyOnVisit && !IsCurrentlyTimeForVisit())
+                else if (_isCurrentlyOnVisit && IsCurrentlyTimeToLeave())
                 {
-                    //访问时间限制已到，改回阵营，迫使两位小人离开。
-                    var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
-                    Faction WithFaction = permanentAlliance.WithFaction;
-                    Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
-                    Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
-                    if(WithFaction != null)
-                    {
-                        if (playerBetrothed != null && !playerBetrothed.Dead)
-                        {
-                            playerBetrothed.SetFaction(WithFaction);
-                        }
-                        if (npcMarriageSeeker != null && !npcMarriageSeeker.Dead)
-                        {
-                            npcMarriageSeeker.SetFaction(WithFaction);
-                        }
-                        //弹出告别信件
-                        var textVocabularyPapaOrMama =
-                            ("DMP_PermanentAllianceEventRandomVocabulary_"
-                            + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
-                            ).Translate();
-                        var letter = LetterMaker.MakeLetter(
-                            label: "DMP_PermanentAllianceEventTemporaryStayDepartureTitle".Translate().CapitalizeFirst(),
-                            text: "DMP_PermanentAllianceEventTemporaryStayDeparture".Translate(
-                                WithFaction.Name,
-                                textVocabularyPapaOrMama
-                                ).CapitalizeFirst(),
-                            def: LetterDefOf.PositiveEvent,
-                            relatedFaction: WithFaction
-                        );
-                        Find.LetterStack.ReceiveLetter(@let: letter);
-                    }
-                    _isCurrentlyOnVisit = false;
-                    _tickLastNostalgia = 0;
+                    TryEndVisit();
                 }
             }
             if (GenTicks.TicksAbs % (GenDate.TicksPerDay * 1) == GenDate.HoursPerDay * 10)
@@ -163,6 +74,105 @@ namespace DiplomaticMarriagePlus.Model
             }
         }
 
+        private void TryStartVisit()
+        {
+            Map map = Utils.GetPlayerMainColonyMap();
+            if (map == null)
+            {
+                //如果没有合适的小地图
+                return;
+            }
+            if (GenHostility.AnyHostileActiveThreatToPlayer(map))
+            {
+                //如果此刻地图上有敌人则无法触发。
+                return;
+            }
+            var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
+            if (permanentAlliance.IsValid() != PermanentAlliance.Validity.VALID)
+            {
+                //如果永久联盟已终结，则重置所有属性,不再运行。
+                _isRunning = false;
+                return;
+            }
+
+            //地图上生成小人，开始访问
+            Faction WithFaction = permanentAlliance.WithFaction;
+            Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
+            Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
+
+            if (playerBetrothed.Map != null || npcMarriageSeeker.Map != null)
+            {
+                //如果二人中任何一人当前在任何小地图上，则无法触发
+                return;
+            }
+
+            List<Pawn> couple = new List<Pawn>();
+            couple.Add(playerBetrothed);
+            couple.Add(npcMarriageSeeker);
+            List<Pawn> incidentPawns;
+            IntVec3 stageLog;
+
+            playerBetrothed.SetFaction(Faction.OfPlayer);
+            npcMarriageSeeker.SetFaction(Faction.OfPlayer);
+
+            Utils.SpawnVIPAndIncidentPawns(map, Faction.OfPlayer, couple, 0, PawnGroupKindDefOf.Combat, out incidentPawns, out stageLog);
+
+            //弹出小人抵达信件
+            var textVocabularyPapaOrMama =
+                ("DMP_PermanentAllianceEventRandomVocabulary_"
+                + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
+                ).Translate();
+            var letter = LetterMaker.MakeLetter(
+                label: "DMP_PermanentAllianceEventTemporaryStayArrivalTitle".Translate().CapitalizeFirst(),
+                text: "DMP_PermanentAllianceEventTemporaryStayArrival".Translate(
+                    textVocabularyPapaOrMama
+                    ).CapitalizeFirst(),
+                def: LetterDefOf.PositiveEvent,
+                relatedFaction: WithFaction
+            );
+            Find.LetterStack.ReceiveLetter(@let: letter);
+
+            _isReadyForNextVisit = false;
+            _isCurrentlyOnVisit = true;
+        }
+
+        private void TryEndVisit()
+        {
+            //访问时间限制已到，改回阵营，迫使两位小人离开。
+            var permanentAlliance = Find.World.GetComponent<PermanentAlliance>();
+            Faction WithFaction = permanentAlliance.WithFaction;
+            Pawn playerBetrothed = permanentAlliance.PlayerBetrothed;
+            Pawn npcMarriageSeeker = permanentAlliance.NpcMarriageSeeker;
+            if (WithFaction != null)
+            {
+                if (playerBetrothed != null && !playerBetrothed.Dead)
+                {
+                    playerBetrothed.SetFaction(WithFaction);
+                }
+                if (npcMarriageSeeker != null && !npcMarriageSeeker.Dead)
+                {
+                    npcMarriageSeeker.SetFaction(WithFaction);
+                }
+                //弹出告别信件
+                var textVocabularyPapaOrMama =
+                    ("DMP_PermanentAllianceEventRandomVocabulary_"
+                    + (permanentAlliance.PlayerFactionLeader.gender == Gender.Male ? "Father" : "Mother")
+                    ).Translate();
+                var letter = LetterMaker.MakeLetter(
+                    label: "DMP_PermanentAllianceEventTemporaryStayDepartureTitle".Translate().CapitalizeFirst(),
+                    text: "DMP_PermanentAllianceEventTemporaryStayDeparture".Translate(
+                        WithFaction.Name,
+                        textVocabularyPapaOrMama
+                        ).CapitalizeFirst(),
+                    def: LetterDefOf.PositiveEvent,
+                    relatedFaction: WithFaction
+                );
+                Find.LetterStack.ReceiveLetter(@let: letter);
+            }
+            _isCurrentlyOnVisit = false;
+            _tickLastNostalgia = 0;
+        }
+
         //根据上一次访问时间，有一定几率得思乡病。
         //可用来强制思乡病，以此初始化第一次访问。
         public bool TryGetNostalgia()
@@ -179,7 +189,7 @@ namespace DiplomaticMarriagePlus.Model
                 return false;
             }
 
-            Map map = Utils.GetPlayerMainColonyMapSOS2Excluded();
+            Map map = Utils.GetPlayerMainColonyMap();
             if (map == null)
             {
                 //如果没有合适的小地图
@@ -246,21 +256,10 @@ namespace DiplomaticMarriagePlus.Model
             return (GenTicks.TicksAbs >= _tickLastTemporaryVisitStart && GenTicks.TicksAbs <= _tickLastTemporaryVisitEnd);
         }
 
-        /*public void OnArrival()
+        public bool IsCurrentlyTimeToLeave()
         {
-            _tickLastNostalgia = 0;
+            return _tickLastTemporaryVisitEnd > 0 && GenTicks.TicksAbs > _tickLastTemporaryVisitEnd;
         }
-
-        public void ResetAll()
-        {
-            _tickLastNostalgia = _tickLastTemporaryVisitStart = _tickLastTemporaryVisitEnd = 0;
-            _isReadyForNextVisit = false;
-        }
-
-        public void InitializeByForcingFirstNostalgia()
-        {
-            TryGetNostalgia(true);
-        }*/
 
         public override void ExposeData()
         {
