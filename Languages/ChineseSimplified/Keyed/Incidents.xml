@@ -81,6 +81,13 @@
 	<DMP_TemporaryStay_WidgetTitle>联姻夫妇拜访中</DMP_TemporaryStay_WidgetTitle>
 	<DMP_TemporaryStay_WidgetTitleDesc>姻亲同盟{0}的关键夫妇，{1}和{2}正在我们的基地暂住。他们会在{3}天后返回姻亲同盟阵营。</DMP_TemporaryStay_WidgetTitleDesc>
 	
+	<!--Comm station dialogs-->
+	<DMP_PermanentAllianceJointAttackDialogTitle>请求共同攻击并让友军占领据点</DMP_PermanentAllianceJointAttackDialogTitle>
+	<DMP_PermanentAllianceJointAttackDialogTitleDisabledNoAvailableTarget>禁用：没有有效目标</DMP_PermanentAllianceJointAttackDialogTitleDisabledNoAvailableTarget>
+	<DMP_PermanentAllianceJointAttackDialogOnTheWay>姻亲同盟派兵增援我们正在攻打的敌据点{0}</DMP_PermanentAllianceJointAttackDialogOnTheWay>
+	<DMP_PermanentAllianceJointAttackTakeoverTitle>据点已被姻亲同盟接管</DMP_PermanentAllianceJointAttackTakeoverTitle>
+	<DMP_PermanentAllianceJointAttackTakeover>姻亲同盟{0}已经接管了我们刚刚共同攻下的敌据点{1}，并改名为{2}。他们非常感谢我们的帮助。</DMP_PermanentAllianceJointAttackTakeover>
+	
 	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>永久同盟请求帮助攻打城市</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
 	<DMP_PermanentAllianceEventRimcitiesAssault>
@@ -91,7 +98,6 @@
 	<DMP_PermanentAllianceEventRimcitiesDefense>
 		{0}，我是{1}。我们的敌人{3}正在攻打我们{2}的大城市{4}。请速来支援！
 	</DMP_PermanentAllianceEventRimcitiesDefense>
-	
 	
 	<!--Collaborated mod: A Petition For Provisions(APFP)-->
 	<DMP_PermanentAllianceAPFPButtonDisabledNotPA>禁用：非永久同盟</DMP_PermanentAllianceAPFPButtonDisabledNotPA>

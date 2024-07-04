@@ -79,6 +79,13 @@
 	<DMP_TemporaryStay_WidgetTitle>PA couple in visit</DMP_TemporaryStay_WidgetTitle>
 	<DMP_TemporaryStay_WidgetTitleDesc>The VIP couple of our permanent ally {0}，{1} and {2} are currently visiting our colony. They will return in {3} days.</DMP_TemporaryStay_WidgetTitleDesc>
 	
+	<!--Comm station dialogs-->
+	<DMP_PermanentAllianceJointAttackDialogTitle>Request reinforcement for ongoing assault and let PA takeover</DMP_PermanentAllianceJointAttackDialogTitle>
+	<DMP_PermanentAllianceJointAttackDialogTitleDisabledNoAvailableTarget>Disabled: No ongoing settlement assault</DMP_PermanentAllianceJointAttackDialogTitleDisabledNoAvailableTarget>
+	<DMP_PermanentAllianceJointAttackDialogOnTheWay>Permanent ally sent reinforcement to {0} under our attack</DMP_PermanentAllianceJointAttackDialogOnTheWay>
+	<DMP_PermanentAllianceJointAttackTakeoverTitle>Enemy settlement takeover by PA</DMP_PermanentAllianceJointAttackTakeoverTitle>
+	<DMP_PermanentAllianceJointAttackTakeover>Our permanent ally {0} has taken {1}, the settlement we just conquered together, and they renamed it to {2}. They've sent their gratitude for our help.</DMP_PermanentAllianceJointAttackTakeover>
+	
 	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>Permanent ally assaulting city</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
 	<DMP_PermanentAllianceEventRimcitiesAssault>

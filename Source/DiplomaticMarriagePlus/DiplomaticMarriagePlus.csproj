@@ -64,6 +64,8 @@
     <Compile Include="Controller\RandomVisitEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedAssaultEventController.cs" />
     <Compile Include="Controller\Rimcities_PACombinedDefenseEventController.cs" />
+    <Compile Include="Model\SettlementToBeTransferedPendingElement.cs" />
+    <Compile Include="View\DialogWindow.cs" />
     <Compile Include="Global\UIUtils.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Model\AllianceAgainstPA.cs" />

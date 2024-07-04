@@ -79,6 +79,13 @@
 	<DMP_TemporaryStay_WidgetTitle>Le couple AP en visite</DMP_TemporaryStay_WidgetTitle>
 	<DMP_TemporaryStay_WidgetTitleDesc>Le couple VIP de notre allié permanent {0}，{1} et {2}, sont en train de visiter notre colonie. Ils vont retourner chez eux dans {3} jours.</DMP_TemporaryStay_WidgetTitleDesc>
 
+	<!--Comm station dialogs-->
+	<DMP_PermanentAllianceJointAttackDialogTitle>Attaquer ensemble et laisser l'AP prendre la colonie hostile</DMP_PermanentAllianceJointAttackDialogTitle>
+	<DMP_PermanentAllianceJointAttackDialogTitleDisabledNoAvailableTarget>Indisponible: Aucun assaut de colonie hostile en cours</DMP_PermanentAllianceJointAttackDialogTitleDisabledNoAvailableTarget>
+	<DMP_PermanentAllianceJointAttackDialogOnTheWay>L'allié permanent a envoyé des soldats pour nous aider à attaquer {0}</DMP_PermanentAllianceJointAttackDialogOnTheWay>
+	<DMP_PermanentAllianceJointAttackTakeoverTitle>Prise de contrôle de la colonie ennemie par l'AP</DMP_PermanentAllianceJointAttackTakeoverTitle>
+	<DMP_PermanentAllianceJointAttackTakeover>Notre allié permanent {0} a pris {1}, la colonie que nous venons de conquérir ensemble, et l'a renommée en {2}. Ils nous ont envoyé leurs remerciements pour notre aide.</DMP_PermanentAllianceJointAttackTakeover>
+
 	<!--Collaborated mod: Rimcities-->
 	<DMP_PermanentAllianceEventRimcitiesAssaultTitle>L'allié permanent attaque une grande ville</DMP_PermanentAllianceEventRimcitiesAssaultTitle>
 	<DMP_PermanentAllianceEventRimcitiesAssault>

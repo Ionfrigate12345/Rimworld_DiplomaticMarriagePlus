@@ -17,6 +17,7 @@ namespace DiplomaticMarriagePlus.Model
         private Pawn _playerFactionLeader;
         private Pawn _playerBetrothed;
         private Pawn _npcMarriageSeeker;
+        private List<SettlementToBeTransferedPendingElement> _enemySettlementsToBeTransferredPendingList = new List<SettlementToBeTransferedPendingElement>();
 
         private static int tickCount = GenTicks.TicksAbs;
         private static int lastWarningVIPOnTheMap = 0;
@@ -47,6 +48,10 @@ namespace DiplomaticMarriagePlus.Model
             get { return _npcMarriageSeeker; }
             set { _npcMarriageSeeker = value; }
         }
+        public List<SettlementToBeTransferedPendingElement> EnemySettlementsToBeTransferredPendingList
+        {
+            get { return _enemySettlementsToBeTransferredPendingList; }
+        }
 
         public PermanentAlliance(World world) : base(world)
         {
@@ -58,7 +63,7 @@ namespace DiplomaticMarriagePlus.Model
             INVALID_REASON_BOTH_DEATH, //无效：结婚双方均已死亡
             INVALID_REASON_PLAYER_BETROTHED_DEATH, //无效：我方小人死亡
             INVALID_REASON_NPC_MARRIAGE_SEEKER_DEATH, //无效：NPC方小人死亡
-            INVALID_REASON_DIVORCE, //无效：离婚
+            INVALID_REASON_DIVORCE, //无效：离婚（暂未实现）
             INVALID_REASON_GOODWILL_TOO_LOW, //无效：和NPC阵营友好度太低
             INVALID_REASON_FACTION_DEFEATED, //无效：NPC阵营已被摧毁
             INVALID_REASON_PLAYER_LEADER_NOT_PARENT_OF_BETHOTHED //无效：我方阵营领袖不再是联姻小人的父母。
@@ -140,7 +145,12 @@ namespace DiplomaticMarriagePlus.Model
                 //在边缘城市地图的某些任务期间，如果永久同盟的队伍出现，则联姻小人必定出现（除非已经在别的小地图）
                 TryForceVIPOnRimcitiesQuestMaps();
             }
-            if (tickCount % 120 == 2) 
+            if(tickCount % 600  == 10)
+            {
+                //检查是否有和玩家联合攻击下被摧毁的常规据点，并将其转化为姻亲同盟的据点而不是摧毁状态。
+                TryTransferPendingEnemySettlementsAfterVictory();
+            }
+            if (tickCount % 600 == 2) 
             {
                 //检查关键小人是否在地图上，弹出警报，每天限一次。
                 VIPOnTheMapWarning();
@@ -391,6 +401,55 @@ namespace DiplomaticMarriagePlus.Model
             }
         }
 
+        private void TryTransferPendingEnemySettlementsAfterVictory()
+        {
+            var settlementBeingTransferredList = new List<SettlementToBeTransferedPendingElement>();
+
+            foreach (SettlementToBeTransferedPendingElement settlementToBeTransfered in _enemySettlementsToBeTransferredPendingList)
+            {
+                if (settlementToBeTransfered.Settlement != null && settlementToBeTransfered.Settlement.Destroyed)
+                {
+                    settlementBeingTransferredList.Add(settlementToBeTransfered);
+                }
+            }
+
+            foreach (SettlementToBeTransferedPendingElement settlementToBeTransfered in settlementBeingTransferredList)
+            {
+                var tile = settlementToBeTransfered.Tile;
+                var oldName = settlementToBeTransfered.Name;
+
+                //如果玩家在该格子还有地图则暂时不清理
+                if (Find.Maps.Where(m => m.Tile == tile).ToList().Count > 0)
+                {
+                    continue;
+                }
+
+                //清理已被（玩家）摧毁的据点，并原地重建一个盟友派系的新据点
+                Find.WorldObjects.Remove(Find.WorldObjects.DestroyedSettlementAt(tile));
+                Log.Message("[DMP] Trying to remove destroyed settlement " + oldName + " at tile: " + tile);
+                ExpandableWorldObjectsUtility.ExpandableWorldObjectsUpdate();
+
+                Settlement newSettlement = (Settlement)WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.Settlement);
+                newSettlement.SetFaction(WithFaction);
+                newSettlement.Name = SettlementNameGenerator.GenerateSettlementName(newSettlement, null);
+                newSettlement.Tile = tile;
+                Find.WorldObjects.Add(newSettlement);
+                Log.Message("[DMP] Trying to create new settlement " + newSettlement.Name + " at tile: " + tile);
+                ExpandableWorldObjectsUtility.ExpandableWorldObjectsUpdate();
+
+                _enemySettlementsToBeTransferredPendingList.Remove(settlementToBeTransfered);
+
+                var letter = LetterMaker.MakeLetter(
+                        label: "DMP_PermanentAllianceJointAttackTakeoverTitle".Translate().CapitalizeFirst(),
+                        text: "DMP_PermanentAllianceJointAttackTakeover".Translate(WithFaction.Name, oldName, newSettlement.Name).CapitalizeFirst(),
+                        def: LetterDefOf.PositiveEvent,
+                        relatedFaction: WithFaction,
+                        lookTargets: newSettlement
+                        );
+                Find.LetterStack.ReceiveLetter(@let: letter);
+            }
+        }
+
         //在婚后不管是MOD制造的事件还是原版事件，如果两个VIP小人的任何一个进入地图时都会弹出警报，以免玩家忽略了保护他们。
         private void VIPOnTheMapWarning()
         {
@@ -437,6 +496,7 @@ namespace DiplomaticMarriagePlus.Model
             Scribe_References.Look<Pawn>(ref _playerBetrothed, "DMP_PermanentAlliance_PlayerBetrothed", false);
             Scribe_References.Look<Pawn>(ref _npcMarriageSeeker, "DMP_PermanentAlliance_NpcMarriageSeeker", false);
             Scribe_References.Look<Faction>(ref _withFaction, "DMP_PermanentAlliance_WithFaction", false);
+            Scribe_Collections.Look(ref _enemySettlementsToBeTransferredPendingList, "DMP_EnemySettlementsToBeTransferredList", LookMode.Reference);
             Scribe_Values.Look<int>(ref lastWarningVIPOnTheMap, "DMP_PermanentAlliance_LastWarningVIPOnTheMap", 0);
             Scribe_Values.Look<int>(ref LastAPFPTradeTicks, "DMP_PermanentAlliance_LastAPFPTradeTicks", 0);
         }
