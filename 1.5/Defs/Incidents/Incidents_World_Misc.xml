@@ -31,7 +31,7 @@
 			<li>World</li>
 		</targetTags>
 		<workerClass>DiplomaticMarriagePlus.Controller.Rimcities_PACombinedAssaultEventController</workerClass>
-		<baseChance>2.5</baseChance>
+		<baseChance>3</baseChance>
 		<earliestDay>0</earliestDay>
 		<minRefireDays>15</minRefireDays>
 	</IncidentDef>
@@ -42,7 +42,7 @@
 			<li>World</li>
 		</targetTags>
 		<workerClass>DiplomaticMarriagePlus.Controller.Rimcities_PACombinedDefenseEventController</workerClass>
-		<baseChance>2.5</baseChance>
+		<baseChance>3</baseChance>
 		<earliestDay>0</earliestDay>
 		<minRefireDays>1</minRefireDays>
 	</IncidentDef>
@@ -53,7 +53,7 @@
 			<li>World</li>
 		</targetTags>
 		<workerClass>DiplomaticMarriagePlus.Controller.DynamicDiplomacy_AllianceAgainstPAEventController</workerClass>
-		<baseChance>5</baseChance>
+		<baseChance>10</baseChance>
 		<earliestDay>0</earliestDay>
 		<minRefireDays>1</minRefireDays>
 	</IncidentDef>
