@@ -185,8 +185,8 @@ namespace DiplomaticMarriagePlus.Controller
 
         private List<Pawn> FindAllBetrothedCandidates()
         {
-           return (from x in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonistsAndPrisoners_NoCryptosleep
-                                         where !LovePartnerRelationUtility.HasAnyLovePartner(x)
+           return (from x in PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonistsAndPrisoners_NoCryptosleep
+                    where !LovePartnerRelationUtility.HasAnyLovePartner(x)
                                          && x.Faction == Faction.OfPlayer
                                          && !x.IsPrisoner
                                          && x.ageTracker.AgeBiologicalYears >= 18

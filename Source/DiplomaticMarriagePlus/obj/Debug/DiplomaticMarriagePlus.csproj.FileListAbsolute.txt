@@ -10,3 +10,4 @@ C:\SteamLibrary\steamapps\common\RimWorld\Mods\DiplomaticMarriagePlus\1.5\Assemb
 D:\OneDrive\Games\RimworldModSources\DiplomaticMarriagePlus\Source\DiplomaticMarriagePlus\obj\Debug\DiplomaticMarriagePlus.csproj.AssemblyReference.cache
 D:\OneDrive\Games\RimworldModSources\DiplomaticMarriagePlus\Source\DiplomaticMarriagePlus\obj\Debug\DiplomaticMarriagePlus.csproj.CoreCompileInputs.cache
 D:\OneDrive\Games\RimworldModSources\DiplomaticMarriagePlus\Source\DiplomaticMarriagePlus\obj\Debug\DiplomaticMarriagePlus.dll
+C:\SteamLibrary\steamapps\common\RimWorld\Mods\DiplomaticMarriagePlus\1.6\Assemblies\DiplomaticMarriagePlus.dll

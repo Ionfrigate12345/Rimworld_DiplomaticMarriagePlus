@@ -21,7 +21,8 @@ namespace DiplomaticMarriagePlus.ViewController
 
         private PermanentAlliance permanentAlliance;
 
-        public override bool CanShowInLetterStack => base.CanShowInLetterStack && PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists.Contains(value: this.PlayerBetrothed);
+        public override bool CanShowInLetterStack => base.CanShowInLetterStack
+            && PawnsFinder.AllMapsCaravansAndTravellingTransporters_Alive_FreeColonists.Contains(value: this.PlayerBetrothed);
 
         public override IEnumerable<DiaOption> Choices
         {
