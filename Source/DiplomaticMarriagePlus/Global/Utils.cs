@@ -173,12 +173,25 @@ namespace DiplomaticMarriagePlus.Global
             return IsSOS2SpaceMap(map) || IsRimNauts2SpaceMap(map);
         }
 
+        public static bool IsOdessySpaceMap(Map map)
+        {
+            return (ModsConfig.OdysseyActive && map.Biome == BiomeDefOf.Space
+                || ModsConfig.OdysseyActive && map.Biome == BiomeDefOf.Orbit
+            ) //Odessy space maps
+            ;
+        }
+        public static bool IsSpaceMap(Map map)
+        {
+            return IsOdessySpaceMap(map) || IsSOS2OrRimNauts2SpaceMap(map);
+            ;
+        }
+
         //获取玩家财富值最高的地图。
         public static Map GetPlayerMainColonyMap(bool excludeSOS2Rimnauts2SpaceMaps = true, bool requirePlayerHome = true)
         {
             var playerHomes = (from map in Find.Maps
                                where (requirePlayerHome == false || map.IsPlayerHome)
-                               && (excludeSOS2Rimnauts2SpaceMaps == false || !IsSOS2OrRimNauts2SpaceMap(map))
+                               && (excludeSOS2Rimnauts2SpaceMaps == false || !IsSpaceMap(map))
                                select map).OrderByDescending(map => map.PlayerWealthForStoryteller).ToList();
 
             return playerHomes.Count > 0 ? playerHomes.First() : null;
