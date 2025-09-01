@@ -28,7 +28,7 @@ namespace DiplomaticMarriagePlus
             var harmony = new Harmony("DiplomaticMarriagePlus.APFPPatches");
 
             MethodInfo targetMethodDialogWindowRequestItemOption = AccessTools.Method(
-                "ItemRequests.DialogWindow:RequestItemOption",
+                "ItemRequests.FactionDialogMaker_FactionDialogFor:RequestItemOption",
                 new Type[] { typeof(Map), typeof(Faction), typeof(Pawn) }
             );
 
